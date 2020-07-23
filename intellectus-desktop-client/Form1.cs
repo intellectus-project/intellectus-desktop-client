@@ -52,7 +52,7 @@ namespace intellectus_desktop_client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            folderDialog.ShowDialog();
+
         }
 
         private void btnDestination_MouseClick(object sender, EventArgs e)
