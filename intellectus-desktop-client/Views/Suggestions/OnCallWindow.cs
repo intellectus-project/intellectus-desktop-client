@@ -1,4 +1,5 @@
-﻿using SoundRecorder.SoundRecorders;
+﻿using intellectus_desktop_client.Services;
+using SoundRecorder.SoundRecorders;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,25 +12,18 @@ namespace intellectus_desktop_client
 {
     public partial class OnCallWindow : Form
     {
-        private ISoundRecorder operatorRecorder;
-        private ISoundRecorder consultantRecorder;
-        public OnCallWindow(ISoundRecorder operatorRecorder, ISoundRecorder consultantRecorder)
+      
+        public OnCallWindow()
         {
             InitializeComponent();
             lblTranscurredTimeName.Text = "Tiempo transcurrido:";
-            setRecorders(operatorRecorder, consultantRecorder);
+           
         }
 
         private void btnEndCall_Click(object sender, EventArgs e)
         {
-            this.operatorRecorder.Stop();
-            this.consultantRecorder.Stop();
+            Recording.StopRecording();
         }
 
-        private void setRecorders(ISoundRecorder operatorRecorder, ISoundRecorder consultantRecorder)
-        {
-            this.operatorRecorder = operatorRecorder;
-            this.consultantRecorder = consultantRecorder;
-        }
     }
 }

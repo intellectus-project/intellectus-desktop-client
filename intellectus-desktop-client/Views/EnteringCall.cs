@@ -27,7 +27,7 @@ namespace intellectus_desktop_client
         private void btnStartCall_Click(object sender, EventArgs e)
         {
             Recording.StartRecording();
-            OnCallWindow onCallWindow = new OnCallWindow(Recording.OperatorRecorder, Recording.ConsultantRecorder);
+            OnCallWindow onCallWindow = new OnCallWindow();
             onCallWindow.Show();
             this.Hide();
         }

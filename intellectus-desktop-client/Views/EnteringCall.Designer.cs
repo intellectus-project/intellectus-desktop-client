@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblOperatorName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStartCall = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblOperatorName
             // 
-            this.label1.AccessibleName = "lblOperatorName";
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(480, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Juan Perez";
+            this.lblOperatorName.AccessibleName = "lblOperatorName";
+            this.lblOperatorName.AutoSize = true;
+            this.lblOperatorName.Location = new System.Drawing.Point(480, 20);
+            this.lblOperatorName.Name = "lblOperatorName";
+            this.lblOperatorName.Size = new System.Drawing.Size(62, 15);
+            this.lblOperatorName.TabIndex = 6;
+            this.lblOperatorName.Text = "Juan Perez";
             // 
             // label2
             // 
@@ -71,7 +71,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnStartCall);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblOperatorName);
             this.Name = "EnteringCall";
             this.Text = "EnteringCalll";
             this.Load += new System.EventHandler(this.EnteringCalll_Load);
@@ -82,7 +82,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblOperatorName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStartCall;
     }

@@ -22,6 +22,13 @@ namespace intellectus_desktop_client.Services
             OperatorRecorder.Start();
         }
 
+
+        public static void StopRecording()
+        {
+            ConsultantRecorder.Stop();
+            OperatorRecorder.Stop();
+        }
+
         private static void InitializeOperatorRecorder()
         {
             OperatorRecorder = new InputSoundRecorder();
