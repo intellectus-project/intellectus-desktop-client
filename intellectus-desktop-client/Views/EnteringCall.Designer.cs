@@ -47,7 +47,7 @@
             // 
             this.label2.AccessibleName = "lblEnteringCall";
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(222, 130);
+            this.label2.Location = new System.Drawing.Point(301, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 15);
             this.label2.TabIndex = 6;
@@ -56,7 +56,7 @@
             // btnStartCall
             // 
             this.btnStartCall.AccessibleName = "btnStartCall";
-            this.btnStartCall.Location = new System.Drawing.Point(233, 166);
+            this.btnStartCall.Location = new System.Drawing.Point(312, 190);
             this.btnStartCall.Name = "btnStartCall";
             this.btnStartCall.Size = new System.Drawing.Size(75, 23);
             this.btnStartCall.TabIndex = 7;
@@ -64,7 +64,7 @@
             this.btnStartCall.UseVisualStyleBackColor = true;
             this.btnStartCall.Click += new System.EventHandler(this.btnStartCall_Click);
             // 
-            // EnteringCalll
+            // EnteringCall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +72,7 @@
             this.Controls.Add(this.btnStartCall);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "EnteringCalll";
+            this.Name = "EnteringCall";
             this.Text = "EnteringCalll";
             this.Load += new System.EventHandler(this.EnteringCalll_Load);
             this.ResumeLayout(false);
