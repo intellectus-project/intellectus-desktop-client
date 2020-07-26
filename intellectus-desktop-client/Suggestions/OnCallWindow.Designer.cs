@@ -88,6 +88,7 @@
             this.btnEndCall.TabIndex = 4;
             this.btnEndCall.Text = "Finalizar";
             this.btnEndCall.UseVisualStyleBackColor = true;
+            this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
             // 
             // label1
             // 
@@ -144,7 +145,7 @@
             this.textBox3.Text = "blaAnterior";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Suggestions
+            // OnCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,7 +160,7 @@
             this.Controls.Add(this.lblTranscurredTimeName);
             this.Controls.Add(this.lblConsultantName);
             this.Controls.Add(this.lblVoiceOrigin);
-            this.Name = "Suggestions";
+            this.Name = "OnCallWindow";
             this.Text = "Suggestions";
             this.ResumeLayout(false);
             this.PerformLayout();
