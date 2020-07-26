@@ -1,40 +1,44 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading;
 using SoundRecorder.SoundRecorders;
 using SoundRecorder.SoundListeners;
 using System;
 using intellectus_desktop_unit_tests.Mocks;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace intellectus_desktop_unit_tests
 {
 
     [TestClass]
-    public class InputRecorder
+    public class OutputRecorder
     {
         [TestMethod]
         public void CallbackBeingCalled()
         {
-            var input = new InputSoundRecorder();
-            input.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
+            var output = new OutputSoundRecorder();
+            output.Configure(0, null);
 
             bool called = false;
 
             CallbackSoundListener listener = new CallbackSoundListener((samples) =>
             {
                 called = true;
-                input.Stop();
+                output.Stop();
             });
 
-            input.AddListener(listener);
+            output.AddListener(listener);
 
-            input.Start();
+            output.Start();
 
             Thread.Sleep(500);
 
-            if(!called)
-                input.Stop();
+            if (!called)
+                output.Stop();
 
             Assert.IsTrue(called);
         }
+
     }
 }

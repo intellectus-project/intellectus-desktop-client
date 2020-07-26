@@ -32,7 +32,7 @@ namespace intellectus_desktop_client
 
             recorder.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
 
-            writer = new SoundFileWriter(folderDialog.SelectedPath + "/recorded.wav", recorder.GetWaveFormat());
+            writer = new SoundFileWriterListener(folderDialog.SelectedPath + "/recorded.wav", recorder.GetWaveFormat());
 
             recorder.AddListener(writer);
 

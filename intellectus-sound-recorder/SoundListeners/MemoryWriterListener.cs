@@ -7,11 +7,11 @@ namespace SoundRecorder.SoundListeners
     public class MemoryWriterListener : ISoundListener
     {
         private float[] array;
-        private int capacity;
-        private int used;
+        private long capacity;
+        private long used;
 
 
-        public MemoryWriterListener(int capacity)
+        public MemoryWriterListener(long capacity)
         {
             array = new float[capacity];
             this.capacity = capacity;
@@ -31,7 +31,9 @@ namespace SoundRecorder.SoundListeners
             used += sample.Length;
         }
 
-        public int Used => used;
+        public long Used => used;
+
+        public float[] Buffer => array;
 
         public void Stop()
         {

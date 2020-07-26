@@ -1,27 +1,33 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SoundRecorder.SoundRecorders;
 using SoundRecorder.SoundListeners;
+using System.IO;
+using intellectus_desktop_unit_tests.Mocks;
 
 namespace intellectus_desktop_unit_tests
 {
-    //[TestClass]
+    [TestClass]
     public class MockedRecorder
     {
-        //[TestMethod]
+        [TestMethod]
         public void CallbackBeingCalled()
         {
-            var input = new MockedSoundRecorder(@"path-to-file.wav", 0.5f);
+            var sourcePath = Path.Combine(SoundBank.Instance.PathToSoundBank, SoundBank.Instance.SoundFiles[0]);
+
+            var input = new MockedSoundRecorder(sourcePath, 0.5f);
             input.Configure(0, null);
 
-            MemoryWriterListener listener = new MemoryWriterListener(88200);
+            bool called = false;
+
+            CallbackSoundListener listener = new CallbackSoundListener((samples) =>
+            {
+                called = true;
+            });
 
             input.AddListener(listener);
-
             input.Start();
 
-            input.Stop();
-
-            Assert.AreEqual(listener.Used, 88200);
+            Assert.IsTrue(called);
         }
     }
     
