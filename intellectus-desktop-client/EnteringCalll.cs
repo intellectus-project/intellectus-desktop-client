@@ -8,12 +8,16 @@ using System.Windows.Forms;
 
 namespace intellectus_desktop_client
 {
-    public partial class Suggestions : Form
+    public partial class EnteringCalll : Form
     {
-        public Suggestions()
+        public EnteringCalll()
         {
             InitializeComponent();
-            lblTranscurredTimeName.Text = "Tiempo transcurrido:";
+        }
+
+        private void EnteringCalll_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
