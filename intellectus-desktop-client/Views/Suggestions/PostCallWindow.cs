@@ -8,17 +8,11 @@ using System.Windows.Forms;
 
 namespace intellectus_desktop_client.Views.Suggestions
 {
-    public partial class PostCall : Form
+    public partial class PostCallWindow : Form
     {
-        public PostCall()
+        public PostCallWindow()
         {
             InitializeComponent();
         }
-
-        private void PostCall_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

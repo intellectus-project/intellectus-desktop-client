@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblConsultantName = new System.Windows.Forms.Label();
             this.lblVoiceOrigin = new System.Windows.Forms.Label();
             this.lblTranscurredTimeName = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblConsultantName
@@ -75,9 +77,8 @@
             this.lblTranscurredTime.AutoSize = true;
             this.lblTranscurredTime.Location = new System.Drawing.Point(168, 146);
             this.lblTranscurredTime.Name = "lblTranscurredTime";
-            this.lblTranscurredTime.Size = new System.Drawing.Size(34, 15);
+            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 15);
             this.lblTranscurredTime.TabIndex = 3;
-            this.lblTranscurredTime.Text = "00:00";
             // 
             // btnEndCall
             // 
@@ -145,6 +146,10 @@
             this.textBox3.Text = "blaAnterior";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // OnCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -179,5 +184,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

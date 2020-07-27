@@ -1,6 +1,6 @@
 ﻿namespace intellectus_desktop_client.Views.Suggestions
 {
-    partial class PostCall
+    partial class PostCallOperator
     {
         /// <summary>
         /// Required designer variable.
@@ -54,13 +54,13 @@
             // 
             // btnSend
             // 
-            this.btnSend.Enabled = false;
             this.btnSend.Location = new System.Drawing.Point(320, 193);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(75, 23);
             this.btnSend.TabIndex = 2;
             this.btnSend.Text = "Enviar";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // emotion
             // 
