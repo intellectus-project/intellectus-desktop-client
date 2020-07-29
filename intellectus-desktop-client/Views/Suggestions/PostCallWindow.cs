@@ -13,6 +13,8 @@ namespace intellectus_desktop_client.Views.Suggestions
         public PostCallWindow()
         {
             InitializeComponent();
+            transcurredTime.Text = string.Format("{0}:{1}:{2}", OnCallWindow.TranscurredTime.Elapsed.Hours, OnCallWindow.TranscurredTime.Elapsed.Minutes, OnCallWindow.TranscurredTime.Elapsed.Seconds);
         }
+
     }
 }

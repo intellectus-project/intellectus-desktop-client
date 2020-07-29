@@ -14,7 +14,7 @@ namespace intellectus_desktop_client
 {
     public partial class OnCallWindow : Form
     {
-        private Stopwatch transcurredTime= new Stopwatch();
+        public static Stopwatch TranscurredTime= new Stopwatch();
 
 
         public OnCallWindow()
@@ -22,7 +22,7 @@ namespace intellectus_desktop_client
             InitializeComponent();
             lblTranscurredTimeName.Text = "Tiempo transcurrido:";
             timer1.Start();
-            transcurredTime.Start();
+            TranscurredTime.Start();
             lblTranscurredTime.Text = "00:00";
            
         }
@@ -31,7 +31,7 @@ namespace intellectus_desktop_client
         {
             Recording.StopRecording();
             timer1.Stop();
-            transcurredTime.Reset();
+            TranscurredTime.Stop();
             PostCallOperator postCall = new PostCallOperator();
             postCall.Show();
             this.Hide();
@@ -39,8 +39,7 @@ namespace intellectus_desktop_client
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTranscurredTime.Text = string.Format("{0}:{1}:{2}",transcurredTime.Elapsed.Hours, transcurredTime.Elapsed.Minutes,transcurredTime.Elapsed.Seconds);
-                TimeSpan.FromSeconds(Convert.ToDouble(transcurredTime.ElapsedMilliseconds) / 1000).ToString();
+            lblTranscurredTime.Text = string.Format("{0}:{1}:{2}",TranscurredTime.Elapsed.Hours, TranscurredTime.Elapsed.Minutes,TranscurredTime.Elapsed.Seconds);
         }
     }
 }

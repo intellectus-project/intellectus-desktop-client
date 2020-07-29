@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSend = new System.Windows.Forms.Button();
             this.emotion = new System.Windows.Forms.CheckedListBox();
+            this.requiredText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +55,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(320, 193);
+            this.btnSend.Location = new System.Drawing.Point(320, 209);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(75, 23);
             this.btnSend.TabIndex = 2;
@@ -78,16 +79,28 @@
             this.emotion.Size = new System.Drawing.Size(604, 22);
             this.emotion.TabIndex = 3;
             // 
-            // PostCall
+            // requiredText
+            // 
+            this.requiredText.AutoSize = true;
+            this.requiredText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.requiredText.Location = new System.Drawing.Point(211, 168);
+            this.requiredText.Name = "requiredText";
+            this.requiredText.Size = new System.Drawing.Size(266, 15);
+            this.requiredText.TabIndex = 4;
+            this.requiredText.Text = "*Debe seleccionar al menos un estado emocional";
+            this.requiredText.Visible = false;
+            // 
+            // PostCallOperator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.requiredText);
             this.Controls.Add(this.emotion);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "PostCall";
+            this.Name = "PostCallOperator";
             this.Text = "PostCall";
             this.Load += new System.EventHandler(this.PostCall_Load);
             this.ResumeLayout(false);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.CheckedListBox emotion;
+        private System.Windows.Forms.Label requiredText;
     }
 }

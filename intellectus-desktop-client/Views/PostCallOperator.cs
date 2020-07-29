@@ -22,7 +22,7 @@ namespace intellectus_desktop_client.Views.Suggestions
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (emotion.SelectedItems.Count > 1)
+            if (emotion.SelectedItems.Count > 0)
             {
                 //Guardar emoción operador
                 Console.WriteLine(emotion.SelectedIndex);
@@ -30,6 +30,12 @@ namespace intellectus_desktop_client.Views.Suggestions
 
 
                 PostCallWindow postCallWindow = new PostCallWindow();
+                postCallWindow.Show();
+                this.Hide();
+            }
+            else
+            {
+                requiredText.Visible = true;
             }
 
         }
