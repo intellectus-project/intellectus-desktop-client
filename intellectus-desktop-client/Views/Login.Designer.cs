@@ -1,6 +1,6 @@
-﻿namespace intellectus_desktop_client.Views.Suggestions
+﻿namespace intellectus_desktop_client.Views
 {
-    partial class PostCallOperator
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -30,79 +30,79 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.emotion = new System.Windows.Forms.CheckedListBox();
+            this.username = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.requiredText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(299, 45);
+            this.label1.Location = new System.Drawing.Point(248, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 15);
+            this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Llamada finalizada";
+            this.label1.Text = "Usuario:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(299, 85);
+            this.label2.Location = new System.Drawing.Point(248, 143);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 15);
+            this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 0;
-            this.label2.Text = "¿Cómo te sentis?";
+            this.label2.Text = "Contraseña:";
             // 
-            // btnSend
+            // username
             // 
-            this.btnSend.Location = new System.Drawing.Point(320, 209);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
-            this.btnSend.TabIndex = 2;
-            this.btnSend.Text = "Enviar";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.username.Location = new System.Drawing.Point(359, 84);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(100, 23);
+            this.username.TabIndex = 1;
             // 
-            // emotion
+            // password
             // 
-            this.emotion.FormattingEnabled = true;
-            this.emotion.HorizontalScrollbar = true;
-            this.emotion.Items.AddRange(new object[] {
-            "Feliz",
-            "Enojado",
-            "Triste",
-            "Con miedo",
-            "Neutral"});
-            this.emotion.Location = new System.Drawing.Point(77, 143);
-            this.emotion.MultiColumn = true;
-            this.emotion.Name = "emotion";
-            this.emotion.Size = new System.Drawing.Size(604, 22);
-            this.emotion.TabIndex = 3;
+            this.password.Location = new System.Drawing.Point(359, 140);
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(100, 23);
+            this.password.TabIndex = 1;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(307, 204);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Text = "Ingresar";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // requiredText
             // 
             this.requiredText.AutoSize = true;
             this.requiredText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.requiredText.Location = new System.Drawing.Point(252, 168);
+            this.requiredText.Location = new System.Drawing.Point(248, 252);
             this.requiredText.Name = "requiredText";
-            this.requiredText.Size = new System.Drawing.Size(215, 15);
-            this.requiredText.TabIndex = 4;
-            this.requiredText.Text = "*Debe seleccionar un estado emocional";
+            this.requiredText.Size = new System.Drawing.Size(173, 15);
+            this.requiredText.TabIndex = 3;
+            this.requiredText.Text = "*Usuario/Contraseña incorrecta";
             this.requiredText.Visible = false;
             // 
-            // PostCallOperator
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.requiredText);
-            this.Controls.Add(this.emotion);
-            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.username);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "PostCallOperator";
-            this.Text = "PostCall";
-            this.Load += new System.EventHandler(this.PostCall_Load);
+            this.Name = "Login";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,8 +112,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.CheckedListBox emotion;
+        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label requiredText;
     }
 }

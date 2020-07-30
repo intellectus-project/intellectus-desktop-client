@@ -1,3 +1,4 @@
+using intellectus_desktop_client.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace intellectus_desktop_client
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EnteringCall());
+            Application.Run(new Login());
         }
     }
 }
