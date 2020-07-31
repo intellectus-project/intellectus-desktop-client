@@ -20,11 +20,18 @@ namespace SoundRecorder.SoundListeners
             writer.Flush();
         }
 
-        public void Start() { }
+        public void Start() 
+        {
+
+        }
 
         public void Stop()
         {
-            writer.Close();
+
+        }
+
+        public void Close()
+        {
             writer.Dispose();
         }
     }

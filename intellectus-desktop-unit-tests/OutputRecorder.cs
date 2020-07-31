@@ -8,6 +8,9 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
+using System.Runtime.InteropServices;
+using System.Security.Principal;
+
 namespace intellectus_desktop_unit_tests
 {
 
@@ -39,6 +42,5 @@ namespace intellectus_desktop_unit_tests
 
             Assert.IsTrue(called);
         }
-
     }
 }

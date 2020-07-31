@@ -4,6 +4,8 @@ using SoundRecorder.SoundRecorders;
 using SoundRecorder.SoundListeners;
 using System;
 using intellectus_desktop_unit_tests.Mocks;
+using NAudio.Wave;
+using Microsoft.Win32.SafeHandles;
 
 namespace intellectus_desktop_unit_tests
 {
@@ -36,5 +38,40 @@ namespace intellectus_desktop_unit_tests
 
             Assert.IsTrue(called);
         }
+
+        [TestMethod]
+        public void RecordingStopped()
+        {
+            
+            var input = new InputSoundRecorder();
+            input.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
+
+            bool called = false;
+            bool calledSecondTime = false;
+
+            CallbackSoundListener listener = new CallbackSoundListener((samples) =>
+            {
+                if (called)
+                    calledSecondTime = true;
+                called = true;
+            });
+
+            input.AddListener(listener);
+
+            input.Start();
+
+            Thread.Sleep(100);
+
+            input.Stop();
+
+            input.Start();
+
+            Thread.Sleep(100);
+
+            input.Stop();
+
+            Assert.IsTrue(calledSecondTime);
+        }
+
     }
 }

@@ -30,6 +30,8 @@ namespace intellectus_desktop_unit_tests
 
             Assert.IsTrue(File.Exists(destinationPath), "Read and written files are different");
 
+            fileWriterListener.Close();
+
             File.Delete(destinationPath);
         }
 
@@ -50,10 +52,13 @@ namespace intellectus_desktop_unit_tests
 
             SoundFileWriterListener fileWriterListener = new SoundFileWriterListener(destinationPath, input.GetWaveFormat());
 
+
             input.AddListener(listener);
             input.AddListener(fileWriterListener);
             input.Start();
 
+
+            fileWriterListener.Close();
 
             // Read the written file
             var writtenInput = new MockedSoundRecorder(destinationPath, 0.5f);
@@ -64,7 +69,9 @@ namespace intellectus_desktop_unit_tests
 
             Assert.IsTrue(CompareFileContents(listener, writtenListener), "Read and written files are different");
 
+
             File.Delete(destinationPath);
+            Assert.IsTrue(true);
         }
 
         private bool CompareFileContents(MemoryWriterListener recordedA, MemoryWriterListener recordedB)

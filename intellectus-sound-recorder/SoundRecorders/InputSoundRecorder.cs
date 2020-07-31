@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using NAudio.Wave;
 using SoundRecorder.SoundListeners;
 
@@ -8,13 +9,19 @@ namespace SoundRecorder.SoundRecorders
 {
     public class InputSoundRecorder : ISoundRecorder
     {
-        private WaveInEvent waveIn;
+        public WaveInEvent waveIn;
+        
+        public event EventHandler<RecordingStoppedException> RecordingStoppedEvent;
+
         private List<ISoundListener> listeners;
+        
+        private bool recording;
 
         public InputSoundRecorder()
         {
             waveIn = new WaveInEvent();
             listeners = new List<ISoundListener>();
+            recording = false;
         }
 
         public void AddListener(ISoundListener listener)
@@ -27,6 +34,21 @@ namespace SoundRecorder.SoundRecorders
             waveIn.WaveFormat = format;
             waveIn.DeviceNumber = inputDeviceIndex;
             waveIn.DataAvailable += DataAvailable;
+            waveIn.RecordingStopped += RecordingStopped;
+        }
+
+        private void RecordingStopped(object sender, StoppedEventArgs e)
+        {
+            if (recording)
+            {
+                recording = false;
+                ResetWaveIn();
+                var exception = new RecordingStoppedException("The input recording has stopped", e.Exception);
+                if (RecordingStoppedEvent == null)
+                    throw exception;
+                else
+                    RecordingStoppedEvent.Invoke(this, exception);
+            }
         }
 
         public WaveFormat GetWaveFormat()
@@ -41,14 +63,29 @@ namespace SoundRecorder.SoundRecorders
 
         public void Start()
         {
+            recording = true;
             listeners.ForEach(listener => listener.Start());
             waveIn.StartRecording();
         }
 
         public void Stop()
         {
+            recording = false;
             waveIn.StopRecording();
             listeners.ForEach(listener => listener.Stop());
+            ResetWaveIn();
+        }
+
+        private void ResetWaveIn()
+        {
+            var alternativeWaveIn = new WaveInEvent();
+            alternativeWaveIn.WaveFormat = waveIn.WaveFormat;
+            alternativeWaveIn.DataAvailable += DataAvailable;
+            alternativeWaveIn.RecordingStopped += RecordingStopped;
+            alternativeWaveIn.DeviceNumber = waveIn.DeviceNumber;
+
+            waveIn.Dispose();
+            waveIn = alternativeWaveIn;
         }
 
         private void DataAvailable(object sender, WaveInEventArgs e)

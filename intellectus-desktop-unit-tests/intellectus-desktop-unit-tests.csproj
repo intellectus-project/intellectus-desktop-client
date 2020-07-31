@@ -5,6 +5,8 @@
     <RootNamespace>intellectus_desktop_unit_tests</RootNamespace>
 
     <IsPackable>false</IsPackable>
+
+    <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
