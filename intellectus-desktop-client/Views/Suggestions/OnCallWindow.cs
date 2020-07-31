@@ -41,5 +41,12 @@ namespace intellectus_desktop_client
         {
             lblTranscurredTime.Text = string.Format("{0}:{1}:{2}",TranscurredTime.Elapsed.Hours, TranscurredTime.Elapsed.Minutes,TranscurredTime.Elapsed.Seconds);
         }
+
+        public void Suggest(string suggestion)
+        {
+            suggestionLast.Text = suggestionOld.Text;
+            suggestionOld.Text = suggestionActual.Text;
+            suggestionActual.Text = suggestion;
+        }
     }
 }

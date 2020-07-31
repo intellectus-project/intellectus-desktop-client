@@ -36,9 +36,9 @@
             this.btnEndCall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblOperatorName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.suggestionActual = new System.Windows.Forms.TextBox();
+            this.suggestionOld = new System.Windows.Forms.TextBox();
+            this.suggestionLast = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -109,42 +109,42 @@
             this.lblOperatorName.TabIndex = 6;
             this.lblOperatorName.Text = "Juan Perez";
             // 
-            // textBox1
+            // suggestionActual
             // 
-            this.textBox1.AccessibleName = "currentSuggestion";
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(327, 119);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 16);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "Bla";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.suggestionActual.AccessibleName = "currentSuggestion";
+            this.suggestionActual.BackColor = System.Drawing.SystemColors.Menu;
+            this.suggestionActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.suggestionActual.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.suggestionActual.Location = new System.Drawing.Point(327, 119);
+            this.suggestionActual.Name = "suggestionActual";
+            this.suggestionActual.Size = new System.Drawing.Size(100, 16);
+            this.suggestionActual.TabIndex = 7;
+            this.suggestionActual.Text = "Bla";
+            this.suggestionActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // suggestionOld
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(327, 159);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 16);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "blaViejo";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.suggestionOld.BackColor = System.Drawing.SystemColors.Control;
+            this.suggestionOld.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.suggestionOld.ForeColor = System.Drawing.Color.Gray;
+            this.suggestionOld.Location = new System.Drawing.Point(327, 159);
+            this.suggestionOld.Name = "suggestionOld";
+            this.suggestionOld.Size = new System.Drawing.Size(100, 16);
+            this.suggestionOld.TabIndex = 8;
+            this.suggestionOld.Text = "blaViejo";
+            this.suggestionOld.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // suggestionLast
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(327, 199);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 16);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.Text = "blaAnterior";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.suggestionLast.BackColor = System.Drawing.SystemColors.Control;
+            this.suggestionLast.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.suggestionLast.ForeColor = System.Drawing.Color.Silver;
+            this.suggestionLast.Location = new System.Drawing.Point(327, 199);
+            this.suggestionLast.Name = "suggestionLast";
+            this.suggestionLast.Size = new System.Drawing.Size(100, 16);
+            this.suggestionLast.TabIndex = 8;
+            this.suggestionLast.Text = "blaAnterior";
+            this.suggestionLast.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // timer1
             // 
@@ -155,9 +155,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.suggestionLast);
+            this.Controls.Add(this.suggestionOld);
+            this.Controls.Add(this.suggestionActual);
             this.Controls.Add(this.lblOperatorName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEndCall);
@@ -181,9 +181,9 @@
         private System.Windows.Forms.Button btnEndCall;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblOperatorName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox suggestionActual;
+        private System.Windows.Forms.TextBox suggestionOld;
+        private System.Windows.Forms.TextBox suggestionLast;
         private System.Windows.Forms.Timer timer1;
     }
 }
