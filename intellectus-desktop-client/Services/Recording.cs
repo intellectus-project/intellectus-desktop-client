@@ -33,14 +33,14 @@ namespace intellectus_desktop_client.Services
         {
             OperatorRecorder = new InputSoundRecorder();
             OperatorRecorder.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
-            operatorWriter = new SoundFileWriter(string.Format("{0}/Grabaciones/operator_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), operatorName, DateTime.Now.ToFileTimeUtc()), OperatorRecorder.GetWaveFormat());
+            operatorWriter = new SoundFileWriterListener(string.Format("{0}/Grabaciones/operator_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), operatorName, DateTime.Now.ToFileTimeUtc()), OperatorRecorder.GetWaveFormat());
             OperatorRecorder.AddListener(operatorWriter);
         }
         private static void InitializeConsultantRecorder()
         {
             ConsultantRecorder = new OutputSoundRecorder();
             ConsultantRecorder.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
-            consultantWriter = new SoundFileWriter(string.Format("{0}/Grabaciones/consultant_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), operatorName, DateTime.Now.ToFileTimeUtc()), ConsultantRecorder.GetWaveFormat());
+            consultantWriter = new SoundFileWriterListener(string.Format("{0}/Grabaciones/consultant_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), operatorName, DateTime.Now.ToFileTimeUtc()), ConsultantRecorder.GetWaveFormat());
             ConsultantRecorder.AddListener(consultantWriter);
         }
     }
