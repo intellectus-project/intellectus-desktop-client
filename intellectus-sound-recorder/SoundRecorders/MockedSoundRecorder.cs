@@ -16,6 +16,7 @@ namespace SoundRecorder.SoundRecorders
         private long bytesLeft;
         private int bytesRead;
         private byte[] buffer;
+        private int offset;
 
         public MockedSoundRecorder(string path, float interval)
         {
@@ -25,6 +26,7 @@ namespace SoundRecorder.SoundRecorders
             totalBytes = fileReader.Length;
             buffer = new byte[bytesForInterval];
             listeners = new List<ISoundListener>();
+            offset = 0;
         }
 
         private int GenerateBytesForInterval()
@@ -35,6 +37,7 @@ namespace SoundRecorder.SoundRecorders
 
         public void Start()
         {
+            offset = 0;
             bytesLeft = totalBytes;
             listeners.ForEach(listener => listener.Start());
             Read();
@@ -42,19 +45,22 @@ namespace SoundRecorder.SoundRecorders
 
         private void Read()
         {
-            int offset = 0;
             bytesRead = bytesLeft > bytesForInterval ? bytesForInterval : (int)bytesLeft;
             bytesLeft -= bytesRead;
-            fileReader.Read(buffer, offset, bytesRead);
+            fileReader.Read(buffer, 0 * bytesForInterval, bytesRead);
 
             float[] remapped = RemapBuffer(bytesRead, buffer);
             listeners.ForEach(listener => listener.ProcessSample(remapped));
 
+            offset++;
             if (bytesLeft == 0)
                 Stop();
             else
                 Read();
         }
+
+
+        public long FileSize => fileReader.Length;
 
         private void DataAvailable(IAsyncResult result)
         {
@@ -111,6 +117,13 @@ namespace SoundRecorder.SoundRecorders
         public void Stop()
         {
             listeners.ForEach(listener => listener.Stop());
+            fileReader.Close();
+        }
+
+        ~MockedSoundRecorder()
+        {
+            listeners.Clear();
+            fileReader.Dispose();
         }
     }
 }

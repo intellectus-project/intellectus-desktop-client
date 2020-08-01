@@ -40,9 +40,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(55, 222);
+            this.button1.Location = new System.Drawing.Point(55, 178);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(94, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Grabar";
             this.button1.UseVisualStyleBackColor = false;
@@ -54,17 +55,18 @@
             this.cmbRecorder.Items.AddRange(new object[] {
             "Sonido entrante",
             "Sonido saliente"});
-            this.cmbRecorder.Location = new System.Drawing.Point(55, 95);
+            this.cmbRecorder.Location = new System.Drawing.Point(55, 76);
+            this.cmbRecorder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbRecorder.Name = "cmbRecorder";
-            this.cmbRecorder.Size = new System.Drawing.Size(259, 28);
+            this.cmbRecorder.Size = new System.Drawing.Size(259, 24);
             this.cmbRecorder.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 47);
+            this.label1.Location = new System.Drawing.Point(55, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 20);
+            this.label1.Size = new System.Drawing.Size(138, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Selecciona la opcion";
             // 
@@ -72,9 +74,10 @@
             // 
             this.btnStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnStop.Enabled = false;
-            this.btnStop.Location = new System.Drawing.Point(220, 222);
+            this.btnStop.Location = new System.Drawing.Point(220, 178);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(94, 29);
+            this.btnStop.Size = new System.Drawing.Size(94, 23);
             this.btnStop.TabIndex = 0;
             this.btnStop.Text = "Detener";
             this.btnStop.UseVisualStyleBackColor = false;
@@ -87,9 +90,10 @@
             // btnDestination
             // 
             this.btnDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnDestination.Location = new System.Drawing.Point(55, 149);
+            this.btnDestination.Location = new System.Drawing.Point(55, 119);
+            this.btnDestination.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDestination.Name = "btnDestination";
-            this.btnDestination.Size = new System.Drawing.Size(259, 29);
+            this.btnDestination.Size = new System.Drawing.Size(259, 23);
             this.btnDestination.TabIndex = 0;
             this.btnDestination.Text = "Seleccione la carpeta destino";
             this.btnDestination.UseVisualStyleBackColor = false;
@@ -97,16 +101,18 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 327);
+            this.ClientSize = new System.Drawing.Size(370, 262);
             this.Controls.Add(this.btnDestination);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbRecorder);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Grabado";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
