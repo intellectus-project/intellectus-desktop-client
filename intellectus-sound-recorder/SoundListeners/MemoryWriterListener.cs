@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SoundRecorder.SoundListeners
@@ -7,14 +8,14 @@ namespace SoundRecorder.SoundListeners
     public class MemoryWriterListener : ISoundListener
     {
         private float[] array;
-        private int capacity;
-        private int used;
+        private long capacity;
+        private long used;
 
 
-        public MemoryWriterListener(int capacity)
+        public MemoryWriterListener(long sampleCapacity)
         {
-            array = new float[capacity];
-            this.capacity = capacity;
+            array = new float[sampleCapacity];
+            this.capacity = sampleCapacity;
             used = 0;
         }
 
@@ -31,7 +32,19 @@ namespace SoundRecorder.SoundListeners
             used += sample.Length;
         }
 
-        public int Used => used;
+        public long Used => used;
+
+        public float[] Buffer => array;
+
+        public float[] UsedBuffer
+        {
+            get
+            {
+                return array.Take((int)used).ToArray();
+            }
+        }
+            
+
 
         public void Stop()
         {

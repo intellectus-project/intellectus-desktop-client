@@ -10,17 +10,27 @@ namespace SoundRecorder.SoundRecorders
     public class OutputSoundRecorder : ISoundRecorder
     {
         private WasapiLoopbackCapture capture;
+
+        // We play silence, for our capture device to keep outputting data
+        // without interruptions. Other solutions require to use flags and
+        // buffers that NAudio doesn't implement
+        private WaveOutEvent silenceWave;
+
         private List<ISoundListener> listeners;
+
+        private List<AudioClient> clints = new List<AudioClient>();
 
         public OutputSoundRecorder()
         {
             capture = new WasapiLoopbackCapture();
+            silenceWave = new WaveOutEvent();
             listeners = new List<ISoundListener>();
         }
 
         public OutputSoundRecorder(MMDevice device)
         {
             capture = new WasapiLoopbackCapture(device);
+            silenceWave = new WaveOutEvent();
             listeners = new List<ISoundListener>();
         }
 
@@ -32,6 +42,7 @@ namespace SoundRecorder.SoundRecorders
         public void Configure(int inputDeviceIndex, WaveFormat format)
         {
             capture.DataAvailable += DataAvailable;
+            silenceWave.Init(new SilenceProvider(capture.WaveFormat));
         }
 
         public WaveFormat GetWaveFormat()
@@ -47,17 +58,23 @@ namespace SoundRecorder.SoundRecorders
         public void Start()
         {
             listeners.ForEach(listener => listener.Start());
+            silenceWave.Play();
             capture.StartRecording();
         }
 
         public void Stop()
         {
             capture.StopRecording();
+            silenceWave.Stop();
             listeners.ForEach(listener => listener.Stop());
         }
 
+        private List<int> bytes = new List<int>();
+        private List<int> buffers = new List<int>();
         private void DataAvailable(object sender, WaveInEventArgs e)
         {
+            bytes.Add(e.BytesRecorded);
+            buffers.Add(e.Buffer.Length);
             var remapped = RemapBuffer(e.BytesRecorded, e.Buffer);
             listeners.ForEach(listener => listener.ProcessSample(remapped));
         }

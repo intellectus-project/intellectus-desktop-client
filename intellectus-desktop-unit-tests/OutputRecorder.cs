@@ -1,35 +1,46 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading;
 using SoundRecorder.SoundRecorders;
 using SoundRecorder.SoundListeners;
-using System.IO;
+using System;
 using intellectus_desktop_unit_tests.Mocks;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+
+using System.Runtime.InteropServices;
+using System.Security.Principal;
 
 namespace intellectus_desktop_unit_tests
 {
+
     [TestClass]
-    public class MockedRecorder
+    public class OutputRecorder
     {
         [TestMethod]
         public void CallbackBeingCalled()
         {
-            var sourcePath = Path.Combine(SoundBank.Instance.PathToSoundBank, SoundBank.Instance.SoundFiles[0]);
-
-            var input = new MockedSoundRecorder(sourcePath, 0.5f);
-            input.Configure(0, null);
+            var output = new OutputSoundRecorder();
+            output.Configure(0, null);
 
             bool called = false;
 
             CallbackSoundListener listener = new CallbackSoundListener((samples) =>
             {
                 called = true;
+                output.Stop();
             });
 
-            input.AddListener(listener);
-            input.Start();
+            output.AddListener(listener);
+
+            output.Start();
+
+            Thread.Sleep(500);
+
+            if (!called)
+                output.Stop();
 
             Assert.IsTrue(called);
         }
     }
-    
-
 }

@@ -5,11 +5,11 @@ using System.Text;
 
 namespace SoundRecorder.SoundListeners
 {
-    public class SoundFileWriter : ISoundListener
+    public class SoundFileWriterListener : ISoundListener
     {
         private WaveFileWriter writer;
 
-        public SoundFileWriter(string path, WaveFormat format)
+        public SoundFileWriterListener(string path, WaveFormat format)
         {
             writer = new WaveFileWriter(path, format);
         }
@@ -20,9 +20,17 @@ namespace SoundRecorder.SoundListeners
             writer.Flush();
         }
 
-        public void Start() { }
+        public void Start() 
+        {
+
+        }
 
         public void Stop()
+        {
+
+        }
+
+        public void Close()
         {
             writer.Dispose();
         }

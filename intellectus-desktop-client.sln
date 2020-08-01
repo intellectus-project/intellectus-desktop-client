@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intellectus-desktop-client", "intellectus-desktop-client\intellectus-desktop-client.csproj", "{65E0B9F5-3F37-402F-9A7A-9C9FFF0A56F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "intellectus-desktop-client", "intellectus-desktop-client\intellectus-desktop-client.csproj", "{65E0B9F5-3F37-402F-9A7A-9C9FFF0A56F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intellectus-sound-recorder", "intellectus-sound-recorder\intellectus-sound-recorder.csproj", "{143818A5-41BD-4817-A6BD-F480F933CBE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "intellectus-sound-recorder", "intellectus-sound-recorder\intellectus-sound-recorder.csproj", "{143818A5-41BD-4817-A6BD-F480F933CBE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intellectus-desktop-unit-tests", "intellectus-desktop-unit-tests\intellectus-desktop-unit-tests.csproj", "{F077900D-4D33-4608-ADFC-762323EF19FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "intellectus-desktop-unit-tests", "intellectus-desktop-unit-tests\intellectus-desktop-unit-tests.csproj", "{F077900D-4D33-4608-ADFC-762323EF19FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
