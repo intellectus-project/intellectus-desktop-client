@@ -29,10 +29,6 @@ namespace intellectus_desktop_client.Views
                 {
                     EnteringCall enteringCall = new EnteringCall();
                     enteringCall.Show();
-
-                    pruebas prueba = new pruebas();
-                    prueba.Show();
-
                     this.Hide();
                 }
                 else
