@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "intellectus-sound-recorder"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "intellectus-desktop-unit-tests", "intellectus-desktop-unit-tests\intellectus-desktop-unit-tests.csproj", "{F077900D-4D33-4608-ADFC-762323EF19FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intellectus-emotion-recognition", "intellectus-emotion-recognition\intellectus-emotion-recognition.csproj", "{6E3AA0A1-E029-4F88-B5E2-0A72F8CB0AEF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
