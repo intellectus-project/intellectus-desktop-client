@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
@@ -7,6 +7,12 @@
     <IsPackable>false</IsPackable>
 
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
+
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;ANYCPU</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\intellectus-emotion-recognition\intellectus-emotion-recognition.csproj" />
     <ProjectReference Include="..\intellectus-sound-recorder\intellectus-sound-recorder.csproj" />
   </ItemGroup>
 </Project>
