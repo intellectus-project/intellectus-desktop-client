@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
@@ -11,10 +11,6 @@
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;ANYCPU</DefineConstants>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
@@ -23,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\intellectus-emotion-recognition\intellectus-emotion-recognition.csproj" />
     <ProjectReference Include="..\intellectus-sound-recorder\intellectus-sound-recorder.csproj" />
   </ItemGroup>
 </Project>
