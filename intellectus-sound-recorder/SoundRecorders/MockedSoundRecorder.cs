@@ -2,6 +2,7 @@
 using SoundRecorder.SoundListeners;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace SoundRecorder.SoundRecorders
@@ -102,6 +103,15 @@ namespace SoundRecorder.SoundRecorders
         public void Configure(int inputDeviceIndex, WaveFormat format)
         {
 
+        }
+
+        public long SampleCount
+        {
+            get
+            {
+                var bps = GetWaveFormat().BitsPerSample;
+                return (fileReader.Length) / (bps / 8);
+            }
         }
 
         public WaveFormat GetWaveFormat()
