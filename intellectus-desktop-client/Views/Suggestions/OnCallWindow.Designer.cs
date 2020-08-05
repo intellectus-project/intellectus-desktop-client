@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblConsultantName = new System.Windows.Forms.Label();
-            this.lblVoiceOrigin = new System.Windows.Forms.Label();
             this.lblTranscurredTimeName = new System.Windows.Forms.Label();
             this.lblTranscurredTime = new System.Windows.Forms.Label();
             this.btnEndCall = new System.Windows.Forms.Button();
@@ -42,32 +40,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // lblConsultantName
-            // 
-            this.lblConsultantName.AccessibleName = "lblConsultantName";
-            this.lblConsultantName.AutoSize = true;
-            this.lblConsultantName.Location = new System.Drawing.Point(82, 38);
-            this.lblConsultantName.Name = "lblConsultantName";
-            this.lblConsultantName.Size = new System.Drawing.Size(53, 15);
-            this.lblConsultantName.TabIndex = 0;
-            this.lblConsultantName.Text = "Pepa pig";
-            // 
-            // lblVoiceOrigin
-            // 
-            this.lblVoiceOrigin.AccessibleName = "lblVoiceOrigin";
-            this.lblVoiceOrigin.AutoSize = true;
-            this.lblVoiceOrigin.Location = new System.Drawing.Point(82, 85);
-            this.lblVoiceOrigin.Name = "lblVoiceOrigin";
-            this.lblVoiceOrigin.Size = new System.Drawing.Size(75, 15);
-            this.lblVoiceOrigin.TabIndex = 1;
-            this.lblVoiceOrigin.Text = "Google meet";
-            // 
             // lblTranscurredTimeName
             // 
             this.lblTranscurredTimeName.AutoSize = true;
-            this.lblTranscurredTimeName.Location = new System.Drawing.Point(50, 146);
+            this.lblTranscurredTimeName.Location = new System.Drawing.Point(31, 71);
             this.lblTranscurredTimeName.Name = "lblTranscurredTimeName";
-            this.lblTranscurredTimeName.Size = new System.Drawing.Size(117, 15);
+            this.lblTranscurredTimeName.Size = new System.Drawing.Size(103, 13);
             this.lblTranscurredTimeName.TabIndex = 2;
             this.lblTranscurredTimeName.Text = "Tiempo transcurrido:";
             // 
@@ -75,17 +53,17 @@
             // 
             this.lblTranscurredTime.AccessibleName = "transcurredTime";
             this.lblTranscurredTime.AutoSize = true;
-            this.lblTranscurredTime.Location = new System.Drawing.Point(168, 146);
+            this.lblTranscurredTime.Location = new System.Drawing.Point(140, 74);
             this.lblTranscurredTime.Name = "lblTranscurredTime";
-            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 15);
+            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 13);
             this.lblTranscurredTime.TabIndex = 3;
             // 
             // btnEndCall
             // 
             this.btnEndCall.AccessibleName = "btnEndCall";
-            this.btnEndCall.Location = new System.Drawing.Point(82, 199);
+            this.btnEndCall.Location = new System.Drawing.Point(57, 148);
             this.btnEndCall.Name = "btnEndCall";
-            this.btnEndCall.Size = new System.Drawing.Size(75, 23);
+            this.btnEndCall.Size = new System.Drawing.Size(64, 20);
             this.btnEndCall.TabIndex = 4;
             this.btnEndCall.Text = "Finalizar";
             this.btnEndCall.UseVisualStyleBackColor = true;
@@ -94,18 +72,18 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(229, 20);
+            this.label1.Location = new System.Drawing.Point(196, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1, 305);
+            this.label1.Size = new System.Drawing.Size(1, 265);
             this.label1.TabIndex = 5;
             // 
             // lblOperatorName
             // 
             this.lblOperatorName.AccessibleName = "lblOperatorName";
             this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(484, 20);
+            this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
             this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(62, 15);
+            this.lblOperatorName.Size = new System.Drawing.Size(60, 13);
             this.lblOperatorName.TabIndex = 6;
             this.lblOperatorName.Text = "Juan Perez";
             // 
@@ -115,9 +93,9 @@
             this.suggestionActual.BackColor = System.Drawing.SystemColors.Menu;
             this.suggestionActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionActual.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.suggestionActual.Location = new System.Drawing.Point(327, 119);
+            this.suggestionActual.Location = new System.Drawing.Point(280, 103);
             this.suggestionActual.Name = "suggestionActual";
-            this.suggestionActual.Size = new System.Drawing.Size(100, 16);
+            this.suggestionActual.Size = new System.Drawing.Size(86, 13);
             this.suggestionActual.TabIndex = 7;
             this.suggestionActual.Text = "Bla";
             this.suggestionActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -127,9 +105,9 @@
             this.suggestionOld.BackColor = System.Drawing.SystemColors.Control;
             this.suggestionOld.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionOld.ForeColor = System.Drawing.Color.Gray;
-            this.suggestionOld.Location = new System.Drawing.Point(327, 159);
+            this.suggestionOld.Location = new System.Drawing.Point(280, 138);
             this.suggestionOld.Name = "suggestionOld";
-            this.suggestionOld.Size = new System.Drawing.Size(100, 16);
+            this.suggestionOld.Size = new System.Drawing.Size(86, 13);
             this.suggestionOld.TabIndex = 8;
             this.suggestionOld.Text = "blaViejo";
             this.suggestionOld.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -139,9 +117,9 @@
             this.suggestionLast.BackColor = System.Drawing.SystemColors.Control;
             this.suggestionLast.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionLast.ForeColor = System.Drawing.Color.Silver;
-            this.suggestionLast.Location = new System.Drawing.Point(327, 199);
+            this.suggestionLast.Location = new System.Drawing.Point(280, 172);
             this.suggestionLast.Name = "suggestionLast";
-            this.suggestionLast.Size = new System.Drawing.Size(100, 16);
+            this.suggestionLast.Size = new System.Drawing.Size(86, 13);
             this.suggestionLast.TabIndex = 8;
             this.suggestionLast.Text = "blaAnterior";
             this.suggestionLast.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -152,9 +130,9 @@
             // 
             // OnCallWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.suggestionLast);
             this.Controls.Add(this.suggestionOld);
             this.Controls.Add(this.suggestionActual);
@@ -163,8 +141,6 @@
             this.Controls.Add(this.btnEndCall);
             this.Controls.Add(this.lblTranscurredTime);
             this.Controls.Add(this.lblTranscurredTimeName);
-            this.Controls.Add(this.lblConsultantName);
-            this.Controls.Add(this.lblVoiceOrigin);
             this.Name = "OnCallWindow";
             this.Text = "Suggestions";
             this.ResumeLayout(false);
@@ -173,9 +149,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblConsultantName;
-        private System.Windows.Forms.Label lblVoiceOrigin;
         private System.Windows.Forms.Label lblTranscurredTimeName;
         private System.Windows.Forms.Label lblTranscurredTime;
         private System.Windows.Forms.Button btnEndCall;

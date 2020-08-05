@@ -1,4 +1,6 @@
-﻿namespace intellectus_desktop_client
+﻿using System;
+
+namespace intellectus_desktop_client
 {
     partial class EnteringCall
     {
@@ -41,7 +43,7 @@
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(62, 15);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = UserOperator.Name;
+            this.lblOperatorName.Text = String.Concat(UserOperator.Name,UserOperator.LastName);
             // 
             // label2
             // 

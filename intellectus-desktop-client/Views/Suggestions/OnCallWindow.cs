@@ -48,5 +48,6 @@ namespace intellectus_desktop_client
             suggestionOld.Text = suggestionActual.Text;
             suggestionActual.Text = suggestion;
         }
+
     }
 }
