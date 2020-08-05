@@ -4,9 +4,10 @@ using System.Text;
 
 namespace intellectus_desktop_client.Models
 {
-    class Operator
+    public class Operator
     {
-        public string Name;
-        public long Id;
+        public Operator() { }
+        public string Name { get; set; }
+        public long Id { get; set; }
     }
 }

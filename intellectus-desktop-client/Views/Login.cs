@@ -1,9 +1,12 @@
-﻿using System;
+﻿using intellectus_desktop_client.Models;
+using intellectus_desktop_client.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace intellectus_desktop_client.Views
@@ -17,17 +20,16 @@ namespace intellectus_desktop_client.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            int reqStatus = 200;
             if(password.Text == "" || username.Text == "")
             {
                 requiredText.Visible = true;
             }
             else
             {
-                //apiget
-                if (reqStatus == 200)
+                Operator response = API.Login(username.Text, password.Text);
+                if (response != null)
                 {
-                    EnteringCall enteringCall = new EnteringCall();
+                    EnteringCall enteringCall = new EnteringCall(response);
                     enteringCall.Show();
                     this.Hide();
                 }

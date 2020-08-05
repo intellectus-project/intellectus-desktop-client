@@ -1,4 +1,5 @@
-﻿using intellectus_desktop_client.Services;
+﻿using intellectus_desktop_client.Models;
+using intellectus_desktop_client.Services;
 using SoundRecorder.SoundListeners;
 using SoundRecorder.SoundRecorders;
 using System;
@@ -13,9 +14,10 @@ namespace intellectus_desktop_client
 {
     public partial class EnteringCall : Form
     {
-     
-        public EnteringCall()
+        Operator UserOperator;
+        public EnteringCall(Operator user)
         {
+            UserOperator = user;
             InitializeComponent();
         }
 

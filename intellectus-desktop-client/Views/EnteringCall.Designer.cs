@@ -41,7 +41,7 @@
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(62, 15);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = "Juan Perez";
+            this.lblOperatorName.Text = UserOperator.Name;
             // 
             // label2
             // 
