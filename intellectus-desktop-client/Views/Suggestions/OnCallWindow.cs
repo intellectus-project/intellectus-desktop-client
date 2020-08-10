@@ -1,4 +1,5 @@
-﻿using intellectus_desktop_client.Services;
+﻿using intellectus_desktop_client.Models;
+using intellectus_desktop_client.Services;
 using intellectus_desktop_client.Views.Suggestions;
 using SoundRecorder.SoundRecorders;
 using System;
@@ -15,10 +16,10 @@ namespace intellectus_desktop_client
     public partial class OnCallWindow : Form
     {
         public static Stopwatch TranscurredTime= new Stopwatch();
-
-
-        public OnCallWindow()
+        public Operator UserOperator;
+        public OnCallWindow(Operator user)
         {
+            UserOperator = user;
             InitializeComponent();
             lblTranscurredTimeName.Text = "Tiempo transcurrido:";
             timer1.Start();

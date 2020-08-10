@@ -41,11 +41,12 @@ namespace intellectus_desktop_client.Services
             }
         }
         
-        public static int StartCall(Operator user)
+        public static void StartCall(Operator user)
         {
+            DateTime startTime = DateTime.UtcNow;
             var bodyData = new Dictionary<string, string>
             {
-                { "startTime", DateTime.UtcNow.ToString("s") }
+                { "startTime", startTime.ToString("s") }
             };
 
             string data = JsonConvert.SerializeObject(bodyData);
@@ -62,10 +63,14 @@ namespace intellectus_desktop_client.Services
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return 1;
+                    string apiResponse = response.Content.ReadAsStringAsync().Result;
+                    Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
+                    user.Call = call;
+                    user.Call.StartTime = startTime;
+                    //return user;
                 }
 
-                return 0;
+               // return null;
             }
         }
     }

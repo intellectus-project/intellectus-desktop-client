@@ -24,7 +24,7 @@ namespace intellectus_desktop_client.Models
         [JsonProperty("consultantStats")]
         public Stats ConsultantStats { get; set; }
 
-        [JsonProperty("id")]
+        [JsonProperty("callId")]
         public int Id { get; set; }
 
 

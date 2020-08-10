@@ -30,7 +30,7 @@ namespace intellectus_desktop_client
         {
             Recording.StartRecording();
             API.StartCall(UserOperator);
-            OnCallWindow onCallWindow = new OnCallWindow();
+            OnCallWindow onCallWindow = new OnCallWindow(UserOperator);
             onCallWindow.Show();
             this.Hide();
         }
