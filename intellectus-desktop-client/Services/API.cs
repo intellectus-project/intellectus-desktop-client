@@ -67,10 +67,7 @@ namespace intellectus_desktop_client.Services
                     Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
                     user.Call = call;
                     user.Call.StartTime = startTime;
-                    //return user;
                 }
-
-               // return null;
             }
         }
     }
