@@ -57,6 +57,7 @@
             this.lblTranscurredTime.Name = "lblTranscurredTime";
             this.lblTranscurredTime.Size = new System.Drawing.Size(0, 13);
             this.lblTranscurredTime.TabIndex = 3;
+            this.lblTranscurredTime.Text = "00:00:00";
             // 
             // btnEndCall
             // 

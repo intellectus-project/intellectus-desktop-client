@@ -1,4 +1,8 @@
-﻿namespace intellectus_desktop_client.Views.Suggestions
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace intellectus_desktop_client.Views.Suggestions
 {
     partial class PostCallOperator
     {
@@ -79,6 +83,7 @@
             this.emotion.Name = "emotion";
             this.emotion.Size = new System.Drawing.Size(643, 19);
             this.emotion.TabIndex = 3;
+            
             // 
             // requiredText
             // 
