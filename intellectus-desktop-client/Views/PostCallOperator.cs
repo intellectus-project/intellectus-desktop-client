@@ -24,24 +24,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             if (emotion.SelectedItems.Count > 0)
             {
                 UserOperator.Call.Emotion = emotion.SelectedItem.ToString();
-                //mock
-                UserOperator.Call.ConsultantStats = new Stats
-                {
-                    Anger=0,
-                    Fear=1,
-                    Happiness=1,
-                    Sadness=5,
-                    Neutrality = 7.4F
-                };
-
-                UserOperator.Call.OperatorStats = new Stats
-                {
-                    Anger = 10,
-                    Fear = 3,
-                    Happiness = 4,
-                    Sadness = 3.7F,
-                    Neutrality = 10.4F
-                };
                 if (API.EndCall(UserOperator))
                 {
                     PostCallWindow postCallWindow = new PostCallWindow(UserOperator);
