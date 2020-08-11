@@ -41,7 +41,7 @@ namespace intellectus_desktop_client.Services
             }
         }
         
-        public static void StartCall(Operator user)
+        public static bool StartCall(Operator user)
         {
             DateTime startTime = DateTime.UtcNow;
             var bodyData = new Dictionary<string, string>
@@ -67,17 +67,19 @@ namespace intellectus_desktop_client.Services
                     Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
                     user.Call = call;
                     user.Call.StartTime = startTime;
+                    return true;
                 }
             }
+            return false;
         }
 
-        public static void EndCall(Operator user)
+        public static bool EndCall(Operator user)
         {
-            DateTime startTime = DateTime.UtcNow;
-           /* var bodyData = new Dictionary<string, string>
+            if (user.Call.OperatorStats==null || user.Call.ConsultantStats == null)
             {
-                { "startTime", startTime.ToString("s") }
-            };*/
+                return false;
+            }
+            DateTime startTime = DateTime.UtcNow;
 
             string data = JsonConvert.SerializeObject(user.Call);
             var content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -93,9 +95,10 @@ namespace intellectus_desktop_client.Services
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    Console.WriteLine("chota");
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

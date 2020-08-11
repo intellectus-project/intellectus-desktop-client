@@ -29,10 +29,13 @@ namespace intellectus_desktop_client
         private void btnStartCall_Click(object sender, EventArgs e)
         {
             Recording.StartRecording();
-            API.StartCall(UserOperator);
-            OnCallWindow onCallWindow = new OnCallWindow(UserOperator);
-            onCallWindow.Show();
-            this.Hide();
+            if (API.StartCall(UserOperator))
+            {
+                OnCallWindow onCallWindow = new OnCallWindow(UserOperator);
+                onCallWindow.Show();
+                this.Hide();
+            }
+            lblError.Visible = true;
         }
     }
 

@@ -42,10 +42,14 @@ namespace intellectus_desktop_client.Views.Suggestions
                     Sadness = 3.7F,
                     Neutrality = 10.4F
                 };
-                API.EndCall(UserOperator);
-                PostCallWindow postCallWindow = new PostCallWindow(UserOperator);
-                postCallWindow.Show();
-                this.Hide();
+                if (API.EndCall(UserOperator))
+                {
+                    PostCallWindow postCallWindow = new PostCallWindow(UserOperator);
+                    postCallWindow.Show();
+                    this.Hide();
+                }
+                lblErrorCreateCall.Visible = true;
+               
             }
             else
             {
