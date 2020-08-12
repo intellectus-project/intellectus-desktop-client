@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("bla");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("bla bla");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("bla bla bla");
             this.lblTranscurredTimeName = new System.Windows.Forms.Label();
             this.lblTranscurredTime = new System.Windows.Forms.Label();
             this.btnEndCall = new System.Windows.Forms.Button();
@@ -38,6 +41,8 @@
             this.suggestionOld = new System.Windows.Forms.TextBox();
             this.suggestionLast = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.suggestions = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblTranscurredTimeName
@@ -128,11 +133,37 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // suggestions
+            // 
+            this.suggestions.BackColor = System.Drawing.SystemColors.Control;
+            this.suggestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.suggestions.HideSelection = false;
+            listViewItem1.Tag = "currentSuggestion";
+            listViewItem2.Tag = "previousSuggestion";
+            listViewItem3.Tag = "lastSuggestion";
+            this.suggestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
+            this.suggestions.LabelWrap = false;
+            this.suggestions.Location = new System.Drawing.Point(396, 88);
+            this.suggestions.MultiSelect = false;
+            this.suggestions.Name = "suggestions";
+            this.suggestions.Size = new System.Drawing.Size(79, 97);
+            this.suggestions.TabIndex = 9;
+            this.suggestions.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "";
+            // 
             // OnCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.suggestions);
             this.Controls.Add(this.suggestionLast);
             this.Controls.Add(this.suggestionOld);
             this.Controls.Add(this.suggestionActual);
@@ -158,5 +189,7 @@
         private System.Windows.Forms.TextBox suggestionOld;
         private System.Windows.Forms.TextBox suggestionLast;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ListView suggestions;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

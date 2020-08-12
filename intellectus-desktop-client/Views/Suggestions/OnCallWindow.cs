@@ -49,5 +49,9 @@ namespace intellectus_desktop_client
             suggestionActual.Text = suggestion;
         }
 
+        private void suggestions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
