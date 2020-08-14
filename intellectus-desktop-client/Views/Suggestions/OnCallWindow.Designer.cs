@@ -55,7 +55,7 @@
             this.lblTranscurredTime.AutoSize = true;
             this.lblTranscurredTime.Location = new System.Drawing.Point(140, 74);
             this.lblTranscurredTime.Name = "lblTranscurredTime";
-            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 13);
+            this.lblTranscurredTime.Size = new System.Drawing.Size(49, 13);
             this.lblTranscurredTime.TabIndex = 3;
             this.lblTranscurredTime.Text = "00:00:00";
             // 
@@ -84,9 +84,8 @@
             this.lblOperatorName.AutoSize = true;
             this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
             this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(60, 13);
+            this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = string.Concat(UserOperator.Name," ",UserOperator.LastName);
             // 
             // suggestionActual
             // 
@@ -96,7 +95,7 @@
             this.suggestionActual.ForeColor = System.Drawing.SystemColors.WindowText;
             this.suggestionActual.Location = new System.Drawing.Point(280, 103);
             this.suggestionActual.Name = "suggestionActual";
-            this.suggestionActual.Size = new System.Drawing.Size(86, 13);
+            this.suggestionActual.Size = new System.Drawing.Size(287, 13);
             this.suggestionActual.TabIndex = 7;
             this.suggestionActual.Text = "Bla";
             this.suggestionActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -108,7 +107,7 @@
             this.suggestionOld.ForeColor = System.Drawing.Color.Gray;
             this.suggestionOld.Location = new System.Drawing.Point(280, 138);
             this.suggestionOld.Name = "suggestionOld";
-            this.suggestionOld.Size = new System.Drawing.Size(86, 13);
+            this.suggestionOld.Size = new System.Drawing.Size(287, 13);
             this.suggestionOld.TabIndex = 8;
             this.suggestionOld.Text = "blaViejo";
             this.suggestionOld.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -120,7 +119,7 @@
             this.suggestionLast.ForeColor = System.Drawing.Color.Silver;
             this.suggestionLast.Location = new System.Drawing.Point(280, 172);
             this.suggestionLast.Name = "suggestionLast";
-            this.suggestionLast.Size = new System.Drawing.Size(86, 13);
+            this.suggestionLast.Size = new System.Drawing.Size(287, 13);
             this.suggestionLast.TabIndex = 8;
             this.suggestionLast.Text = "blaAnterior";
             this.suggestionLast.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
