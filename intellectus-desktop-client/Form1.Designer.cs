@@ -33,13 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnDestination = new System.Windows.Forms.Button();
+            this.lstEmotions = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(55, 178);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
@@ -87,24 +86,21 @@
             // 
             this.folderDialog.HelpRequest += new System.EventHandler(this.folderDialog_HelpRequest);
             // 
-            // btnDestination
+            // lstEmotions
             // 
-            this.btnDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnDestination.Location = new System.Drawing.Point(55, 119);
-            this.btnDestination.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDestination.Name = "btnDestination";
-            this.btnDestination.Size = new System.Drawing.Size(259, 23);
-            this.btnDestination.TabIndex = 0;
-            this.btnDestination.Text = "Seleccione la carpeta destino";
-            this.btnDestination.UseVisualStyleBackColor = false;
-            this.btnDestination.Click += new System.EventHandler(this.btnDestination_MouseClick);
+            this.lstEmotions.HideSelection = false;
+            this.lstEmotions.Location = new System.Drawing.Point(464, 45);
+            this.lstEmotions.Name = "lstEmotions";
+            this.lstEmotions.Size = new System.Drawing.Size(635, 254);
+            this.lstEmotions.TabIndex = 3;
+            this.lstEmotions.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 262);
-            this.Controls.Add(this.btnDestination);
+            this.ClientSize = new System.Drawing.Size(1120, 311);
+            this.Controls.Add(this.lstEmotions);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbRecorder);
@@ -126,7 +122,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.FolderBrowserDialog folderDialog;
-        private System.Windows.Forms.Button btnDestination;
+        private System.Windows.Forms.ListView lstEmotions;
     }
 }
 

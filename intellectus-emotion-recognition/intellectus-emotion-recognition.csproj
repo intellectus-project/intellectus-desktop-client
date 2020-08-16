@@ -78,8 +78,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Import\StructConverter.cs" />
+    <Compile Include="Listeners\IExtractionListener.cs" />
+    <Compile Include="Listeners\VoiceListener.cs" />
     <Compile Include="Wrapper\EmotionsProbabilities.cs" />
     <Compile Include="Wrapper\ExtractionQuality.cs" />
     <Compile Include="Wrapper\VersionAndLicense.cs" />
@@ -106,8 +112,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="EmotionRecognitionWrappers\" />
+    <ProjectReference Include="..\intellectus-sound-recorder\intellectus-sound-recorder.csproj">
+      <Project>{143818A5-41BD-4817-A6BD-F480F933CBE8}</Project>
+      <Name>intellectus-sound-recorder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

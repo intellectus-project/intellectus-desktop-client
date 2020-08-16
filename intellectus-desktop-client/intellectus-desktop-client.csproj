@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\intellectus-emotion-recognition\intellectus-emotion-recognition.csproj" />
     <ProjectReference Include="..\intellectus-sound-recorder\intellectus-sound-recorder.csproj" />
   </ItemGroup>
 
