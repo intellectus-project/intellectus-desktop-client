@@ -9,26 +9,17 @@ namespace intellectus_desktop_unit_tests.Mocks
 {
     class CallbackSoundListener : ISoundListener
     {
-        private Action<float[]> action;
+        private Action<byte[], int> action;
 
-        public CallbackSoundListener(Action<float[]> action)
+        public CallbackSoundListener(Action<byte[], int> action)
         {
             this.action = action;
         }
 
-        public void ProcessSample(float[] sample)
+        public void ProcessSamples(byte[] samples, int bytesUsed)
         {
-            action.Invoke(sample);
+            action.Invoke(samples, bytesUsed);
         }
 
-        public void Start()
-        {
-
-        }
-
-        public void Stop()
-        {
-
-        }
     }
 }

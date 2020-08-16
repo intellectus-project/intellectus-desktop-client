@@ -14,12 +14,11 @@ namespace intellectus_desktop_unit_tests
         {
             var sourcePath = Path.Combine(SoundBank.Instance.PathToSoundBank, SoundBank.Instance.SoundFiles[0]);
 
-            var input = new MockedSoundRecorder(sourcePath, 0.5f);
-            input.Configure(0, null);
+            var input = new FileSoundSource(sourcePath);
 
             bool called = false;
 
-            CallbackSoundListener listener = new CallbackSoundListener((samples) =>
+            CallbackSoundListener listener = new CallbackSoundListener((samples, bytesUsed) =>
             {
                 called = true;
             });

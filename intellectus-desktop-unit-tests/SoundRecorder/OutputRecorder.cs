@@ -20,12 +20,11 @@ namespace intellectus_desktop_unit_tests
         [TestMethod]
         public void CallbackBeingCalled()
         {
-            var output = new OutputSoundRecorder();
-            output.Configure(0, null);
+            var output = new OutputSoundSource();
 
             bool called = false;
 
-            CallbackSoundListener listener = new CallbackSoundListener((samples) =>
+            CallbackSoundListener listener = new CallbackSoundListener((samples, bytesUsed) =>
             {
                 called = true;
                 output.Stop();

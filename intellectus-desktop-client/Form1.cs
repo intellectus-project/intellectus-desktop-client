@@ -16,7 +16,7 @@ namespace intellectus_desktop_client
 {
     public partial class Form1 : Form
     {
-        private ISoundRecorder recorder;
+        private ISoundSource recorder;
         private ISoundListener writer;
 
         public Form1()
@@ -30,17 +30,15 @@ namespace intellectus_desktop_client
 
             if (cmbRecorder.SelectedIndex == 0)
             {
-                var recorder = new InputSoundRecorder();
+                var recorder = new InputSoundSource(new NAudio.Wave.WaveFormat(44100, 1), 0);
                 recorder.RecordingStoppedEvent += Recorder_RecordingStoppedEvent;
                 this.recorder = recorder;
             }
             else
-                recorder = new OutputSoundRecorder();
-
-            recorder.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
+                recorder = new OutputSoundSource();
 
             if(writer == null)
-                writer = new SoundFileWriterListener(folderDialog.SelectedPath + "/recorded.wav", recorder.GetWaveFormat());
+                writer = new SoundFileWriter(folderDialog.SelectedPath + "/recorded.wav", recorder.GetWaveFormat());
 
             recorder.AddListener(writer);
 
@@ -85,7 +83,8 @@ namespace intellectus_desktop_client
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((SoundFileWriterListener)writer).Close();
+            if(writer != null)
+                ((SoundFileWriter)writer).Close();
         }
     }
 }
