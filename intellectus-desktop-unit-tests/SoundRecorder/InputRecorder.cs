@@ -16,12 +16,11 @@ namespace intellectus_desktop_unit_tests
         [TestMethod]
         public void CallbackBeingCalled()
         {
-            var input = new InputSoundRecorder();
-            input.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
+            var input = new InputSoundSource(new WaveFormat(44100, 1), 0);
 
             bool called = false;
 
-            CallbackSoundListener listener = new CallbackSoundListener((samples) =>
+            CallbackSoundListener listener = new CallbackSoundListener((samples, bytes) =>
             {
                 called = true;
                 input.Stop();
@@ -42,14 +41,12 @@ namespace intellectus_desktop_unit_tests
         [TestMethod]
         public void RecordingStopped()
         {
-            
-            var input = new InputSoundRecorder();
-            input.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
+            var input = new InputSoundSource(new WaveFormat(44100, 1), 0);
 
             bool called = false;
             bool calledSecondTime = false;
 
-            CallbackSoundListener listener = new CallbackSoundListener((samples) =>
+            CallbackSoundListener listener = new CallbackSoundListener((samples, bytesUsed) =>
             {
                 if (called)
                     calledSecondTime = true;
