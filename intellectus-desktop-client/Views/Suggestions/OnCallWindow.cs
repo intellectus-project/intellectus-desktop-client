@@ -44,14 +44,10 @@ namespace intellectus_desktop_client
 
         public void Suggest(string suggestion)
         {
-            suggestionLast.Text = suggestionOld.Text;
-            suggestionOld.Text = suggestionActual.Text;
-            suggestionActual.Text = suggestion;
+            ListViewItem item = new ListViewItem(suggestion);
+            suggestionsList.Items.Insert(0, item);
+            suggestionsList.Items.Remove(suggestionsList.Items[3]);
         }
 
-        private void suggestions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

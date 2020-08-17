@@ -30,19 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("bla");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("bla bla");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("bla bla bla");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Bla");
             this.lblTranscurredTimeName = new System.Windows.Forms.Label();
             this.lblTranscurredTime = new System.Windows.Forms.Label();
             this.btnEndCall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblOperatorName = new System.Windows.Forms.Label();
-            this.suggestionActual = new System.Windows.Forms.TextBox();
-            this.suggestionOld = new System.Windows.Forms.TextBox();
-            this.suggestionLast = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.suggestions = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.suggestionsList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblTranscurredTimeName
@@ -92,81 +88,31 @@
             this.lblOperatorName.TabIndex = 6;
             this.lblOperatorName.Text = "Juan Perez";
             // 
-            // suggestionActual
-            // 
-            this.suggestionActual.AccessibleName = "currentSuggestion";
-            this.suggestionActual.BackColor = System.Drawing.SystemColors.Menu;
-            this.suggestionActual.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.suggestionActual.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.suggestionActual.Location = new System.Drawing.Point(280, 103);
-            this.suggestionActual.Name = "suggestionActual";
-            this.suggestionActual.Size = new System.Drawing.Size(86, 13);
-            this.suggestionActual.TabIndex = 7;
-            this.suggestionActual.Text = "Bla";
-            this.suggestionActual.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // suggestionOld
-            // 
-            this.suggestionOld.BackColor = System.Drawing.SystemColors.Control;
-            this.suggestionOld.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.suggestionOld.ForeColor = System.Drawing.Color.Gray;
-            this.suggestionOld.Location = new System.Drawing.Point(280, 138);
-            this.suggestionOld.Name = "suggestionOld";
-            this.suggestionOld.Size = new System.Drawing.Size(86, 13);
-            this.suggestionOld.TabIndex = 8;
-            this.suggestionOld.Text = "blaViejo";
-            this.suggestionOld.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // suggestionLast
-            // 
-            this.suggestionLast.BackColor = System.Drawing.SystemColors.Control;
-            this.suggestionLast.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.suggestionLast.ForeColor = System.Drawing.Color.Silver;
-            this.suggestionLast.Location = new System.Drawing.Point(280, 172);
-            this.suggestionLast.Name = "suggestionLast";
-            this.suggestionLast.Size = new System.Drawing.Size(86, 13);
-            this.suggestionLast.TabIndex = 8;
-            this.suggestionLast.Text = "blaAnterior";
-            this.suggestionLast.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // suggestions
+            // suggestionsList
             // 
-            this.suggestions.BackColor = System.Drawing.SystemColors.Control;
-            this.suggestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.suggestions.HideSelection = false;
-            listViewItem1.Tag = "currentSuggestion";
-            listViewItem2.Tag = "previousSuggestion";
-            listViewItem3.Tag = "lastSuggestion";
-            this.suggestions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.suggestionsList.HideSelection = false;
+            this.suggestionsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
             listViewItem3});
-            this.suggestions.LabelWrap = false;
-            this.suggestions.Location = new System.Drawing.Point(396, 88);
-            this.suggestions.MultiSelect = false;
-            this.suggestions.Name = "suggestions";
-            this.suggestions.Size = new System.Drawing.Size(79, 97);
-            this.suggestions.TabIndex = 9;
-            this.suggestions.UseCompatibleStateImageBehavior = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "";
+            this.suggestionsList.Location = new System.Drawing.Point(283, 60);
+            this.suggestionsList.Name = "suggestionsList";
+            this.suggestionsList.Size = new System.Drawing.Size(330, 132);
+            this.suggestionsList.Sorting = System.Windows.Forms.SortOrder.Descending;
+            this.suggestionsList.TabIndex = 9;
+            this.suggestionsList.UseCompatibleStateImageBehavior = false;
+            this.suggestionsList.View = System.Windows.Forms.View.Tile;
             // 
             // OnCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
-            this.Controls.Add(this.suggestions);
-            this.Controls.Add(this.suggestionLast);
-            this.Controls.Add(this.suggestionOld);
-            this.Controls.Add(this.suggestionActual);
+            this.Controls.Add(this.suggestionsList);
             this.Controls.Add(this.lblOperatorName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEndCall);
@@ -185,11 +131,7 @@
         private System.Windows.Forms.Button btnEndCall;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblOperatorName;
-        private System.Windows.Forms.TextBox suggestionActual;
-        private System.Windows.Forms.TextBox suggestionOld;
-        private System.Windows.Forms.TextBox suggestionLast;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ListView suggestions;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ListView suggestionsList;
     }
 }
