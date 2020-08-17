@@ -75,12 +75,6 @@ namespace intellectus_desktop_client.Services
 
         public static bool EndCall(Operator user)
         {
-            if (user.Call.OperatorStats==null || user.Call.ConsultantStats == null)
-            {
-                return false;
-            }
-            DateTime startTime = DateTime.UtcNow;
-
             string data = JsonConvert.SerializeObject(user.Call);
             var content = new StringContent(data, Encoding.UTF8, "application/json");
 
