@@ -31,7 +31,6 @@ namespace intellectus_desktop_client.Views.Suggestions
                     this.Hide();
                 }
                 lblErrorCreateCall.Visible = true;
-               
             }
             else
             {
