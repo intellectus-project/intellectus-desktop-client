@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using EmotionRecognition.Wrapper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,10 +20,10 @@ namespace intellectus_desktop_client.Models
         public string Emotion { get; set; }
 
         [JsonProperty("operatorStats")]
-        public Stats OperatorStats { get; set; }
+        public EmotionsProbabilities OperatorStats { get; set; }
 
         [JsonProperty("consultantStats")]
-        public Stats ConsultantStats { get; set; }
+        public EmotionsProbabilities ConsultantStats { get; set; }
 
         [JsonProperty("callId")]
         public int Id { get; set; }
