@@ -5,9 +5,11 @@
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>intellectus_desktop_client</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\intellectus-emotion-recognition\intellectus-emotion-recognition.csproj" />
     <ProjectReference Include="..\intellectus-sound-recorder\intellectus-sound-recorder.csproj" />
   </ItemGroup>
 
