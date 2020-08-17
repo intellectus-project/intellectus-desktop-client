@@ -5,6 +5,7 @@
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>intellectus_desktop_client</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
