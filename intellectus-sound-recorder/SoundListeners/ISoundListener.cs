@@ -6,10 +6,6 @@ namespace SoundRecorder.SoundListeners
 {
     public interface ISoundListener
     {
-        void ProcessSample(float[] sample);
-
-        void Start();
-
-        void Stop();
+        void ProcessSamples(byte[] samples, int bytesFilled);
     }
 }

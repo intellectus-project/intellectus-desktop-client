@@ -11,13 +11,16 @@ using SoundRecorder.SoundRecorders;
 using SoundRecorder.SoundListeners;
 using NAudio.CoreAudioApi;
 using System.Threading;
+using EmotionRecognition.Listeners;
+using EmotionRecognition.Wrapper;
 
 namespace intellectus_desktop_client
 {
     public partial class Form1 : Form
     {
-        private ISoundRecorder recorder;
-        private ISoundListener writer;
+        private ISoundSource recorder;
+        private ISoundListener voice;
+        private IExtractionListener extractor;
 
         public Form1()
         {
@@ -30,19 +33,23 @@ namespace intellectus_desktop_client
 
             if (cmbRecorder.SelectedIndex == 0)
             {
-                var recorder = new InputSoundRecorder();
+                var recorder = new InputSoundSource(new NAudio.Wave.WaveFormat(44100, 1), 0);
                 recorder.RecordingStoppedEvent += Recorder_RecordingStoppedEvent;
                 this.recorder = recorder;
             }
             else
-                recorder = new OutputSoundRecorder();
+                recorder = new OutputSoundSource();
 
-            recorder.Configure(0, new NAudio.Wave.WaveFormat(44100, 1));
+            if (voice == null)
+            {
+                var voiceListener = new VoiceListener(recorder.GetWaveFormat(), 5f);
+                extractor = new VokaturiListener(this);
+                voiceListener.Subscribe(extractor);
+                voice = voiceListener;
+            }
 
-            if(writer == null)
-                writer = new SoundFileWriterListener(folderDialog.SelectedPath + "/recorded.wav", recorder.GetWaveFormat());
+            recorder.AddListener(voice);
 
-            recorder.AddListener(writer);
 
             recorder.Start();
 
@@ -75,7 +82,6 @@ namespace intellectus_desktop_client
         {
             btnStop.Enabled = false;
             button1.Enabled = true;
-            btnDestination.Enabled = false;
             folderDialog.ShowDialog();
         }
 
@@ -85,7 +91,53 @@ namespace intellectus_desktop_client
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((SoundFileWriterListener)writer).Close();
+        }
+
+        delegate void SetEmotionsCallback(EmotionsProbabilities emotions);
+
+        public void SetEmotions(EmotionsProbabilities emotions)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (lstEmotions.InvokeRequired)
+            {
+                SetEmotionsCallback d = new SetEmotionsCallback(SetEmotions);
+                Invoke(d, emotions);
+            }
+            else
+            {
+                lstEmotions.Clear();
+                lstEmotions.Items.AddRange(
+                    new ListViewItem[5]
+                    {
+                        new ListViewItem("Happiness: " + Percent(emotions.Happiness)),
+                        new ListViewItem("Neutrality: " + Percent(emotions.Neutrality)),
+                        new ListViewItem("Fear: " + Percent(emotions.Fear)),
+                        new ListViewItem("Anger: " + Percent(emotions.Anger)),
+                        new ListViewItem("Sadness: " + Percent(emotions.Sadness)),
+                    });
+            }
+        }
+
+        private static int Percent(double value)
+        {
+            return (int)Math.Round(value * 100.0);
+        }
+
+        public class VokaturiListener : IExtractionListener
+        {
+            private Form1 form;
+
+            public VokaturiListener(Form1 form)
+            {
+                this.form = form;
+            }
+
+            public void ExtractionAvailable(VoiceFeatureExtractionResult extraction)
+            {
+                form.SetEmotions(extraction.Emotions);
+            }
         }
     }
 }
