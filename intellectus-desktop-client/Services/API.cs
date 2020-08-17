@@ -41,7 +41,7 @@ namespace intellectus_desktop_client.Services
             }
         }
         
-        public static void StartCall(Operator user)
+        public static bool StartCall(Operator user)
         {
             DateTime startTime = DateTime.UtcNow;
             var bodyData = new Dictionary<string, string>
@@ -67,8 +67,32 @@ namespace intellectus_desktop_client.Services
                     Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
                     user.Call = call;
                     user.Call.StartTime = startTime;
+                    return true;
                 }
             }
+            return false;
+        }
+
+        public static bool EndCall(Operator user)
+        {
+            string data = JsonConvert.SerializeObject(user.Call);
+            var content = new StringContent(data, Encoding.UTF8, "application/json");
+
+            using (var client = new HttpClient())
+            {
+                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("http://localhost:3010/calls/{0}",user.Call.Id));
+                requestM.Content = content;
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.AccessToken);
+
+                HttpResponseMessage response = client.SendAsync(requestM).Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace intellectus_desktop_client.Views.Suggestions
+﻿using System;
+
+namespace intellectus_desktop_client.Views.Suggestions
 {
     partial class PostCallWindow
     {
@@ -57,6 +59,7 @@
             this.transcurredTime.Location = new System.Drawing.Point(361, 58);
             this.transcurredTime.Name = "transcurredTime";
             this.transcurredTime.Size = new System.Drawing.Size(0, 15);
+            this.transcurredTime.Text = UserOperator.Call.EndTime.Subtract(UserOperator.Call.StartTime).ToString("hh':'mm':'ss");
             this.transcurredTime.TabIndex = 0;
             // 
             // PostCallWindow

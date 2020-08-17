@@ -86,7 +86,7 @@
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(60, 13);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = string.Concat(UserOperator.Name," ",UserOperator.LastName);
+            this.lblOperatorName.Text = "Juan Perez";
             // 
             // timer1
             // 

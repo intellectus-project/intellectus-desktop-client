@@ -1,4 +1,5 @@
-﻿using System;
+﻿using intellectus_desktop_client.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +11,11 @@ namespace intellectus_desktop_client.Views.Suggestions
 {
     public partial class PostCallWindow : Form
     {
-        public PostCallWindow()
+        public Operator UserOperator;
+        public PostCallWindow(Operator user)
         {
+            UserOperator = user;
             InitializeComponent();
-            transcurredTime.Text = string.Format("{0}:{1}:{2}", OnCallWindow.TranscurredTime.Elapsed.Hours, OnCallWindow.TranscurredTime.Elapsed.Minutes, OnCallWindow.TranscurredTime.Elapsed.Seconds);
         }
 
     }

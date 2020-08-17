@@ -21,11 +21,9 @@ namespace intellectus_desktop_client
         {
             UserOperator = user;
             InitializeComponent();
-            lblTranscurredTimeName.Text = "Tiempo transcurrido:";
             timer1.Start();
             TranscurredTime.Start();
-            lblTranscurredTime.Text = "00:00";
-           
+
         }
 
         private void btnEndCall_Click(object sender, EventArgs e)
@@ -33,14 +31,15 @@ namespace intellectus_desktop_client
             Recording.StopRecording();
             timer1.Stop();
             TranscurredTime.Stop();
-            PostCallOperator postCall = new PostCallOperator();
+            UserOperator.Call.EndTime = DateTime.UtcNow;
+            PostCallOperator postCall = new PostCallOperator(UserOperator);
             postCall.Show();
             this.Hide();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTranscurredTime.Text = string.Format("{0}:{1}:{2}",TranscurredTime.Elapsed.Hours, TranscurredTime.Elapsed.Minutes,TranscurredTime.Elapsed.Seconds);
+            lblTranscurredTime.Text = TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
         }
 
         public void Suggest(string suggestion)
