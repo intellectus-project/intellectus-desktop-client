@@ -43,7 +43,7 @@ namespace intellectus_desktop_client
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(62, 15);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = String.Concat(UserOperator.Name,UserOperator.LastName);
+            this.lblOperatorName.Text = String.Concat(UserOperator.Name," ",UserOperator.LastName);
             // 
             // label2
             // 

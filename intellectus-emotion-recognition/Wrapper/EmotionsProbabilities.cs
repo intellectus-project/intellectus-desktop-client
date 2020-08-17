@@ -1,4 +1,5 @@
 ﻿using intellectus_emotion_recognition.Import;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,16 @@ namespace EmotionRecognition.Wrapper
     [StructLayout(LayoutKind.Sequential)]
     public struct EmotionsProbabilities
     {
+        [JsonProperty("neutrality")]
         public double Neutrality;
+
+        [JsonProperty("happiness")]
         public double Happiness;
+        [JsonProperty("sadness")]
         public double Sadness;
+        [JsonProperty("anger")]
         public double Anger;
+        [JsonProperty("fear")]
         public double Fear;
 
 

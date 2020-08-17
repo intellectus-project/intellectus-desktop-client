@@ -24,6 +24,9 @@ namespace intellectus_desktop_client.Models
         [JsonProperty("accessToken")]
         public string AccessToken { get; set; }
 
+        public Call Call { get; set; }
+
+
 
     }
 }

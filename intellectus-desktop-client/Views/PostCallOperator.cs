@@ -24,11 +24,7 @@ namespace intellectus_desktop_client.Views.Suggestions
         {
             if (emotion.SelectedItems.Count > 0)
             {
-                //Guardar emoción operador
-                Console.WriteLine(emotion.SelectedIndex);
-                Console.WriteLine(emotion.SelectedItem);
-
-
+               
                 PostCallWindow postCallWindow = new PostCallWindow();
                 postCallWindow.Show();
                 this.Hide();
