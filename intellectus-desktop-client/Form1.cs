@@ -111,11 +111,11 @@ namespace intellectus_desktop_client
                 lstEmotions.Items.AddRange(
                     new ListViewItem[5]
                     {
-                        new ListViewItem("Happiness: " + Percent(emotions.happiness)),
-                        new ListViewItem("Neutrality: " + Percent(emotions.neutrality)),
-                        new ListViewItem("Fear: " + Percent(emotions.fear)),
-                        new ListViewItem("Anger: " + Percent(emotions.anger)),
-                        new ListViewItem("Sadness: " + Percent(emotions.sadness)),
+                        new ListViewItem("Happiness: " + Percent(emotions.Happiness)),
+                        new ListViewItem("Neutrality: " + Percent(emotions.Neutrality)),
+                        new ListViewItem("Fear: " + Percent(emotions.Fear)),
+                        new ListViewItem("Anger: " + Percent(emotions.Anger)),
+                        new ListViewItem("Sadness: " + Percent(emotions.Sadness)),
                     });
             }
         }

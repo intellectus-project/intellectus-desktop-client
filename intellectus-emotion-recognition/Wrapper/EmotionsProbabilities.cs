@@ -11,38 +11,38 @@ namespace EmotionRecognition.Wrapper
     [StructLayout(LayoutKind.Sequential)]
     public struct EmotionsProbabilities
     {
-        public double neutrality;
-        public double happiness;
-        public double sadness;
-        public double anger;
-        public double fear;
+        public double Neutrality;
+        public double Happiness;
+        public double Sadness;
+        public double Anger;
+        public double Fear;
 
 
-        internal EmotionsProbabilities(double n, double h, double s, double a, double f)
+        internal EmotionsProbabilities(double neutrality, double happiness, double sadness, double anger, double fear)
         {
-            neutrality = n;
-            happiness = h;
-            sadness = s;
-            anger = a;
-            fear = f;
+            Neutrality = neutrality;
+            Happiness = happiness;
+            Sadness = sadness;
+            Anger = anger;
+            Fear = fear;
         }
 
         internal void Add(EmotionsProbabilities other)
         {
-            neutrality += other.neutrality;
-            happiness += other.happiness;
-            sadness += other.sadness;
-            anger += other.anger;
-            fear += other.fear;
+            Neutrality += other.Neutrality;
+            Happiness += other.Happiness;
+            Sadness += other.Sadness;
+            Anger += other.Anger;
+            Fear += other.Fear;
         }
 
         internal void Divide(int number)
         {
-            neutrality /= number;
-            happiness /= number;
-            sadness /= number;
-            anger /= number;
-            fear /= number;
+            Neutrality /= number;
+            Happiness /= number;
+            Sadness /= number;
+            Anger /= number;
+            Fear /= number;
         }
 
         internal IntPtr ToPointer()
