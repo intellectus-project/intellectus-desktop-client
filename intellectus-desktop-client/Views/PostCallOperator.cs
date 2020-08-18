@@ -7,10 +7,10 @@ namespace intellectus_desktop_client.Views.Suggestions
 {
     public partial class PostCallOperator : Form
     {
-        public Operator UserOperator;
-        public PostCallOperator(Operator user)
+       
+        public PostCallOperator()
         {
-            UserOperator = user;
+            
             InitializeComponent();
         }
 
@@ -23,10 +23,10 @@ namespace intellectus_desktop_client.Views.Suggestions
         {
             if (emotion.SelectedItems.Count > 0)
             {
-                UserOperator.Call.Emotion = emotion.SelectedItem.ToString();
-                if (API.EndCall(UserOperator))
+                User.Call.Emotion = emotion.SelectedItem.ToString();
+                if (API.EndCall())
                 {
-                    PostCallWindow postCallWindow = new PostCallWindow(UserOperator);
+                    PostCallWindow postCallWindow = new PostCallWindow();
                     postCallWindow.Show();
                     this.Hide();
                 }

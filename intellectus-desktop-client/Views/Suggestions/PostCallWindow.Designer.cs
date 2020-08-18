@@ -1,4 +1,5 @@
-﻿using System;
+﻿using intellectus_desktop_client.Models;
+using System;
 
 namespace intellectus_desktop_client.Views.Suggestions
 {
@@ -59,7 +60,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.Location = new System.Drawing.Point(361, 58);
             this.transcurredTime.Name = "transcurredTime";
             this.transcurredTime.Size = new System.Drawing.Size(0, 15);
-            this.transcurredTime.Text = UserOperator.Call.EndTime.Subtract(UserOperator.Call.StartTime).ToString("hh':'mm':'ss");
+            this.transcurredTime.Text = User.Call.EndTime.Subtract(User.Call.StartTime).ToString("hh':'mm':'ss");
             this.transcurredTime.TabIndex = 0;
             // 
             // PostCallWindow

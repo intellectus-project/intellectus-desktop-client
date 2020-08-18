@@ -1,4 +1,5 @@
-﻿using System;
+﻿using intellectus_desktop_client.Models;
+using System;
 
 namespace intellectus_desktop_client
 {
@@ -44,6 +45,7 @@ namespace intellectus_desktop_client
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
             this.lblOperatorName.TabIndex = 6;
+            this.lblOperatorName.Text = String.Concat(User.Name, " ", User.LastName);
             // 
             // label2
             // 

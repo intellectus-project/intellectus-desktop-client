@@ -1,4 +1,6 @@
-﻿namespace intellectus_desktop_client
+﻿using intellectus_desktop_client.Models;
+
+namespace intellectus_desktop_client
 {
     partial class OnCallWindow
     {
@@ -86,7 +88,7 @@
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(60, 13);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = "Juan Perez";
+            this.lblOperatorName.Text = string.Concat(User.Name, " ",User.LastName);
             // 
             // timer1
             // 

@@ -11,10 +11,9 @@ namespace intellectus_desktop_client.Views.Suggestions
 {
     public partial class PostCallWindow : Form
     {
-        public Operator UserOperator;
-        public PostCallWindow(Operator user)
+        
+        public PostCallWindow()
         {
-            UserOperator = user;
             InitializeComponent();
         }
 

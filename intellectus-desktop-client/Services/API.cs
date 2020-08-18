@@ -13,7 +13,7 @@ namespace intellectus_desktop_client.Services
 {
     public static class API
     {
-        public static Operator Login(string user, string psw)
+        public static bool Login(string user, string psw)
         {
             var bodyData = new Dictionary<string, string>
             {
@@ -34,14 +34,15 @@ namespace intellectus_desktop_client.Services
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
                     Operator loggedUser = JsonConvert.DeserializeObject<Operator>(apiResponse);
-                    return loggedUser;
+                    User.MapToStaticClass(loggedUser);
+                    return true; 
                 }
 
-                return null;
+                return false; 
             }
         }
         
-        public static bool StartCall(Operator user)
+        public static bool StartCall()
         {
             DateTime startTime = DateTime.UtcNow;
             var bodyData = new Dictionary<string, string>
@@ -57,7 +58,7 @@ namespace intellectus_desktop_client.Services
                 HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, "http://localhost:3010/calls");
                 requestM.Content = content;
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.AccessToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", User.AccessToken);
 
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
 
@@ -65,25 +66,25 @@ namespace intellectus_desktop_client.Services
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
                     Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
-                    user.Call = call;
-                    user.Call.StartTime = startTime;
+                    User.Call = call;
+                    User.Call.StartTime = startTime;
                     return true;
                 }
             }
             return false;
         }
 
-        public static bool EndCall(Operator user)
+        public static bool EndCall()
         {
-            string data = JsonConvert.SerializeObject(user.Call);
+            string data = JsonConvert.SerializeObject(User.Call);
             var content = new StringContent(data, Encoding.UTF8, "application/json");
 
             using (var client = new HttpClient())
             {
-                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("http://localhost:3010/calls/{0}",user.Call.Id));
+                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("http://localhost:3010/calls/{0}",User.Call.Id));
                 requestM.Content = content;
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.AccessToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", User.AccessToken);
 
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
 

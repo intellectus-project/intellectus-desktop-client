@@ -16,10 +16,9 @@ namespace intellectus_desktop_client
     public partial class OnCallWindow : Form
     {
         public static Stopwatch TranscurredTime= new Stopwatch();
-        public Operator UserOperator;
-        public OnCallWindow(Operator user)
+        
+        public OnCallWindow()
         {
-            UserOperator = user;
             InitializeComponent();
             timer1.Start();
             TranscurredTime.Start();
@@ -31,8 +30,8 @@ namespace intellectus_desktop_client
             Recording.StopRecording();
             timer1.Stop();
             TranscurredTime.Stop();
-            UserOperator.Call.EndTime = DateTime.UtcNow;
-            PostCallOperator postCall = new PostCallOperator(UserOperator);
+            User.Call.EndTime = DateTime.UtcNow;
+            PostCallOperator postCall = new PostCallOperator();
             postCall.Show();
             this.Hide();
         }
