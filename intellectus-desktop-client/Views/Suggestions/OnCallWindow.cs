@@ -30,7 +30,7 @@ namespace intellectus_desktop_client
             Recording.StopRecording();
             timer1.Stop();
             TranscurredTime.Stop();
-            User.Call.EndTime = DateTime.UtcNow;
+            Domain.CurrentUser.Call.EndTime = DateTime.UtcNow;
             PostCallOperator postCall = new PostCallOperator();
             postCall.Show();
             this.Hide();

@@ -23,7 +23,7 @@ namespace intellectus_desktop_client.Views.Suggestions
         {
             if (emotion.SelectedItems.Count > 0)
             {
-                User.Call.Emotion = emotion.SelectedItem.ToString();
+                Domain.CurrentUser.Call.Emotion = emotion.SelectedItem.ToString();
                 if (API.EndCall())
                 {
                     PostCallWindow postCallWindow = new PostCallWindow();

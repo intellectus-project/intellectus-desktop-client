@@ -88,7 +88,7 @@ namespace intellectus_desktop_client
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(60, 13);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = string.Concat(User.Name, " ",User.LastName);
+            this.lblOperatorName.Text = string.Concat(Domain.CurrentUser.Name, " ",Domain.CurrentUser.LastName);
             // 
             // timer1
             // 

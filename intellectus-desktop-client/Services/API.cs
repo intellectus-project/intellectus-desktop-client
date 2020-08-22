@@ -34,7 +34,7 @@ namespace intellectus_desktop_client.Services
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
                     Operator loggedUser = JsonConvert.DeserializeObject<Operator>(apiResponse);
-                    User.MapToStaticClass(loggedUser);
+                    Domain.CurrentUser = loggedUser;
                     return true; 
                 }
 
@@ -58,7 +58,7 @@ namespace intellectus_desktop_client.Services
                 HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, "http://localhost:3010/calls");
                 requestM.Content = content;
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", User.AccessToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
 
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
 
@@ -66,8 +66,8 @@ namespace intellectus_desktop_client.Services
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
                     Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
-                    User.Call = call;
-                    User.Call.StartTime = startTime;
+                    Domain.CurrentUser.Call = call;
+                    Domain.CurrentUser.Call.StartTime = startTime;
                     return true;
                 }
             }
@@ -76,15 +76,15 @@ namespace intellectus_desktop_client.Services
 
         public static bool EndCall()
         {
-            string data = JsonConvert.SerializeObject(User.Call);
+            string data = JsonConvert.SerializeObject(Domain.CurrentUser.Call);
             var content = new StringContent(data, Encoding.UTF8, "application/json");
 
             using (var client = new HttpClient())
             {
-                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("http://localhost:3010/calls/{0}",User.Call.Id));
+                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("http://localhost:3010/calls/{0}",Domain.CurrentUser.Call.Id));
                 requestM.Content = content;
 
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", User.AccessToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
 
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
 
