@@ -26,10 +26,10 @@ namespace intellectus_desktop_client.Views
             }
             else
             {
-                Operator response = API.Login(username.Text, password.Text);
-                if (response != null)
+                bool ok = API.Login(username.Text, password.Text);
+                if (ok)
                 {
-                    EnteringCall enteringCall = new EnteringCall(response);
+                    EnteringCall enteringCall = new EnteringCall();
                     enteringCall.Show();
                     this.Hide();
                 }

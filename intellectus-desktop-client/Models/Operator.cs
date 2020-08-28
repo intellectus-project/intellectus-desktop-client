@@ -26,7 +26,5 @@ namespace intellectus_desktop_client.Models
 
         public Call Call { get; set; }
 
-
-
     }
 }
