@@ -14,12 +14,14 @@ namespace intellectus_emotion_recognition_testbed
     {
         private string path;
         private Action<EmotionsProbabilities> offlineCallback, realtimeCallback;
+        private Action<List<EmotionsProbabilities>> realTimeCollectionAction;
 
-        public SoundThread(string path, Action<EmotionsProbabilities> offlineCallback, Action<EmotionsProbabilities> realtimeCallback)
+        public SoundThread(string path, Action<EmotionsProbabilities> offlineCallback, Action<EmotionsProbabilities> realtimeCallback, Action<List<EmotionsProbabilities>> realTimeCollectionAction)
         {
             this.path = path;
             this.offlineCallback = offlineCallback;
             this.realtimeCallback = realtimeCallback;
+            this.realTimeCollectionAction = realTimeCollectionAction;
         }
 
         public void Process()
@@ -45,6 +47,7 @@ namespace intellectus_emotion_recognition_testbed
 
             offlineCallback.Invoke(extractor.Extraction.Emotions);
             realtimeCallback.Invoke(rtExtractor.Average().Emotions);
+            realTimeCollectionAction.Invoke(rtExtractor.EmotionsProbabilities);
         }
 
 

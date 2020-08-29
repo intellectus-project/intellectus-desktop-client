@@ -50,7 +50,7 @@ namespace intellectus_emotion_recognition_testbed
                 threadInstance.Abort();
 
             var path = Path.Combine(directory, file);
-            thread = new SoundThread(path, SetEmotions, SetEmotionsRealTime);
+            thread = new SoundThread(path, SetEmotions, SetEmotionsRealTime, SetEmotionsRealTimeCollection);
             threadInstance = new Thread(new ThreadStart(thread.Process));
             threadInstance.Start();
 
@@ -110,6 +110,37 @@ namespace intellectus_emotion_recognition_testbed
                 button1.Enabled = true;
             }
         }
+
+        delegate void SetEmotionsRealTimeCollectionCallback(List<EmotionsProbabilities> emotions);
+
+        public void SetEmotionsRealTimeCollection(List<EmotionsProbabilities> emotionCollection)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (lstEmotions.InvokeRequired)
+            {
+                SetEmotionsRealTimeCollectionCallback d = new SetEmotionsRealTimeCollectionCallback(SetEmotionsRealTimeCollection);
+                Invoke(d, emotionCollection);
+            }
+            else
+            {
+                foreach (var serie in emotionalChart.Series)
+                    serie.Points.Clear();
+
+                double x = 0f;
+                emotionCollection.ForEach(emotion =>
+                {
+                    emotionalChart.Series["Happiness"].Points.AddXY(x, Math.Round(emotion.Happiness, 5));
+                    emotionalChart.Series["Sadness"].Points.AddXY(x, Math.Round(emotion.Sadness, 5));
+                    emotionalChart.Series["Fear"].Points.AddXY(x, Math.Round(emotion.Fear, 5));
+                    emotionalChart.Series["Anger"].Points.AddXY(x, Math.Round(emotion.Anger, 5));
+                    emotionalChart.Series["Neutrality"].Points.AddXY(x, Math.Round(emotion.Neutrality, 5));
+                    x++;
+                });
+            }
+        }
+
         private static int Percent(double value)
         {
             return (int)Math.Round(value * 100.0);

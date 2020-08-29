@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lstFiles = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.lstEmotions = new System.Windows.Forms.ListView();
             this.lstEmotionsRealTime = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.emotionalChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.emotionalChart)).BeginInit();
             this.SuspendLayout();
             // 
             // lstFiles
@@ -99,11 +108,58 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Real-Time Analysis, each 5 seconds";
             // 
+            // emotionalChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.emotionalChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.emotionalChart.Legends.Add(legend1);
+            this.emotionalChart.Location = new System.Drawing.Point(55, 400);
+            this.emotionalChart.Name = "emotionalChart";
+            series1.BorderWidth = 5;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Lime;
+            series1.Legend = "Legend1";
+            series1.Name = "Happiness";
+            series2.BorderWidth = 5;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Fuchsia;
+            series2.Legend = "Legend1";
+            series2.Name = "Sadness";
+            series3.BorderWidth = 5;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Blue;
+            series3.Legend = "Legend1";
+            series3.Name = "Neutrality";
+            series4.BorderWidth = 5;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Fear";
+            series5.BorderWidth = 5;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Red;
+            series5.Legend = "Legend1";
+            series5.Name = "Anger";
+            this.emotionalChart.Series.Add(series1);
+            this.emotionalChart.Series.Add(series2);
+            this.emotionalChart.Series.Add(series3);
+            this.emotionalChart.Series.Add(series4);
+            this.emotionalChart.Series.Add(series5);
+            this.emotionalChart.Size = new System.Drawing.Size(914, 300);
+            this.emotionalChart.TabIndex = 6;
+            this.emotionalChart.Text = "emotionalChart";
+            // 
             // EmotionRecognitionTestbed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 450);
+            this.ClientSize = new System.Drawing.Size(1011, 712);
+            this.Controls.Add(this.emotionalChart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstEmotionsRealTime);
@@ -113,6 +169,7 @@
             this.Name = "EmotionRecognitionTestbed";
             this.Text = "EmotionRecognitionTestbed";
             this.Load += new System.EventHandler(this.EmotionRecognitionTestbed_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.emotionalChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +183,6 @@
         private System.Windows.Forms.ListView lstEmotionsRealTime;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart emotionalChart;
     }
 }
