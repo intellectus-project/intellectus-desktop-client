@@ -83,7 +83,7 @@ namespace intellectus_desktop_unit_tests.Suggestions
 
             var probabilities3 = new EmotionsProbabilities();
             probabilities3.Happiness = 0.9;
-            probabilities3.Anger = 0.1;
+            probabilities3.Fear = 0.2;
             var result3 = Generate(probabilities3);
 
             system.ExtractionAvailable(result);
