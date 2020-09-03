@@ -13,7 +13,7 @@ namespace EmotionRecognition.Wrapper
         private ExtractionQuality quality;
 
 
-        internal VoiceFeatureExtractionResult(ExtractionQuality quality, EmotionsProbabilities probabilities)
+        public VoiceFeatureExtractionResult(ExtractionQuality quality, EmotionsProbabilities probabilities)
         {
             this.probabilities = probabilities;
             this.quality = quality;
