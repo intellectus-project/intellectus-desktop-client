@@ -22,6 +22,8 @@ namespace intellectus_desktop_unit_tests.Mocks
             return VoiceFeatureExtractionResult.Average(results);
         }
 
+        public List<EmotionsProbabilities> EmotionsProbabilities => results.ConvertAll(result => result.Emotions);
+
     }
 
 }

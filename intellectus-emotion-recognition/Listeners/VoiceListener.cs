@@ -44,6 +44,29 @@ namespace EmotionRecognition.Listeners
             remainingSamplesForPeriod = maxBufferedSamples;
         }
 
+        public VoiceListener(WaveFormat format, int totalBytes)
+        {
+            buffer = new BufferedWaveProvider(format);
+            buffer.BufferLength = totalBytes;
+            buffer.ReadFully = false;
+
+            bytesToSampleLength = (format.BitsPerSample * format.Channels / 8);
+
+            this.format = format;
+
+            if (this.format.Channels < 2)
+                provider = buffer.ToSampleProvider();
+            else
+                provider = new StereoToMonoSampleProvider(buffer.ToSampleProvider());
+
+            maxBufferedSamples = totalBytes / bytesToSampleLength;
+
+            voice = new Voice(format.SampleRate, maxBufferedSamples);
+
+            listeners = new List<IExtractionListener>();
+            remainingSamplesForPeriod = maxBufferedSamples;
+        }
+
         private void CalculateMaxBufferedSamples(WaveFormat format, float seconds)
         {
             maxBufferedSamples = (int)Math.Ceiling(format.SampleRate * seconds);
@@ -83,6 +106,15 @@ namespace EmotionRecognition.Listeners
                 buffer.ClearBuffer();
                 ProcessSamples(floatSamples);
             }            
+        }
+
+        public void FlushExtract()
+        {
+            if(remainingSamplesForPeriod != maxBufferedSamples)
+            {
+                Extract();
+                remainingSamplesForPeriod = maxBufferedSamples;
+            }
         }
 
         private void ProcessSamples(float[] samples)
