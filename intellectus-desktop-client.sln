@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "intellectus-desktop-unit-te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intellectus-emotion-recognition", "intellectus-emotion-recognition\intellectus-emotion-recognition.csproj", "{6E3AA0A1-E029-4F88-B5E2-0A72F8CB0AEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "intellectus-suggestions", "intellectus-suggestions\intellectus-suggestions.csproj", "{0C96EAE3-8D7B-400C-80F5-14D5F5214399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{6E3AA0A1-E029-4F88-B5E2-0A72F8CB0AEF}.Release|x64.Build.0 = Release|x64
 		{6E3AA0A1-E029-4F88-B5E2-0A72F8CB0AEF}.Release|x86.ActiveCfg = Release|x86
 		{6E3AA0A1-E029-4F88-B5E2-0A72F8CB0AEF}.Release|x86.Build.0 = Release|x86
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Debug|x64.Build.0 = Debug|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Debug|x86.Build.0 = Debug|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Release|x64.ActiveCfg = Release|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Release|x64.Build.0 = Release|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Release|x86.ActiveCfg = Release|Any CPU
+		{0C96EAE3-8D7B-400C-80F5-14D5F5214399}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
