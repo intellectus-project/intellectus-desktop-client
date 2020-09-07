@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace intellectus_desktop_unit_tests
 {
-    class SoundBank
+   public class SoundBank
     {
         private string projectDirectory, pathToSoundBank, pathToTemp;
         private List<string> sounds;
@@ -33,7 +33,12 @@ namespace intellectus_desktop_unit_tests
 
         private string FindProjectDirectory()
         {
-            var rootDirectory = Assembly.GetExecutingAssembly().GetName().Name;
+            var rootDirectory = "";
+            if(Assembly.GetEntryAssembly() != null)
+                rootDirectory = Assembly.GetEntryAssembly().GetName().Name;
+            else
+                rootDirectory = Assembly.GetExecutingAssembly().GetName().Name;
+
             var environment = Environment.CurrentDirectory;
 
             var actual = new DirectoryInfo(environment);
@@ -43,6 +48,7 @@ namespace intellectus_desktop_unit_tests
                 if (actual == null)
                     throw new DirectoryNotFoundException("Cannot find the project root");
             }
+            actual = actual.Parent;
             return actual.FullName;
         }
 

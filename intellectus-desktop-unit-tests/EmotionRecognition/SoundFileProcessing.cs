@@ -40,9 +40,7 @@ namespace intellectus_desktop_unit_tests.EmotionRecognition
             var sourcePath = Path.Combine(SoundBank.Instance.PathToSoundBank, SoundBank.Instance.SoundFiles[9]);
             var input = new FileSoundSource(sourcePath);
 
-            float seconds = (float)input.FileSize / input.GetWaveFormat().AverageBytesPerSecond;
-
-            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), seconds);
+            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), (int)input.FileSize);
 
             var extractor = new VokaturiSingleExtractor();
             listener.Subscribe(extractor);
@@ -61,7 +59,7 @@ namespace intellectus_desktop_unit_tests.EmotionRecognition
             var sourcePath = Path.Combine(SoundBank.Instance.PathToSoundBank, SoundBank.Instance.SoundFiles[8]);
             var input = new FileSoundSource(sourcePath);
 
-            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), 5);
+            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), 5f);
 
             var extractor = new VokaturiAverage();
             listener.Subscribe(extractor);
