@@ -5,13 +5,17 @@ using System.Windows.Forms;
 
 namespace intellectus_desktop_client.Views.Suggestions
 {
-    public partial class PostCallOperator : Form
+    public partial class PostCallOperator : MaterialSkin.Controls.MaterialForm
     {
        
         public PostCallOperator()
         {
             
             InitializeComponent();
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
         }
 
         private void PostCall_Load(object sender, EventArgs e)

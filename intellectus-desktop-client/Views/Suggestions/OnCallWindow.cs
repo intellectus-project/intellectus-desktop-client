@@ -13,13 +13,17 @@ using System.Windows.Forms;
 
 namespace intellectus_desktop_client
 {
-    public partial class OnCallWindow : Form
+    public partial class OnCallWindow : MaterialSkin.Controls.MaterialForm
     {
         public static Stopwatch TranscurredTime= new Stopwatch();
         
         public OnCallWindow()
         {
             InitializeComponent();
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             timer1.Start();
             TranscurredTime.Start();
 
