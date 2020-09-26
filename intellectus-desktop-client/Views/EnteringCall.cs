@@ -26,9 +26,7 @@ namespace intellectus_desktop_client
         }
 
         private void btnStartCall_Click(object sender, EventArgs e)
-        {
-            Recording.StartRecording();
-            API.StartCall();
+        {            
             OnCallWindow onCallWindow = new OnCallWindow();
             onCallWindow.Show();
             this.Hide();

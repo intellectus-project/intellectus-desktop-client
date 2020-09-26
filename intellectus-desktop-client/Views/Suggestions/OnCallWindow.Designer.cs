@@ -31,9 +31,9 @@ namespace intellectus_desktop_client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("bla");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Bla");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("bla");
             this.lblTranscurredTimeName = new System.Windows.Forms.Label();
             this.lblTranscurredTime = new System.Windows.Forms.Label();
             this.btnEndCall = new System.Windows.Forms.Button();
@@ -46,9 +46,10 @@ namespace intellectus_desktop_client
             // lblTranscurredTimeName
             // 
             this.lblTranscurredTimeName.AutoSize = true;
-            this.lblTranscurredTimeName.Location = new System.Drawing.Point(31, 71);
+            this.lblTranscurredTimeName.Location = new System.Drawing.Point(41, 87);
+            this.lblTranscurredTimeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTranscurredTimeName.Name = "lblTranscurredTimeName";
-            this.lblTranscurredTimeName.Size = new System.Drawing.Size(103, 13);
+            this.lblTranscurredTimeName.Size = new System.Drawing.Size(139, 17);
             this.lblTranscurredTimeName.TabIndex = 2;
             this.lblTranscurredTimeName.Text = "Tiempo transcurrido:";
             // 
@@ -56,17 +57,19 @@ namespace intellectus_desktop_client
             // 
             this.lblTranscurredTime.AccessibleName = "transcurredTime";
             this.lblTranscurredTime.AutoSize = true;
-            this.lblTranscurredTime.Location = new System.Drawing.Point(140, 74);
+            this.lblTranscurredTime.Location = new System.Drawing.Point(187, 91);
+            this.lblTranscurredTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTranscurredTime.Name = "lblTranscurredTime";
-            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 13);
+            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 17);
             this.lblTranscurredTime.TabIndex = 3;
             // 
             // btnEndCall
             // 
             this.btnEndCall.AccessibleName = "btnEndCall";
-            this.btnEndCall.Location = new System.Drawing.Point(57, 148);
+            this.btnEndCall.Location = new System.Drawing.Point(76, 182);
+            this.btnEndCall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEndCall.Name = "btnEndCall";
-            this.btnEndCall.Size = new System.Drawing.Size(64, 20);
+            this.btnEndCall.Size = new System.Drawing.Size(85, 25);
             this.btnEndCall.TabIndex = 4;
             this.btnEndCall.Text = "Finalizar";
             this.btnEndCall.UseVisualStyleBackColor = true;
@@ -75,20 +78,21 @@ namespace intellectus_desktop_client
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(196, 17);
+            this.label1.Location = new System.Drawing.Point(261, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1, 265);
+            this.label1.Size = new System.Drawing.Size(1, 326);
             this.label1.TabIndex = 5;
             // 
             // lblOperatorName
             // 
             this.lblOperatorName.AccessibleName = "lblOperatorName";
             this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
+            this.lblOperatorName.Location = new System.Drawing.Point(553, 21);
+            this.lblOperatorName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(60, 13);
+            this.lblOperatorName.Size = new System.Drawing.Size(0, 17);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = string.Concat(Domain.CurrentUser.Name, " ",Domain.CurrentUser.LastName);
             // 
             // timer1
             // 
@@ -101,9 +105,10 @@ namespace intellectus_desktop_client
             listViewItem1,
             listViewItem2,
             listViewItem3});
-            this.suggestionsList.Location = new System.Drawing.Point(283, 60);
+            this.suggestionsList.Location = new System.Drawing.Point(377, 74);
+            this.suggestionsList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.suggestionsList.Name = "suggestionsList";
-            this.suggestionsList.Size = new System.Drawing.Size(330, 132);
+            this.suggestionsList.Size = new System.Drawing.Size(439, 162);
             this.suggestionsList.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.suggestionsList.TabIndex = 9;
             this.suggestionsList.UseCompatibleStateImageBehavior = false;
@@ -111,17 +116,19 @@ namespace intellectus_desktop_client
             // 
             // OnCallWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(915, 480);
             this.Controls.Add(this.suggestionsList);
             this.Controls.Add(this.lblOperatorName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEndCall);
             this.Controls.Add(this.lblTranscurredTime);
             this.Controls.Add(this.lblTranscurredTimeName);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "OnCallWindow";
             this.Text = "Suggestions";
+            this.Load += new System.EventHandler(this.OnCallWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

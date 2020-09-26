@@ -60,7 +60,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.Location = new System.Drawing.Point(361, 58);
             this.transcurredTime.Name = "transcurredTime";
             this.transcurredTime.Size = new System.Drawing.Size(0, 15);
-            this.transcurredTime.Text = Domain.CurrentUser.Call.EndTime.Subtract(Domain.CurrentUser.Call.StartTime).ToString("hh':'mm':'ss");
+            //this.transcurredTime.Text = Domain.CurrentUser.Call.EndTime.Subtract(Domain.CurrentUser.Call.StartTime).ToString("hh':'mm':'ss");
             this.transcurredTime.TabIndex = 0;
             // 
             // PostCallWindow

@@ -45,7 +45,7 @@ namespace intellectus_desktop_client
             this.lblOperatorName.Name = "lblOperatorName";
             this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
             this.lblOperatorName.TabIndex = 6;
-            this.lblOperatorName.Text = String.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
+            //this.lblOperatorName.Text = String.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
             // 
             // label2
             // 

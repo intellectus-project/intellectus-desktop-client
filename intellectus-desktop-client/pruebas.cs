@@ -17,8 +17,8 @@ namespace intellectus_desktop_client
 
         private void send_Click(object sender, EventArgs e)
         {
-            OnCallWindow onCallWindow = (OnCallWindow)Application.OpenForms["OnCallWindow"];
-            onCallWindow.Suggest(sugerencia.Text);
+            /*OnCallWindow onCallWindow = (OnCallWindow)Application.OpenForms["OnCallWindow"];
+            onCallWindow.Suggest(sugerencia.Text);*/
         }
     }
 }
