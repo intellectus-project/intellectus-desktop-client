@@ -31,26 +31,21 @@ namespace intellectus_desktop_client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("bla");
-            this.lblOperatorName = new System.Windows.Forms.Label();
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("bla");
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.suggestionsList = new System.Windows.Forms.ListView();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.lblTranscurredTime = new MaterialSkin.Controls.MaterialLabel();
             this.btnEndCall = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.operatorName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.weather = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblOperatorName
-            // 
-            this.lblOperatorName.AccessibleName = "lblOperatorName";
-            this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
-            this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
-            this.lblOperatorName.TabIndex = 6;
             // 
             // timer1
             // 
@@ -61,10 +56,10 @@ namespace intellectus_desktop_client
             this.suggestionsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionsList.HideSelection = false;
             this.suggestionsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
-            this.suggestionsList.Location = new System.Drawing.Point(308, 92);
+            listViewItem7,
+            listViewItem8,
+            listViewItem9});
+            this.suggestionsList.Location = new System.Drawing.Point(308, 120);
             this.suggestionsList.Name = "suggestionsList";
             this.suggestionsList.Size = new System.Drawing.Size(330, 132);
             this.suggestionsList.Sorting = System.Windows.Forms.SortOrder.Descending;
@@ -121,31 +116,95 @@ namespace intellectus_desktop_client
             this.materialDivider1.TabIndex = 13;
             this.materialDivider1.Text = "materialDivider1";
             // 
+            // operatorName
+            // 
+            this.operatorName.Depth = 0;
+            this.operatorName.Hint = "";
+            this.operatorName.Location = new System.Drawing.Point(446, 73);
+            this.operatorName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.operatorName.Name = "operatorName";
+            this.operatorName.PasswordChar = '\0';
+            this.operatorName.SelectedText = "";
+            this.operatorName.SelectionLength = 0;
+            this.operatorName.SelectionStart = 0;
+            this.operatorName.Size = new System.Drawing.Size(237, 23);
+            this.operatorName.TabIndex = 14;
+            this.operatorName.UseSystemPasswordChar = false;
+            this.operatorName.Text = string.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
+
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.weather);
+            this.panel1.Controls.Add(this.materialSingleLineTextField1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 359);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(686, 31);
+            this.panel1.TabIndex = 15;
+            // 
+            // weather
+            // 
+            this.weather.Depth = 0;
+            this.weather.Hint = "";
+            this.weather.Location = new System.Drawing.Point(464, 5);
+            this.weather.MouseState = MaterialSkin.MouseState.HOVER;
+            this.weather.Name = "weather";
+            this.weather.PasswordChar = '\0';
+            this.weather.SelectedText = "";
+            this.weather.SelectionLength = 0;
+            this.weather.SelectionStart = 0;
+            this.weather.Size = new System.Drawing.Size(215, 23);
+            this.weather.TabIndex = 1;
+            this.weather.Text = "nubes perro";
+            this.weather.UseSystemPasswordChar = false;
+            // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(13, 4);
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(75, 23);
+            this.materialSingleLineTextField1.TabIndex = 0;
+            this.materialSingleLineTextField1.Text = "Intellectus";
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            // 
             // OnCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.operatorName);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnEndCall);
             this.Controls.Add(this.lblTranscurredTime);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.suggestionsList);
-            this.Controls.Add(this.lblOperatorName);
             this.Name = "OnCallWindow";
             this.Text = "Suggestions";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblOperatorName;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ListView suggestionsList;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel lblTranscurredTime;
         private MaterialSkin.Controls.MaterialRaisedButton btnEndCall;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField operatorName;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField weather;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
     }
 }
