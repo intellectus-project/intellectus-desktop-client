@@ -10,6 +10,6 @@ namespace intellectus_desktop_client.Models
     public static class Domain
     {
         public static Operator CurrentUser { get; set; }
-
+        public static Weather CurrentWeather { get; set; }
     }
 }

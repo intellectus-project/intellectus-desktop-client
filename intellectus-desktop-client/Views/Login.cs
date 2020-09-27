@@ -30,8 +30,7 @@ namespace intellectus_desktop_client.Views
             }
             else
             {
-                bool ok = API.Login(username.Text, password.Text);
-                if (ok)
+                if (API.Login(username.Text, password.Text))
                 {
                     EnteringCall enteringCall = new EnteringCall();
                     enteringCall.Show();

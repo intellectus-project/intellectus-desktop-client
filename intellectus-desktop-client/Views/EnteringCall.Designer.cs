@@ -144,7 +144,6 @@ namespace intellectus_desktop_client
             this.weather.Size = new System.Drawing.Size(215, 23);
             this.weather.TabIndex = 1;
             this.weather.UseSystemPasswordChar = false;
-            this.weather.Text = "nubes perro";
             // 
             // EnteringCall
             // 

@@ -95,5 +95,27 @@ namespace intellectus_desktop_client.Services
             }
             return false;
         }
+
+        public static bool ObtainWeather()
+        {
+            
+            using (var client = new HttpClient())
+            {
+                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Get, string.Format("http://localhost:3010/weathers?date={0}", DateTime.Now.ToString("yyy-MM-dd")));
+               
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
+
+                HttpResponseMessage response = client.SendAsync(requestM).Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    string apiResponse = response.Content.ReadAsStringAsync().Result;
+                    Weather weather = JsonConvert.DeserializeObject<Weather>(apiResponse);
+                    Domain.CurrentWeather = weather;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

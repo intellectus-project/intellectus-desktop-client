@@ -22,7 +22,7 @@ namespace intellectus_desktop_client
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
-
+            SetWeather();
         }
 
         private void btnStartCall_Click(object sender, EventArgs e)
@@ -32,6 +32,14 @@ namespace intellectus_desktop_client
             OnCallWindow onCallWindow = new OnCallWindow();
             onCallWindow.Show();
             this.Hide();
+        }
+
+        private void SetWeather()
+        {
+            if (API.ObtainWeather())
+            {
+                weather.Text = Domain.CurrentWeather.Descrption;
+            } 
         }
     }
 
