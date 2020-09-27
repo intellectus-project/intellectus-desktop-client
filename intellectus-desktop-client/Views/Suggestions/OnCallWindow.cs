@@ -16,13 +16,14 @@ namespace intellectus_desktop_client
     public partial class OnCallWindow : Form
     {
         public static Stopwatch TranscurredTime= new Stopwatch();
-        
+        private SuggestionListenerController SuggestionListenerController { get; set; }
+
         public OnCallWindow()
         {
             InitializeComponent();
             timer1.Start();
             TranscurredTime.Start();
-
+            SuggestionListenerController = new SuggestionListenerController(suggestionsList);
         }
 
         private void btnEndCall_Click(object sender, EventArgs e)
@@ -41,12 +42,12 @@ namespace intellectus_desktop_client
             lblTranscurredTime.Text = TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
         }
 
-        public void Suggest(string suggestion)
+        private void OnCallWindow_Load(object sender, EventArgs e)
         {
-            ListViewItem item = new ListViewItem(suggestion);
-            suggestionsList.Items.Insert(0, item);
-            suggestionsList.Items.Remove(suggestionsList.Items[3]);
+            Recording.StartRecording(SuggestionListenerController);
+            API.StartCall();
         }
+
 
     }
 }
