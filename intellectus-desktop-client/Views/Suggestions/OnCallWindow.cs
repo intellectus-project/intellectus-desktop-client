@@ -16,17 +16,20 @@ namespace intellectus_desktop_client
     public partial class OnCallWindow : MaterialSkin.Controls.MaterialForm
     {
         public static Stopwatch TranscurredTime= new Stopwatch();
-        
+        private SuggestionListenerController SuggestionListenerController { get; set; }
+
         public OnCallWindow()
         {
             InitializeComponent();
+            Recording.StartRecording(SuggestionListenerController);
+            API.StartCall();
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             timer1.Start();
             TranscurredTime.Start();
-
+            SuggestionListenerController = new SuggestionListenerController(suggestionsList);
         }
 
         private void btnEndCall_Click(object sender, EventArgs e)
@@ -45,12 +48,11 @@ namespace intellectus_desktop_client
             lblTranscurredTime.Text = TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
         }
 
-        public void Suggest(string suggestion)
+        private void OnCallWindow_Load(object sender, EventArgs e)
         {
-            ListViewItem item = new ListViewItem(suggestion);
-            suggestionsList.Items.Insert(0, item);
-            suggestionsList.Items.Remove(suggestionsList.Items[3]);
+            
         }
+
 
     }
 }

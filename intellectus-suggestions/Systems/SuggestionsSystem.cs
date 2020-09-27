@@ -2,7 +2,7 @@
 using EmotionRecognition.Wrapper;
 using System.Collections.Generic;
 
-namespace Suggestions
+namespace Suggestions.Systems
 {
     public class SuggestionsSystem : IExtractionListener
     {
