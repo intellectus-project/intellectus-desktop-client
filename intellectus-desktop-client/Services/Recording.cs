@@ -37,7 +37,7 @@ namespace intellectus_desktop_client.Services
         private static void InitializeOperatorRecorder(ISuggestionsListener suggestionListener)
         {
             var waveFormat = new NAudio.Wave.WaveFormat(44100, 1);
-            OperatorRecorder = new InputSoundSource(waveFormat, 1);
+            OperatorRecorder = new InputSoundSource(waveFormat, 0);
             OperatorWriter = new SoundFileWriter(FormatPath("/Grabaciones/operator", operatorName), waveFormat);
             var voiceListener = new VoiceListener(waveFormat, 10f);
 

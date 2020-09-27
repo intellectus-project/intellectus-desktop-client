@@ -11,10 +11,11 @@ namespace intellectus_desktop_client.Views.Suggestions
     class SuggestionListenerController : ISuggestionsListener
     {
         private ListView View { get; set; }
-
-        public SuggestionListenerController(ListView view)
+        private Action<Delegate, object> Action;
+        public SuggestionListenerController(ListView view, Action<Delegate, object> action)
         {
             View = view;
+            Action = action;
         }
 
 
@@ -34,7 +35,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             if (View.InvokeRequired)
             {
                 SuggestCallback callback = new SuggestCallback(Suggest);
-                callback.Invoke(suggestion);
+                Action.Invoke(callback,suggestion);
             }
             else
             {

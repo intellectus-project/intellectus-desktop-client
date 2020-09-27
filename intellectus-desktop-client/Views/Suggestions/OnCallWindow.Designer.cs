@@ -31,67 +31,25 @@ namespace intellectus_desktop_client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("bla");
-            this.lblTranscurredTimeName = new System.Windows.Forms.Label();
-            this.lblTranscurredTime = new System.Windows.Forms.Label();
-            this.btnEndCall = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("bla");
             this.lblOperatorName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.suggestionsList = new System.Windows.Forms.ListView();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblTranscurredTime = new MaterialSkin.Controls.MaterialLabel();
+            this.btnEndCall = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.SuspendLayout();
-            // 
-            // lblTranscurredTimeName
-            // 
-            this.lblTranscurredTimeName.AutoSize = true;
-            this.lblTranscurredTimeName.Location = new System.Drawing.Point(41, 87);
-            this.lblTranscurredTimeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTranscurredTimeName.Name = "lblTranscurredTimeName";
-            this.lblTranscurredTimeName.Size = new System.Drawing.Size(139, 17);
-            this.lblTranscurredTimeName.TabIndex = 2;
-            this.lblTranscurredTimeName.Text = "Tiempo transcurrido:";
-            // 
-            // lblTranscurredTime
-            // 
-            this.lblTranscurredTime.AccessibleName = "transcurredTime";
-            this.lblTranscurredTime.AutoSize = true;
-            this.lblTranscurredTime.Location = new System.Drawing.Point(187, 91);
-            this.lblTranscurredTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTranscurredTime.Name = "lblTranscurredTime";
-            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 17);
-            this.lblTranscurredTime.TabIndex = 3;
-            // 
-            // btnEndCall
-            // 
-            this.btnEndCall.AccessibleName = "btnEndCall";
-            this.btnEndCall.Location = new System.Drawing.Point(76, 182);
-            this.btnEndCall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEndCall.Name = "btnEndCall";
-            this.btnEndCall.Size = new System.Drawing.Size(85, 25);
-            this.btnEndCall.TabIndex = 4;
-            this.btnEndCall.Text = "Finalizar";
-            this.btnEndCall.UseVisualStyleBackColor = true;
-            this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(261, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1, 326);
-            this.label1.TabIndex = 5;
             // 
             // lblOperatorName
             // 
             this.lblOperatorName.AccessibleName = "lblOperatorName";
             this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(553, 21);
-            this.lblOperatorName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
             this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(0, 17);
+            this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
             this.lblOperatorName.TabIndex = 6;
             // 
             // timer1
@@ -100,47 +58,94 @@ namespace intellectus_desktop_client
             // 
             // suggestionsList
             // 
+            this.suggestionsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionsList.HideSelection = false;
             this.suggestionsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
-            this.suggestionsList.Location = new System.Drawing.Point(377, 74);
-            this.suggestionsList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
+            this.suggestionsList.Location = new System.Drawing.Point(308, 92);
             this.suggestionsList.Name = "suggestionsList";
-            this.suggestionsList.Size = new System.Drawing.Size(439, 162);
+            this.suggestionsList.Size = new System.Drawing.Size(330, 132);
             this.suggestionsList.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.suggestionsList.TabIndex = 9;
             this.suggestionsList.UseCompatibleStateImageBehavior = false;
             this.suggestionsList.View = System.Windows.Forms.View.Tile;
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(12, 92);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(149, 19);
+            this.materialLabel1.TabIndex = 10;
+            this.materialLabel1.Text = "Tiempo transcurrido:";
+            // 
+            // lblTranscurredTime
+            // 
+            this.lblTranscurredTime.AutoSize = true;
+            this.lblTranscurredTime.Depth = 0;
+            this.lblTranscurredTime.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblTranscurredTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTranscurredTime.Location = new System.Drawing.Point(167, 92);
+            this.lblTranscurredTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblTranscurredTime.Name = "lblTranscurredTime";
+            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 19);
+            this.lblTranscurredTime.TabIndex = 11;
+            // 
+            // btnEndCall
+            // 
+            this.btnEndCall.Depth = 0;
+            this.btnEndCall.Location = new System.Drawing.Point(86, 201);
+            this.btnEndCall.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEndCall.Name = "btnEndCall";
+            this.btnEndCall.Primary = true;
+            this.btnEndCall.Size = new System.Drawing.Size(75, 23);
+            this.btnEndCall.TabIndex = 12;
+            this.btnEndCall.Text = "Finalizar";
+            this.btnEndCall.UseVisualStyleBackColor = true;
+            this.btnEndCall.Click += new System.EventHandler(this.btnEndCall_Click);
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(259, 61);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(5, 500);
+            this.materialDivider1.TabIndex = 13;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
             // OnCallWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 480);
-            this.Controls.Add(this.suggestionsList);
-            this.Controls.Add(this.lblOperatorName);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnEndCall);
             this.Controls.Add(this.lblTranscurredTime);
-            this.Controls.Add(this.lblTranscurredTimeName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.suggestionsList);
+            this.Controls.Add(this.lblOperatorName);
             this.Name = "OnCallWindow";
             this.Text = "Suggestions";
-            this.Load += new System.EventHandler(this.OnCallWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblTranscurredTimeName;
-        private System.Windows.Forms.Label lblTranscurredTime;
-        private System.Windows.Forms.Button btnEndCall;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblOperatorName;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ListView suggestionsList;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel lblTranscurredTime;
+        private MaterialSkin.Controls.MaterialRaisedButton btnEndCall;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
     }
 }

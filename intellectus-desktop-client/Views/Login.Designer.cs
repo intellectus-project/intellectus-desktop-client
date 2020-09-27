@@ -28,79 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.TextBox();
-            this.password = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.requiredText = new System.Windows.Forms.Label();
+            this.username = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.password = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.btnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(248, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(248, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Contraseña:";
-            // 
-            // username
-            // 
-            this.username.Location = new System.Drawing.Point(359, 84);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(100, 23);
-            this.username.TabIndex = 1;
-            // 
-            // password
-            // 
-            this.password.Location = new System.Drawing.Point(359, 140);
-            this.password.Name = "password";
-            this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(100, 23);
-            this.password.TabIndex = 1;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(307, 204);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Ingresar";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // requiredText
             // 
             this.requiredText.AutoSize = true;
+            this.requiredText.BackColor = System.Drawing.Color.Transparent;
             this.requiredText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.requiredText.Location = new System.Drawing.Point(248, 252);
+            this.requiredText.Location = new System.Drawing.Point(268, 292);
             this.requiredText.Name = "requiredText";
-            this.requiredText.Size = new System.Drawing.Size(173, 15);
+            this.requiredText.Size = new System.Drawing.Size(156, 13);
             this.requiredText.TabIndex = 3;
             this.requiredText.Text = "*Usuario/Contraseña incorrecta";
             this.requiredText.Visible = false;
             // 
+            // username
+            // 
+            this.username.BackColor = System.Drawing.Color.White;
+            this.username.Depth = 0;
+            this.username.ForeColor = System.Drawing.Color.LightCoral;
+            this.username.Hint = "Usuario";
+            this.username.Location = new System.Drawing.Point(255, 137);
+            this.username.MouseState = MaterialSkin.MouseState.HOVER;
+            this.username.Name = "username";
+            this.username.PasswordChar = '\0';
+            this.username.SelectedText = "";
+            this.username.SelectionLength = 0;
+            this.username.SelectionStart = 0;
+            this.username.Size = new System.Drawing.Size(191, 23);
+            this.username.TabIndex = 6;
+            this.username.UseSystemPasswordChar = false;
+            // 
+            // password
+            // 
+            this.password.BackColor = System.Drawing.Color.White;
+            this.password.Depth = 0;
+            this.password.Hint = "Contraseña";
+            this.password.Location = new System.Drawing.Point(255, 183);
+            this.password.MouseState = MaterialSkin.MouseState.HOVER;
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.SelectedText = "";
+            this.password.SelectionLength = 0;
+            this.password.SelectionStart = 0;
+            this.password.Size = new System.Drawing.Size(191, 23);
+            this.password.TabIndex = 7;
+            this.password.UseSystemPasswordChar = false;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.LightCoral;
+            this.btnLogin.Depth = 0;
+            this.btnLogin.Location = new System.Drawing.Point(316, 235);
+            this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Primary = true;
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 8;
+            this.btnLogin.Text = "Ingresar";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.requiredText);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.requiredText);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -109,12 +110,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox username;
-        private System.Windows.Forms.TextBox password;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label requiredText;
+        private MaterialSkin.Controls.MaterialSingleLineTextField username;
+        private MaterialSkin.Controls.MaterialSingleLineTextField password;
+        private MaterialSkin.Controls.MaterialRaisedButton btnLogin;
     }
 }
