@@ -21,15 +21,15 @@ namespace intellectus_desktop_client
         public OnCallWindow()
         {
             InitializeComponent();
-            Recording.StartRecording(SuggestionListenerController);
-            API.StartCall();
+            startCall();
+           
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             timer1.Start();
             TranscurredTime.Start();
-            SuggestionListenerController = new SuggestionListenerController(suggestionsList);
+            
         }
 
         private void btnEndCall_Click(object sender, EventArgs e)
@@ -53,6 +53,14 @@ namespace intellectus_desktop_client
             
         }
 
+        private void startCall()
+        {
+            if (API.StartCall())
+            {
+                SuggestionListenerController = new SuggestionListenerController(suggestionsList, (a, b) => { Invoke(a, b); }) ;
+                Recording.StartRecording(SuggestionListenerController);
+            }
+        }
 
     }
 }
