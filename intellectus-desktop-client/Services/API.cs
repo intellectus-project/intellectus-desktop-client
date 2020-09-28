@@ -74,7 +74,6 @@ namespace intellectus_desktop_client.Services
                 Domain.CurrentUser.Call.StartTime = startTime;
                 return true;
             }
-            return false;
         }
 
         public static bool EndCall()
