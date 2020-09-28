@@ -40,7 +40,7 @@ namespace intellectus_desktop_client
             Domain.CurrentUser.Call.EndTime = DateTime.UtcNow;
             PostCallOperator postCall = new PostCallOperator();
             postCall.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

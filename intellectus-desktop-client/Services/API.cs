@@ -96,7 +96,7 @@ namespace intellectus_desktop_client.Services
                     return true;
                 }
             }
-            return false;
+            return true;
         }
     }
 }

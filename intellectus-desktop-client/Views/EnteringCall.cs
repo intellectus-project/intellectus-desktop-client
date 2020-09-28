@@ -29,7 +29,7 @@ namespace intellectus_desktop_client
         {            
             OnCallWindow onCallWindow = new OnCallWindow();
             onCallWindow.Show();
-            this.Hide();
+            this.Close();
         }
     }
 
