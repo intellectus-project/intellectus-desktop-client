@@ -98,6 +98,7 @@
     <Compile Include="Import\StructConverter.cs" />
     <Compile Include="Listeners\IExtractionListener.cs" />
     <Compile Include="Listeners\VoiceListener.cs" />
+    <Compile Include="Listeners\VokaturiSingleExtractor.cs" />
     <Compile Include="Wrapper\EmotionsProbabilities.cs" />
     <Compile Include="Wrapper\ExtractionQuality.cs" />
     <Compile Include="Wrapper\VersionAndLicense.cs" />

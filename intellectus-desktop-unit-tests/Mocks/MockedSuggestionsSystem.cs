@@ -1,9 +1,6 @@
 ﻿using Suggestions;
-using System;
+using Suggestions.Systems;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace intellectus_desktop_unit_tests.Mocks
 {

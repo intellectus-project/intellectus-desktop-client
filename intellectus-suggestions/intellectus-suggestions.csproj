@@ -44,7 +44,8 @@
     <Compile Include="Edge.cs" />
     <Compile Include="EmotionRange.cs" />
     <Compile Include="ISuggestionsListener.cs" />
-    <Compile Include="SuggestionsSystem.cs" />
+    <Compile Include="Systems\BaseSuggestionsSystem.cs" />
+    <Compile Include="Systems\SuggestionsSystem.cs" />
     <Compile Include="Vertex.cs" />
     <Compile Include="Suggestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
