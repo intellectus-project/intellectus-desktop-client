@@ -36,7 +36,7 @@ namespace intellectus_desktop_client
         {
             if (API.ObtainWeather())
             {
-                weather.Text = Domain.CurrentWeather.Descrption;
+                lblWeather.Text = Domain.CurrentWeather.Descrption;
             } 
         }
     }

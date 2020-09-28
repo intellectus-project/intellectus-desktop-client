@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using intellectus_desktop_client.Models;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -38,6 +39,11 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.requiredText = new MaterialSkin.Controls.MaterialLabel();
             this.btnSend = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWeather = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblOpName = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // emotion
@@ -121,11 +127,64 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.lblWeather);
+            this.panel1.Controls.Add(this.materialLabel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 359);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(686, 31);
+            this.panel1.TabIndex = 16;
+            // 
+            // lblWeather
+            // 
+            this.lblWeather.AutoSize = true;
+            this.lblWeather.Depth = 0;
+            this.lblWeather.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblWeather.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblWeather.Location = new System.Drawing.Point(487, 5);
+            this.lblWeather.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblWeather.Name = "lblWeather";
+            this.lblWeather.Size = new System.Drawing.Size(0, 19);
+            this.lblWeather.TabIndex = 3;
+            this.lblWeather.Text = Domain.CurrentWeather.Descrption;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(13, 5);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel3.TabIndex = 2;
+            this.materialLabel3.Text = "Intellectus";
+            // 
+            // lblOpName
+            // 
+            this.lblOpName.AutoSize = true;
+            this.lblOpName.Depth = 0;
+            this.lblOpName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblOpName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblOpName.Location = new System.Drawing.Point(522, 72);
+            this.lblOpName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblOpName.Name = "lblOpName";
+            this.lblOpName.Size = new System.Drawing.Size(0, 19);
+            this.lblOpName.TabIndex = 17;
+            this.lblOpName.Text = string.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
+
+            // 
             // PostCallOperator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.lblOpName);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.requiredText);
             this.Controls.Add(this.materialLabel2);
@@ -135,6 +194,8 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.Name = "PostCallOperator";
             this.Text = "PostCall";
             this.Load += new System.EventHandler(this.PostCall_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +208,9 @@ namespace intellectus_desktop_client.Views.Suggestions
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel requiredText;
         private MaterialSkin.Controls.MaterialRaisedButton btnSend;
+        private Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel lblWeather;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel lblOpName;
     }
 }

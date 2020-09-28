@@ -31,26 +31,21 @@ namespace intellectus_desktop_client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("bla");
-            this.lblOperatorName = new System.Windows.Forms.Label();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Bla");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("bla");
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.suggestionsList = new System.Windows.Forms.ListView();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.lblTranscurredTime = new MaterialSkin.Controls.MaterialLabel();
             this.btnEndCall = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWeather = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblOpName = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblOperatorName
-            // 
-            this.lblOperatorName.AccessibleName = "lblOperatorName";
-            this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
-            this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
-            this.lblOperatorName.TabIndex = 6;
             // 
             // timer1
             // 
@@ -61,10 +56,10 @@ namespace intellectus_desktop_client
             this.suggestionsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionsList.HideSelection = false;
             this.suggestionsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
-            this.suggestionsList.Location = new System.Drawing.Point(308, 92);
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
+            this.suggestionsList.Location = new System.Drawing.Point(308, 115);
             this.suggestionsList.Name = "suggestionsList";
             this.suggestionsList.Size = new System.Drawing.Size(330, 132);
             this.suggestionsList.Sorting = System.Windows.Forms.SortOrder.Descending;
@@ -78,7 +73,7 @@ namespace intellectus_desktop_client
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 92);
+            this.materialLabel1.Location = new System.Drawing.Point(12, 115);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(149, 19);
@@ -91,7 +86,7 @@ namespace intellectus_desktop_client
             this.lblTranscurredTime.Depth = 0;
             this.lblTranscurredTime.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTranscurredTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTranscurredTime.Location = new System.Drawing.Point(167, 92);
+            this.lblTranscurredTime.Location = new System.Drawing.Point(167, 115);
             this.lblTranscurredTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTranscurredTime.Name = "lblTranscurredTime";
             this.lblTranscurredTime.Size = new System.Drawing.Size(0, 19);
@@ -100,7 +95,7 @@ namespace intellectus_desktop_client
             // btnEndCall
             // 
             this.btnEndCall.Depth = 0;
-            this.btnEndCall.Location = new System.Drawing.Point(86, 201);
+            this.btnEndCall.Location = new System.Drawing.Point(86, 224);
             this.btnEndCall.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEndCall.Name = "btnEndCall";
             this.btnEndCall.Primary = true;
@@ -114,38 +109,94 @@ namespace intellectus_desktop_client
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(259, 61);
+            this.materialDivider1.Location = new System.Drawing.Point(259, 64);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(5, 500);
             this.materialDivider1.TabIndex = 13;
             this.materialDivider1.Text = "materialDivider1";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.lblWeather);
+            this.panel1.Controls.Add(this.materialLabel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 359);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(686, 31);
+            this.panel1.TabIndex = 14;
+            // 
+            // lblWeather
+            // 
+            this.lblWeather.AutoSize = true;
+            this.lblWeather.Depth = 0;
+            this.lblWeather.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblWeather.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblWeather.Location = new System.Drawing.Point(487, 5);
+            this.lblWeather.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblWeather.Name = "lblWeather";
+            this.lblWeather.Size = new System.Drawing.Size(0, 19);
+            this.lblWeather.TabIndex = 3;
+            this.lblWeather.Text = Domain.CurrentWeather.Descrption;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(13, 5);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel3.TabIndex = 2;
+            this.materialLabel3.Text = "Intellectus";
+            // 
+            // lblOpName
+            // 
+            this.lblOpName.AutoSize = true;
+            this.lblOpName.Depth = 0;
+            this.lblOpName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblOpName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblOpName.Location = new System.Drawing.Point(529, 71);
+            this.lblOpName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblOpName.Name = "lblOpName";
+            this.lblOpName.Size = new System.Drawing.Size(0, 19);
+            this.lblOpName.TabIndex = 15;
+            this.lblOpName.Text = string.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
+            // 
             // OnCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.lblOpName);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnEndCall);
             this.Controls.Add(this.lblTranscurredTime);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.suggestionsList);
-            this.Controls.Add(this.lblOperatorName);
             this.Name = "OnCallWindow";
             this.Text = "Suggestions";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblOperatorName;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ListView suggestionsList;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel lblTranscurredTime;
         private MaterialSkin.Controls.MaterialRaisedButton btnEndCall;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel lblWeather;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel lblOpName;
     }
 }

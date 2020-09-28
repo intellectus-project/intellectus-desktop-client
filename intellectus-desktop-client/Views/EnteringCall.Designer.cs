@@ -31,25 +31,15 @@ namespace intellectus_desktop_client
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblOperatorName = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnStartCall = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.operatorName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.weather = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblWeather = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblOpName = new MaterialSkin.Controls.MaterialLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblOperatorName
-            // 
-            this.lblOperatorName.AccessibleName = "lblOperatorName";
-            this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(511, 75);
-            this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
-            this.lblOperatorName.TabIndex = 6;
             // 
             // lblError
             // 
@@ -88,91 +78,81 @@ namespace intellectus_desktop_client
             this.btnStartCall.UseVisualStyleBackColor = true;
             this.btnStartCall.Click += new System.EventHandler(this.btnStartCall_Click);
             // 
-            // operatorName
-            // 
-            this.operatorName.Depth = 0;
-            this.operatorName.Hint = "";
-            this.operatorName.Location = new System.Drawing.Point(437, 75);
-            this.operatorName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.operatorName.Name = "operatorName";
-            this.operatorName.PasswordChar = '\0';
-            this.operatorName.SelectedText = "";
-            this.operatorName.SelectionLength = 0;
-            this.operatorName.SelectionStart = 0;
-            this.operatorName.Size = new System.Drawing.Size(237, 23);
-            this.operatorName.TabIndex = 11;
-            this.operatorName.UseSystemPasswordChar = false;
-            this.operatorName.Text = string.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.weather);
-            this.panel1.Controls.Add(this.materialSingleLineTextField1);
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.lblWeather);
+            this.panel1.Controls.Add(this.materialLabel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 359);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(686, 31);
             this.panel1.TabIndex = 1;
             // 
-            // materialSingleLineTextField1
+            // lblWeather
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(13, 4);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(75, 23);
-            this.materialSingleLineTextField1.TabIndex = 0;
-            this.materialSingleLineTextField1.Text = "Intellectus";
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.lblWeather.AutoSize = true;
+            this.lblWeather.Depth = 0;
+            this.lblWeather.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblWeather.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblWeather.Location = new System.Drawing.Point(487, 5);
+            this.lblWeather.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblWeather.Name = "lblWeather";
+            this.lblWeather.Size = new System.Drawing.Size(0, 19);
+            this.lblWeather.TabIndex = 3;
             // 
-            // weather
+            // materialLabel3
             // 
-            this.weather.Depth = 0;
-            this.weather.Hint = "";
-            this.weather.Location = new System.Drawing.Point(464, 5);
-            this.weather.MouseState = MaterialSkin.MouseState.HOVER;
-            this.weather.Name = "weather";
-            this.weather.PasswordChar = '\0';
-            this.weather.SelectedText = "";
-            this.weather.SelectionLength = 0;
-            this.weather.SelectionStart = 0;
-            this.weather.Size = new System.Drawing.Size(215, 23);
-            this.weather.TabIndex = 1;
-            this.weather.UseSystemPasswordChar = false;
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(13, 5);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel3.TabIndex = 2;
+            this.materialLabel3.Text = "Intellectus";
+            // 
+            // lblOpName
+            // 
+            this.lblOpName.AutoSize = true;
+            this.lblOpName.Depth = 0;
+            this.lblOpName.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblOpName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblOpName.Location = new System.Drawing.Point(517, 75);
+            this.lblOpName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblOpName.Name = "lblOpName";
+            this.lblOpName.Size = new System.Drawing.Size(0, 19);
+            this.lblOpName.TabIndex = 12;
+            this.lblOpName.Text = string.Concat(Domain.CurrentUser.Name, " ", Domain.CurrentUser.LastName);
             // 
             // EnteringCall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
-            this.Controls.Add(this.operatorName);
+            this.Controls.Add(this.lblOpName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnStartCall);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.lblError);
-            this.Controls.Add(this.lblOperatorName);
             this.Name = "EnteringCall";
             this.Text = "EnteringCall";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblOperatorName;
         private System.Windows.Forms.Label lblError;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialRaisedButton btnStartCall;
-        private MaterialSkin.Controls.MaterialSingleLineTextField operatorName;
         private System.Windows.Forms.Panel panel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField weather;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialLabel lblOpName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel lblWeather;
     }
 }

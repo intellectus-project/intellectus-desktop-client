@@ -66,8 +66,7 @@ namespace intellectus_desktop_client.Services
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
-                    call = JsonConvert.DeserializeObject<Call>(apiResponse);
-                    
+                    call = JsonConvert.DeserializeObject<Call>(apiResponse); 
                 }
                 
                 Domain.CurrentUser.Call = call;
@@ -109,13 +108,14 @@ namespace intellectus_desktop_client.Services
 
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
 
+                Weather weather = new Weather();
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
-                    Weather weather = JsonConvert.DeserializeObject<Weather>(apiResponse);
-                    Domain.CurrentWeather = weather;
-                    return true;
+                    weather = JsonConvert.DeserializeObject<Weather>(apiResponse);
                 }
+                Domain.CurrentWeather = weather;
+                return true;
             }
             return false;
         }
