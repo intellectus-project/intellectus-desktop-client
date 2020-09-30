@@ -32,7 +32,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 {
                     PostCallWindow postCallWindow = new PostCallWindow();
                     postCallWindow.Show();
-                    this.Hide();
+                    this.Close();
                 }
                 lblErrorCreateCall.Visible = true;
             }
