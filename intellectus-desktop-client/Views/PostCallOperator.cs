@@ -1,6 +1,7 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace intellectus_desktop_client.Views.Suggestions
@@ -27,7 +28,7 @@ namespace intellectus_desktop_client.Views.Suggestions
         {
             if (emotion.SelectedItems.Count > 0)
             {
-                Domain.CurrentUser.Call.Emotion = emotion.SelectedItem.ToString();
+                Domain.CurrentUser.Call.Emotion = emotion.SelectedIndex;
                 if (API.EndCall())
                 {
                     PostCallWindow postCallWindow = new PostCallWindow();

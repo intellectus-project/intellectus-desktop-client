@@ -45,12 +45,19 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.emotion.CheckOnClick = true;
             this.emotion.FormattingEnabled = true;
             this.emotion.HorizontalScrollbar = true;
-            this.emotion.Items.AddRange(new object[] {
-            "Feliz",
-            "Enojado",
-            "Triste",
-            "Con miedo",
-            "Neutral"});
+
+            Dictionary<int, string> list = new Dictionary<int, string>();
+            list.Add(0, "Triste");
+            list.Add(1, "Feliz");
+            list.Add(2, "Con miedo");
+            list.Add(3, "Neutral");
+            list.Add(4, "Enojado");
+
+
+            this.emotion.DataSource = new BindingSource(list, null);
+            this.emotion.ValueMember = "Key";
+            this.emotion.DisplayMember = "Value";
+            
             this.emotion.Location = new System.Drawing.Point(17, 177);
             this.emotion.MultiColumn = true;
             this.emotion.Name = "emotion";
