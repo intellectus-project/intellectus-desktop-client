@@ -31,7 +31,11 @@ namespace intellectus_desktop_client
             Recording.StopRecording();
             timer1.Stop();
             TranscurredTime.Stop();
-            Domain.CurrentUser.Call.EndTime = DateTime.UtcNow;
+            var call = Domain.CurrentUser.Call;
+            call.EndTime = DateTime.UtcNow;
+            call.ConsultantStats = Recording.ExtractConsultantEmotions();
+            call.OperatorStats = Recording.ExtractOperatorEmotions();
+
             PostCallOperator postCall = new PostCallOperator();
             postCall.Show();
             this.Hide();

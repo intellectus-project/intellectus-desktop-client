@@ -9,39 +9,78 @@ namespace Suggestions.Systems
     public class BaseSuggestionsSystem : SuggestionsSystem
     {
 
-        public static List<Suggestion> Suggestions = new List<Suggestion>(3)
+        public static List<Suggestion> Suggestions = new List<Suggestion>
         {
-            new Suggestion("Felicidad"),
-            new Suggestion("Enojo"),
-            new Suggestion("Neutralidad"),
-            new Suggestion("Tristeza"),
-            new Suggestion("Miedo")
+            new Suggestion("La verdadera compasión no significa s&aacute;lo sentir el dolor de otra persona, sino estar motivado a eliminarlo"),
+            new Suggestion("Exhal&aacute; lentamente"),
+            new Suggestion("No tengas miedo de tus miedos, no est&aacute;n ah&iacute; para asustar. Est&aacute;n para luchar con ellos"),
+            new Suggestion("Inhal&aacute; lenta y profundamente, sacando tripa"),
+            new Suggestion("Manten&eacute; la respiraci&oacute;n durante un par de segundos")
         };
 
 
         public BaseSuggestionsSystem() : base()
         {
-            Vertex a = new Vertex('a', new Suggestion(""));
-            Vertex b = new Vertex('b', Suggestions[0]);
-            Vertex c = new Vertex('c', Suggestions[1]);
-            Vertex d = new Vertex('d', Suggestions[2]);
-            Vertex e = new Vertex('e', Suggestions[3]);
-            Vertex f = new Vertex('f', Suggestions[4]);
+            Suggestion emptySuggestion = new Suggestion("");
 
-            Edge e1 = new Edge(b, new List<EmotionRange>() { new EmotionRange(0.8, 1.0, EmotionRange.Emotion.HAPPINESS) });
-            Edge e2 = new Edge(c, new List<EmotionRange>() { new EmotionRange(0.8, 1.0, EmotionRange.Emotion.ANGER) });
-            Edge e3 = new Edge(d, new List<EmotionRange>() { new EmotionRange(0.8, 1.0, EmotionRange.Emotion.NEUTRALITY) });
-            Edge e4 = new Edge(e, new List<EmotionRange>() { new EmotionRange(0.8, 1.0, EmotionRange.Emotion.SADNESS) });
-            Edge e5 = new Edge(f, new List<EmotionRange>() { new EmotionRange(0.8, 1.0, EmotionRange.Emotion.FEAR) });
+            Vertex a = new Vertex('a', emptySuggestion);
+            Vertex b = new Vertex('b', emptySuggestion);
+            Vertex c = new Vertex('c', Suggestions[0]);
+            Vertex d = new Vertex('d', emptySuggestion);
+            Vertex e = new Vertex('e', Suggestions[1]);
+            Vertex f = new Vertex('f', emptySuggestion);
+            Vertex g = new Vertex('g', Suggestions[2]);
+            Vertex h = new Vertex('h', Suggestions[3]);
+            Vertex i = new Vertex('i', Suggestions[4]);
+            Vertex j = new Vertex('j', emptySuggestion);
+            Vertex k = new Vertex('k', emptySuggestion);
 
-            a.Edges = new List<Edge>() { e1, e2, e3, e4, e5 };
-            b.Edges = new List<Edge>() { e1, e2, e3, e4, e5 };
-            c.Edges = new List<Edge>() { e1, e2, e3, e4, e5 };
-            d.Edges = new List<Edge>() { e1, e2, e3, e4, e5 };
-            e.Edges = new List<Edge>() { e1, e2, e3, e4, e5 };
-            f.Edges = new List<Edge>() { e1, e2, e3, e4, e5 };
+
+            var onlyHappiness = Only(EmotionRange.Emotion.HAPPINESS);
+            var onlyNeutrality = Only(EmotionRange.Emotion.NEUTRALITY);
+            var onlyAnger = Only(EmotionRange.Emotion.ANGER);
+            var onlyFear = Only(EmotionRange.Emotion.FEAR);
+            var onlySadness= Only(EmotionRange.Emotion.SADNESS);
+
+            Edge e1 = new Edge(b, onlyHappiness);
+            Edge e2 = new Edge(d, onlySadness);
+            Edge e3 = new Edge(f, onlyFear);
+            Edge e4 = new Edge(h, onlyAnger);
+            Edge e5 = new Edge(j, onlyNeutrality);
+            Edge e6 = new Edge(c, onlyHappiness, new List<char>{ 'b', 'b' });
+            Edge e7 = new Edge(e, onlySadness, new List<char>{ 'd', 'd' });
+            Edge e8 = new Edge(g, onlyFear, new List<char>{ 'f', 'f' });
+            Edge e9 = new Edge(i, onlyAnger, new List<char>{ 'h', 'h' });
+            Edge e10 = new Edge(k, onlyNeutrality, new List<char>{ 'j', 'j' });
+
+
+            a.Edges = new List<Edge>{ e1, e2, e3, e4, e5 };
+            b.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e6 };
+            d.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e7 };
+            f.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e8 };
+            h.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e9 };
+            j.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e10 };
+
+            c.Edges = new List<Edge>{ e2, e3, e4, e5 };
+            e.Edges = new List<Edge>{ e1, e3, e4, e5 };
+            g.Edges = new List<Edge>{ e1, e2, e4, e5 };
+            i.Edges = new List<Edge>{ e1, e2, e3, e5 };
+            k.Edges = new List<Edge>{ e1, e2, e3, e4 };
 
             Initialize(a);
         }
+
+        private List<EmotionRange> Only(EmotionRange.Emotion emotion)
+        {
+            List<EmotionRange> range = new List<EmotionRange>();
+            int length = Enum.GetNames(typeof(EmotionRange.Emotion)).Length;
+            for (int index = 0; index < length; index++)
+                if (((int)emotion) == index)
+                    range.Add(new EmotionRange(0.7, 1.0, emotion));
+                else
+                    range.Add(new EmotionRange(0.0, 0.3, (EmotionRange.Emotion)index));
+            return range;
+        }
+
     }
 }
