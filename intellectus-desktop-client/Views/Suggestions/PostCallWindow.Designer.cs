@@ -35,6 +35,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.transcurredTime = new MaterialSkin.Controls.MaterialLabel();
             this.btnBackEC = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.helpButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -74,12 +75,12 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.Name = "transcurredTime";
             this.transcurredTime.Size = new System.Drawing.Size(65, 19);
             this.transcurredTime.TabIndex = 3;
-            this.transcurredTime.Text = OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
+            this.transcurredTime.Text = "00:00:00";
             // 
             // btnBackEC
             // 
             this.btnBackEC.Depth = 0;
-            this.btnBackEC.Location = new System.Drawing.Point(568, 307);
+            this.btnBackEC.Location = new System.Drawing.Point(569, 355);
             this.btnBackEC.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBackEC.Name = "btnBackEC";
             this.btnBackEC.Primary = true;
@@ -89,11 +90,28 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.btnBackEC.UseVisualStyleBackColor = true;
             this.btnBackEC.Click += new System.EventHandler(this.btnBackEC_Click);
             // 
+            // helpButton
+            // 
+            this.helpButton.AutoSize = true;
+            this.helpButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.helpButton.Depth = 0;
+            this.helpButton.Location = new System.Drawing.Point(294, 284);
+            this.helpButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.helpButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Primary = false;
+            this.helpButton.Size = new System.Drawing.Size(57, 36);
+            this.helpButton.TabIndex = 5;
+            this.helpButton.Text = "Ayuda";
+            this.helpButton.UseVisualStyleBackColor = true;
+            this.helpButton.Click += new System.EventHandler(this.helpButton_click);
+            // 
             // PostCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.btnBackEC);
             this.Controls.Add(this.transcurredTime);
             this.Controls.Add(this.materialLabel2);
@@ -110,5 +128,6 @@ namespace intellectus_desktop_client.Views.Suggestions
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel transcurredTime;
         private MaterialSkin.Controls.MaterialRaisedButton btnBackEC;
+        private MaterialSkin.Controls.MaterialFlatButton helpButton;
     }
 }
