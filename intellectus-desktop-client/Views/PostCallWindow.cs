@@ -34,23 +34,33 @@ namespace intellectus_desktop_client.Views.Suggestions
             int emotionAvg = 65;
 
            if (emotionAvg <=60) {
-                //sugerir PNL
+                PNL pnl = new PNL();
+                pnl.Show();
+                this.Close();
            }
            if (emotionAvg>60 && emotionAvg <= 70)
            {
-                //sugerir descanso de 10 min
+                TakeABreak tab = new TakeABreak(false, 10);
+                tab.Show();
+                this.Close();
            }
            if (emotionAvg > 70 && emotionAvg <= 80)
            {
-                //sugerir descanso de 15 min
-           }
+                TakeABreak tab = new TakeABreak(false, 15);
+                tab.Show();
+                this.Close();
+            }
             if (emotionAvg > 80 && emotionAvg <= 90)
             {
-                //indicar descanso de 20 min
+                TakeABreak tab = new TakeABreak(true, 20);
+                tab.Show();
+                this.Close();
             }
             if (emotionAvg > 90)
             {
-                //indicar descanso de 30 min
+                TakeABreak tab = new TakeABreak(true, 30);
+                tab.Show();
+                this.Close();
             }
         }
     }
