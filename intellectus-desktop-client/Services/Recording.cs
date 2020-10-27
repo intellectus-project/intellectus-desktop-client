@@ -1,5 +1,6 @@
 ﻿using EmotionRecognition.Listeners;
 using EmotionRecognition.Wrapper;
+using intellectus_desktop_client.Models;
 using SoundRecorder.SoundListeners;
 using SoundRecorder.SoundRecorders;
 using Suggestions;
@@ -14,7 +15,8 @@ namespace intellectus_desktop_client.Services
     {
         public static ISoundSource OperatorRecorder;
         public static ISoundSource ConsultantRecorder;
-        public static string operatorName = "Pablo Fernandez";
+        public static string operatorName =String.Concat(Domain.CurrentUser.LastName, Domain.CurrentUser.Name);
+        private static long timestamp = DateTime.Now.ToFileTimeUtc();
         public static ISoundListener OperatorWriter;
         public static ISoundListener ConsultantWriter;
 
@@ -38,7 +40,7 @@ namespace intellectus_desktop_client.Services
         {
             var waveFormat = new NAudio.Wave.WaveFormat(44100, 1);
             OperatorRecorder = new InputSoundSource(waveFormat, 0);
-            OperatorWriter = new SoundFileWriter(FormatPath("/Grabaciones/operator", operatorName), waveFormat);
+            OperatorWriter = new SoundFileWriter(FormatPath("/Grabaciones/operator_", operatorName), waveFormat);
             var voiceListener = new VoiceListener(waveFormat, 10f);
 
             OperatorRecorder.AddListener(OperatorWriter);
@@ -100,12 +102,12 @@ namespace intellectus_desktop_client.Services
 
         private static string FormatPath(string basePath)
         {
-            return string.Format("{0}" + basePath + "_{1}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), DateTime.Now.ToFileTimeUtc());
+            return string.Format("{0}" + basePath + "_{1}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), timestamp);
         }
 
         private static string FormatPath(string basePath, string name)
         {
-            return string.Format("{0}" + basePath + "_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), name, DateTime.Now.ToFileTimeUtc());
+            return string.Format("{0}" + basePath + "_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), name, timestamp);
         }
 
 

@@ -61,20 +61,18 @@ namespace intellectus_desktop_client.Services
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
 
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
-                //response.StatusCode = System.Net.HttpStatusCode.OK;
-                Call call = new Call();
+              
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     string apiResponse = response.Content.ReadAsStringAsync().Result;
-                    call = JsonConvert.DeserializeObject<Call>(apiResponse);
-                    
+                    Call call = JsonConvert.DeserializeObject<Call>(apiResponse);
+                    Domain.CurrentUser.Call = call;
+                    Domain.CurrentUser.Call.StartTime = startTime;
+                    return true;
+
                 }
-                
-                Domain.CurrentUser.Call = call;
-                Domain.CurrentUser.Call.StartTime = startTime;
-                return true;
+                return false;
             }
-            return false;
         }
 
         public static bool EndCall()
