@@ -28,6 +28,11 @@ namespace intellectus_desktop_client.Models
         [JsonProperty("callId")]
         public int Id { get; set; }
 
+        [JsonProperty("breakAssigned")]
+        public bool BreakAssigned { get; set; }
+
+        [JsonProperty("minutesDuration")]
+        public int MinutesDuration { get; set; }
 
     }
 }

@@ -31,36 +31,49 @@ namespace intellectus_desktop_client.Views.Suggestions
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            int emotionAvg = 65;
+           int emotionAvg = 65;
 
+            if (Domain.CurrentUser.Call.BreakAssigned)
+            {
+                TakeABreak tab = new TakeABreak(true, Domain.CurrentUser.Call.MinutesDuration);
+                tab.Show();
+                this.Close();
+                return;
+            }
+           
            if (emotionAvg <=60) {
                 PNL pnl = new PNL();
                 pnl.Show();
                 this.Close();
+                return;
            }
            if (emotionAvg>60 && emotionAvg <= 70)
            {
                 TakeABreak tab = new TakeABreak(false, 10);
                 tab.Show();
                 this.Close();
+                return;
            }
            if (emotionAvg > 70 && emotionAvg <= 80)
            {
                 TakeABreak tab = new TakeABreak(false, 15);
                 tab.Show();
                 this.Close();
+                return;
             }
             if (emotionAvg > 80 && emotionAvg <= 90)
             {
                 TakeABreak tab = new TakeABreak(true, 20);
                 tab.Show();
                 this.Close();
+                return;
             }
             if (emotionAvg > 90)
             {
                 TakeABreak tab = new TakeABreak(true, 30);
                 tab.Show();
-                this.Close();
+                this.Close(); 
+                return;
             }
         }
     }

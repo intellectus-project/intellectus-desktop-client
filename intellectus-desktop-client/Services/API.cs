@@ -93,6 +93,9 @@ namespace intellectus_desktop_client.Services
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
+                    string apiResponse = response.Content.ReadAsStringAsync().Result;
+                    var rData = JsonConvert.DeserializeObject<Call>(apiResponse);
+                    Domain.CurrentUser.Call.BreakAssigned = rData.BreakAssigned;
                     return true;
                 }
             }
