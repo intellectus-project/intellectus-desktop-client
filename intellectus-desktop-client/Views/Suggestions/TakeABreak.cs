@@ -26,11 +26,11 @@ namespace intellectus_desktop_client.Views.Suggestions
         {
             if (!obligatory)
             {
-                this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar ¿Desea tomarse un descanso de {0} minutos?", time.ToString());
+                this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar \r\n¿Desea tomarse un descanso de {0} minutos?", time.ToString());
             }
             else
             {
-                this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar, tomese un descanso de {0} minutos", time.ToString());
+                this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", time.ToString());
             }
         }
     }
