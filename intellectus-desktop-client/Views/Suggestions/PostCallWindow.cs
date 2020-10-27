@@ -28,5 +28,30 @@ namespace intellectus_desktop_client.Views.Suggestions
             OnCallWindow.TranscurredTime.Reset();
             this.Close();
         }
+
+        private void helpButton_Click(object sender, EventArgs e)
+        {
+            int emotionAvg = 65;
+
+           if (emotionAvg <=60) {
+                //sugerir PNL
+           }
+           if (emotionAvg>60 && emotionAvg <= 70)
+           {
+                //sugerir descanso de 10 min
+           }
+           if (emotionAvg > 70 && emotionAvg <= 80)
+           {
+                //sugerir descanso de 15 min
+           }
+            if (emotionAvg > 80 && emotionAvg <= 90)
+            {
+                //indicar descanso de 20 min
+            }
+            if (emotionAvg > 90)
+            {
+                //indicar descanso de 30 min
+            }
+        }
     }
 }
