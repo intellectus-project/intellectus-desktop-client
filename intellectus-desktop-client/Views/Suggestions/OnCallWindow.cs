@@ -35,6 +35,8 @@ namespace intellectus_desktop_client
             call.EndTime = DateTime.UtcNow;
             call.ConsultantStats = Recording.ExtractConsultantEmotions();
             call.OperatorStats = Recording.ExtractOperatorEmotions();
+            call.CallRating = Recording.Rating;
+            call.OperatorLastStats = Recording.OperatorLastStats;
 
             PostCallOperator postCall = new PostCallOperator();
             postCall.Show();

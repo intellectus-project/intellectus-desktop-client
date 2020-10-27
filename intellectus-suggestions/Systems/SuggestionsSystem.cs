@@ -6,7 +6,7 @@ namespace Suggestions.Systems
 {
     public class SuggestionsSystem : IExtractionListener
     {
-        private Stack<Vertex> stack;
+        protected Stack<Vertex> stack;
         private List<ISuggestionsListener> listeners = new List<ISuggestionsListener>();
 
 
@@ -45,6 +45,11 @@ namespace Suggestions.Systems
                 listeners.ForEach(listener => listener.SuggestionAvailable(next.Suggestion));
 
             stack.Push(next);
+        }
+
+        public virtual float Rating()
+        {
+            return 1f;
         }
 
     }

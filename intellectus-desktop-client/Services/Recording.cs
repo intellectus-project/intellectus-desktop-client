@@ -18,6 +18,9 @@ namespace intellectus_desktop_client.Services
         public static ISoundListener OperatorWriter;
         public static ISoundListener ConsultantWriter;
 
+        private static SuggestionsSystem suggestionsSystem;
+        private static VokaturiSingleExtractor operatorSingleExtractor; 
+
         public static void StartRecording(ISuggestionsListener suggestionListener)
         {
             InitializeOperatorRecorder(suggestionListener);
@@ -43,10 +46,12 @@ namespace intellectus_desktop_client.Services
 
             OperatorRecorder.AddListener(OperatorWriter);
             OperatorRecorder.AddListener(voiceListener);
-            
 
-            var suggestionsSystem = new BaseSuggestionsSystem();
+            operatorSingleExtractor = new VokaturiSingleExtractor();
+            suggestionsSystem = new BaseSuggestionsSystem();
+
             voiceListener.Subscribe(suggestionsSystem);
+            voiceListener.Subscribe(operatorSingleExtractor);
 
             suggestionsSystem.Subscribe(suggestionListener);
         }
@@ -98,6 +103,10 @@ namespace intellectus_desktop_client.Services
 
 
 
+        public static float Rating => suggestionsSystem.Rating();
+
+        public static EmotionsProbabilities OperatorLastStats => operatorSingleExtractor.Extraction.Emotions;
+
         private static string FormatPath(string basePath)
         {
             return string.Format("{0}" + basePath + "_{1}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), DateTime.Now.ToFileTimeUtc());
@@ -107,6 +116,7 @@ namespace intellectus_desktop_client.Services
         {
             return string.Format("{0}" + basePath + "_{1}_{2}.wav", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), name, DateTime.Now.ToFileTimeUtc());
         }
+
 
 
     }
