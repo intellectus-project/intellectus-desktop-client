@@ -31,6 +31,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             else
             {
                 this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", time.ToString());
+                this.returnEC.Visible = false;
             }
         }
 

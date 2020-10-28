@@ -34,7 +34,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.transcurredTime = new MaterialSkin.Controls.MaterialLabel();
-            this.btnBackEC = new MaterialSkin.Controls.MaterialRaisedButton();
             this.helpButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
@@ -73,22 +72,9 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.Location = new System.Drawing.Point(395, 182);
             this.transcurredTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.transcurredTime.Name = "transcurredTime";
-            this.transcurredTime.Size = new System.Drawing.Size(65, 19);
+            this.transcurredTime.Size = new System.Drawing.Size(0, 19);
             this.transcurredTime.TabIndex = 3;
-            this.transcurredTime.Text = OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
-            // 
-            // btnBackEC
-            // 
-            this.btnBackEC.Depth = 0;
-            this.btnBackEC.Location = new System.Drawing.Point(568, 307);
-            this.btnBackEC.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnBackEC.Name = "btnBackEC";
-            this.btnBackEC.Primary = true;
-            this.btnBackEC.Size = new System.Drawing.Size(75, 23);
-            this.btnBackEC.TabIndex = 4;
-            this.btnBackEC.Text = "Volver";
-            this.btnBackEC.UseVisualStyleBackColor = true;
-            this.btnBackEC.Click += new System.EventHandler(this.btnBackEC_Click);
+            this.transcurredTime.Text=OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
             // 
             // helpButton
             // 
@@ -109,7 +95,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.helpButton);
-            this.Controls.Add(this.btnBackEC);
             this.Controls.Add(this.transcurredTime);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
@@ -124,7 +109,6 @@ namespace intellectus_desktop_client.Views.Suggestions
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel transcurredTime;
-        private MaterialSkin.Controls.MaterialRaisedButton btnBackEC;
         private MaterialSkin.Controls.MaterialRaisedButton helpButton;
     }
 }
