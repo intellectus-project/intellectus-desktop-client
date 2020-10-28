@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Domain\**" />
+    <EmbeddedResource Remove="Domain\**" />
+    <None Remove="Domain\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\intellectus-emotion-recognition\intellectus-emotion-recognition.csproj" />
     <ProjectReference Include="..\intellectus-sound-recorder\intellectus-sound-recorder.csproj" />
     <ProjectReference Include="..\intellectus-suggestions\intellectus-suggestions.csproj" />
@@ -16,10 +22,10 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Domain\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialSkin" Version="0.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 

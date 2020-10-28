@@ -51,7 +51,7 @@ namespace intellectus_desktop_client.Services
         private static void InitializeOperatorRecorder(ISuggestionsListener suggestionListener)
         {
             var waveFormat = new NAudio.Wave.WaveFormat(44100, 1);
-            OperatorRecorder = new InputSoundSource(waveFormat, 1);
+            OperatorRecorder = new InputSoundSource(waveFormat, 0);
 
             operatorTimestamp = DateTime.Now.ToFileTimeUtc().ToString();
             OperatorWriter = new SoundFileWriter(FormatPath("operator", operatorName, operatorTimestamp), waveFormat);

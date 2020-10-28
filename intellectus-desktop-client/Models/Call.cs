@@ -17,7 +17,7 @@ namespace intellectus_desktop_client.Models
         public DateTime EndTime { get; set; }
 
         [JsonProperty("emotion")]
-        public string Emotion { get; set; }
+        public int Emotion { get; set; }
 
         [JsonProperty("operatorStats")]
         public EmotionsProbabilities OperatorStats { get; set; }

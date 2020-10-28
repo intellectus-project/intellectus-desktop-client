@@ -31,46 +31,73 @@ namespace intellectus_desktop_client.Views.Suggestions
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.transcurredTime = new System.Windows.Forms.Label();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.transcurredTime = new MaterialSkin.Controls.MaterialLabel();
+            this.btnBackEC = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
-            // label1
+            // materialLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Llamada finalizada";
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(260, 112);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(134, 19);
+            this.materialLabel1.TabIndex = 1;
+            this.materialLabel1.Text = "Llamada finalizada";
             // 
-            // label2
+            // materialLabel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(222, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tiempo transcurrido:";
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(167, 182);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(153, 19);
+            this.materialLabel2.TabIndex = 2;
+            this.materialLabel2.Text = "Tiempo transcurrido: ";
             // 
             // transcurredTime
             // 
             this.transcurredTime.AutoSize = true;
-            this.transcurredTime.Location = new System.Drawing.Point(361, 58);
+            this.transcurredTime.Depth = 0;
+            this.transcurredTime.Font = new System.Drawing.Font("Roboto", 11F);
+            this.transcurredTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.transcurredTime.Location = new System.Drawing.Point(395, 182);
+            this.transcurredTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.transcurredTime.Name = "transcurredTime";
-            this.transcurredTime.Size = new System.Drawing.Size(0, 15);
-            //this.transcurredTime.Text = Domain.CurrentUser.Call.EndTime.Subtract(Domain.CurrentUser.Call.StartTime).ToString("hh':'mm':'ss");
-            this.transcurredTime.TabIndex = 0;
+            this.transcurredTime.Size = new System.Drawing.Size(65, 19);
+            this.transcurredTime.TabIndex = 3;
+            this.transcurredTime.Text = OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
+            // 
+            // btnBackEC
+            // 
+            this.btnBackEC.Depth = 0;
+            this.btnBackEC.Location = new System.Drawing.Point(568, 307);
+            this.btnBackEC.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBackEC.Name = "btnBackEC";
+            this.btnBackEC.Primary = true;
+            this.btnBackEC.Size = new System.Drawing.Size(75, 23);
+            this.btnBackEC.TabIndex = 4;
+            this.btnBackEC.Text = "Volver";
+            this.btnBackEC.UseVisualStyleBackColor = true;
+            this.btnBackEC.Click += new System.EventHandler(this.btnBackEC_Click);
             // 
             // PostCallWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.btnBackEC);
             this.Controls.Add(this.transcurredTime);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
             this.Name = "PostCallWindow";
             this.Text = "PostCallWindow";
             this.ResumeLayout(false);
@@ -79,9 +106,9 @@ namespace intellectus_desktop_client.Views.Suggestions
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label transcurredTime;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel transcurredTime;
+        private MaterialSkin.Controls.MaterialRaisedButton btnBackEC;
     }
 }
