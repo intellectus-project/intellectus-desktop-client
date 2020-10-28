@@ -74,7 +74,6 @@ namespace intellectus_desktop_client.Services
                 Domain.CurrentUser.Call.StartTime = startTime;
                 return true;
             }
-            return false;
         }
 
         public static bool EndCall()
@@ -93,10 +92,34 @@ namespace intellectus_desktop_client.Services
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
+                    string apiResponse = response.Content.ReadAsStringAsync().Result;
+                    var rData = JsonConvert.DeserializeObject<Call>(apiResponse);
+                    Domain.CurrentUser.Call.BreakAssigned = rData.BreakAssigned;
                     return true;
                 }
             }
             return false;
+        }
+
+        public static bool TakeABreak()
+        {
+           
+            using (var client = new HttpClient())
+            {
+                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, String.Format("http://localhost:3010/breaks?callId={0}&minutesDuration={1}",Domain.CurrentUser.Call.Id,Domain.CurrentUser.Call.MinutesDuration));
+              
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
+
+                HttpResponseMessage response = client.SendAsync(requestM).Result;
+                
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+
+                }
+
+                return false;
+            }
         }
     }
 }
