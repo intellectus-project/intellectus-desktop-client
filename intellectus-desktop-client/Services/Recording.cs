@@ -128,6 +128,8 @@ namespace intellectus_desktop_client.Services
 
         public static float Rating => suggestionsSystem.Rating();
 
+        public static bool SoundProcessed => operatorSingleExtractor.Extracted;
+
         public static EmotionsProbabilities OperatorLastStats => operatorSingleExtractor.Extraction.Emotions;
 
         private static string FormatPath(string baseFileName, string timestamp)
