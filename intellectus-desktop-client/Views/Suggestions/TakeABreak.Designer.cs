@@ -73,6 +73,7 @@
             this.btnTakeABreak.TabIndex = 2;
             this.btnTakeABreak.Text = "Tomar descanso";
             this.btnTakeABreak.UseVisualStyleBackColor = true;
+            this.btnTakeABreak.Click += new System.EventHandler(this.btnTakeABreak_Click);
             // 
             // TakeABreak
             // 

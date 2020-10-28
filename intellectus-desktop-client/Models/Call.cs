@@ -31,7 +31,7 @@ namespace intellectus_desktop_client.Models
         [JsonProperty("breakAssigned")]
         public bool BreakAssigned { get; set; }
 
-        [JsonProperty("minutesDuration")]
+        [JsonProperty("minutesDuration", NullValueHandling = NullValueHandling.Ignore)]
         public int MinutesDuration { get; set; }
 
     }

@@ -35,7 +35,7 @@ namespace intellectus_desktop_client.Views.Suggestions
 
             if (Domain.CurrentUser.Call.BreakAssigned)
             {
-                TakeABreak tab = new TakeABreak(true, Domain.CurrentUser.Call.MinutesDuration);
+                TakeABreak tab = new TakeABreak(true);
                 tab.Show();
                 this.Close();
                 return;
@@ -49,28 +49,32 @@ namespace intellectus_desktop_client.Views.Suggestions
            }
            if (emotionAvg>60 && emotionAvg <= 70)
            {
-                TakeABreak tab = new TakeABreak(false, 10);
+                Domain.CurrentUser.Call.MinutesDuration = 10;
+                TakeABreak tab = new TakeABreak(false);
                 tab.Show();
                 this.Close();
                 return;
            }
            if (emotionAvg > 70 && emotionAvg <= 80)
            {
-                TakeABreak tab = new TakeABreak(false, 15);
+                Domain.CurrentUser.Call.MinutesDuration = 15;
+                TakeABreak tab = new TakeABreak(false);
                 tab.Show();
                 this.Close();
                 return;
             }
             if (emotionAvg > 80 && emotionAvg <= 90)
             {
-                TakeABreak tab = new TakeABreak(true, 20);
+                Domain.CurrentUser.Call.MinutesDuration = 20;
+                TakeABreak tab = new TakeABreak(true);
                 tab.Show();
                 this.Close();
                 return;
             }
             if (emotionAvg > 90)
             {
-                TakeABreak tab = new TakeABreak(true, 30);
+                Domain.CurrentUser.Call.MinutesDuration = 30;
+                TakeABreak tab = new TakeABreak(true);
                 tab.Show();
                 this.Close(); 
                 return;
