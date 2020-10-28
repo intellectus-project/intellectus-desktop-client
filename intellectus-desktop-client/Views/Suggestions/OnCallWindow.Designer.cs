@@ -31,9 +31,9 @@ namespace intellectus_desktop_client
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Bla");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("bla");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.lblOperatorName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.suggestionsList = new System.Windows.Forms.ListView();
@@ -61,9 +61,9 @@ namespace intellectus_desktop_client
             this.suggestionsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.suggestionsList.HideSelection = false;
             this.suggestionsList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.suggestionsList.Location = new System.Drawing.Point(308, 92);
             this.suggestionsList.Name = "suggestionsList";
             this.suggestionsList.Size = new System.Drawing.Size(330, 132);
