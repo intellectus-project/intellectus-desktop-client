@@ -82,5 +82,37 @@ namespace Suggestions.Systems
             return range;
         }
 
+        public override float Rating()
+        {
+            var list = stack.ToList();
+
+            var superHappyCount = list.Count(IsSuperHappy);
+
+            var negativeCount = list.Count(IsNegative);
+
+            var count = list.Count;
+
+            float superHappyFactor = Clamp(superHappyCount - 2) / count;
+            float negativityFactor = Clamp(negativeCount - 1) / count;
+
+            return 1f - (negativityFactor + superHappyCount);
+        }
+
+        private float Clamp(float value)
+        {
+            return Math.Min(Math.Max(value, 1f), 0f);
+        }
+
+        private bool IsSuperHappy(Vertex vertex)
+        {
+            return vertex.ID.Equals('c');
+        }
+        private bool IsNegative(Vertex vertex)
+        {
+            return vertex.ID.Equals('e') ||
+                vertex.ID.Equals('g') ||
+                vertex.ID.Equals('i');
+        }
+
     }
 }

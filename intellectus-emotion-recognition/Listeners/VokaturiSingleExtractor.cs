@@ -8,8 +8,11 @@ namespace EmotionRecognition.Listeners
         public void ExtractionAvailable(VoiceFeatureExtractionResult extraction)
         {
             Extraction = extraction;
+            Extracted = true;
         }
 
         public VoiceFeatureExtractionResult Extraction { get; private set; }
+
+        public bool Extracted { get; private set; }
     }
 }

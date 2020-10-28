@@ -13,6 +13,8 @@ namespace intellectus_desktop_client.Services
 {
     public static class API
     {
+        private static readonly string URI = "https://intellectus-api.herokuapp.com";
+
         public static bool Login(string user, string psw)
         {
             var bodyData = new Dictionary<string, string>
@@ -26,7 +28,7 @@ namespace intellectus_desktop_client.Services
 
             using (var client = new HttpClient())
             {
-                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, "http://localhost:3010/api/auth/login");
+                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, URI + "/api/auth/login");
                 requestM.Content = content;
                 HttpResponseMessage response = client.SendAsync(requestM).Result;
 
@@ -55,7 +57,7 @@ namespace intellectus_desktop_client.Services
 
             using (var client = new HttpClient())
             {
-                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, "http://localhost:3010/calls");
+                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, URI + "/calls");
                 requestM.Content = content;
 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
@@ -83,7 +85,7 @@ namespace intellectus_desktop_client.Services
 
             using (var client = new HttpClient())
             {
-                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("http://localhost:3010/calls/{0}",Domain.CurrentUser.Call.Id));
+                HttpRequestMessage requestM = new HttpRequestMessage(new HttpMethod("PATCH"), string.Format("{0}/calls/{1}", URI, Domain.CurrentUser.Call.Id));
                 requestM.Content = content;
 
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);

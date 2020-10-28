@@ -25,6 +25,12 @@ namespace intellectus_desktop_client.Models
         [JsonProperty("consultantStats")]
         public EmotionsProbabilities ConsultantStats { get; set; }
 
+        [JsonProperty("operatorLastStats")]
+        public EmotionsProbabilities OperatorLastStats { get; set; }
+
+        [JsonProperty("callRating")]
+        public float CallRating { get; set; }
+
         [JsonProperty("callId")]
         public int Id { get; set; }
 

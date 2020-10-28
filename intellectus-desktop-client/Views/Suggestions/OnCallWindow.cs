@@ -39,8 +39,13 @@ namespace intellectus_desktop_client
             TranscurredTime.Stop();
             var call = Domain.CurrentUser.Call;
             call.EndTime = DateTime.UtcNow;
-            call.ConsultantStats = Recording.ExtractConsultantEmotions();
-            call.OperatorStats = Recording.ExtractOperatorEmotions();
+            if (Recording.SoundProcessed)
+            {
+                call.OperatorLastStats = Recording.OperatorLastStats;
+                call.ConsultantStats = Recording.ExtractConsultantEmotions();
+                call.OperatorStats = Recording.ExtractOperatorEmotions();
+                call.CallRating = Recording.Rating;
+            }
 
             PostCallOperator postCall = new PostCallOperator();
             postCall.Show();
