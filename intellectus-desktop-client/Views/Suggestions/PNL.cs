@@ -75,5 +75,14 @@ namespace intellectus_desktop_client.Views.Suggestions
             }
             return actual.FullName;
         }
+
+        private void returnEC_Click(object sender, EventArgs e)
+        {
+            EnteringCall ec = new EnteringCall();
+            ec.Show();
+            OnCallWindow.TranscurredTime.Reset();
+            this.Close();
+        }
+
     }
 }
