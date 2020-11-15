@@ -41,13 +41,13 @@ namespace intellectus_desktop_client.Views.Suggestions
                 return;
             }
            
-           if ( rating<=0.60) {
+           if ( rating>0.40) {
                 PNL pnl = new PNL();
                 pnl.Show();
                 this.Close();
                 return;
            }
-           if (rating>0.60 && rating <= 0.70)
+           if (rating>0.30 && rating <= 0.40)
            {
                 Domain.CurrentUser.Call.MinutesDuration = 10;
                 TakeABreak tab = new TakeABreak(false);
@@ -55,7 +55,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 this.Close();
                 return;
            }
-           if (rating > 0.70 && rating <= 0.80)
+           if (rating > 0.20 && rating <= 0.30)
            {
                 Domain.CurrentUser.Call.MinutesDuration = 15;
                 TakeABreak tab = new TakeABreak(false);
@@ -63,7 +63,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 this.Close();
                 return;
             }
-            if (rating >0.80 && rating <= 0.90)
+            if (rating >0.10 && rating <= 0.20)
             {
                 Domain.CurrentUser.Call.MinutesDuration = 20;
                 TakeABreak tab = new TakeABreak(true);
@@ -71,7 +71,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 this.Close();
                 return;
             }
-            if (rating > 0.90)
+            if (rating <= 0.10)
             {
                 Domain.CurrentUser.Call.MinutesDuration = 30;
                 TakeABreak tab = new TakeABreak(true);
