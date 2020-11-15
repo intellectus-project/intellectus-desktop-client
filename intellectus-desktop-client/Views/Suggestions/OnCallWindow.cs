@@ -64,12 +64,32 @@ namespace intellectus_desktop_client
 
         private void startCall()
         {
-            if (API.StartCall())
+            if (CanStartCall())
             {
-                SuggestionListenerController = new SuggestionListenerController(suggestionsList, (a, b) => { Invoke(a, b); }) ;
-                Recording.StartRecording(SuggestionListenerController);
+                if (API.StartCall())
+                {
+                    SuggestionListenerController = new SuggestionListenerController(suggestionsList, (a, b) => { Invoke(a, b); });
+                    Recording.StartRecording(SuggestionListenerController);
+                }
             }
+            else
+                MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
         }
 
+        private bool CanStartCall()
+        {
+            var callAndBreak = Domain.CurrentUser.Call == null || Domain.CurrentUser.Call.BreakAssigned == false;
+            if (!callAndBreak)
+            {
+                var endTime = Domain.CurrentUser.Call.EndTime;
+                var minutes = Domain.CurrentUser.Call.MinutesDuration;
+                var breakEndTime = endTime.AddMinutes(minutes);
+                return DateTime.UtcNow > breakEndTime;
+            }
+            else
+                return true;
+            
+                
+        }
     }
 }

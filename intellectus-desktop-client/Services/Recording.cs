@@ -83,9 +83,7 @@ namespace intellectus_desktop_client.Services
             string sourcePath = FormatPath("operator", operatorName, operatorTimestamp);
             var input = new FileSoundSource(sourcePath);
 
-            float seconds = (float)input.FileSize / input.GetWaveFormat().AverageBytesPerSecond;
-
-            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), seconds);
+            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), (int)input.FileSize);
 
             var extractor = new VokaturiSingleExtractor();
             listener.Subscribe(extractor);
@@ -103,9 +101,7 @@ namespace intellectus_desktop_client.Services
             string sourcePath = FormatPath("consultant", consultantTimestamp);
             var input = new FileSoundSource(sourcePath);
 
-            float seconds = (float)input.FileSize / input.GetWaveFormat().AverageBytesPerSecond;
-
-            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), seconds);
+            VoiceListener listener = new VoiceListener(input.GetWaveFormat(), (int)input.FileSize);
 
             var extractor = new VokaturiSingleExtractor();
             listener.Subscribe(extractor);

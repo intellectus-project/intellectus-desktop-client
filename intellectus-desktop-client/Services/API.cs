@@ -108,7 +108,7 @@ namespace intellectus_desktop_client.Services
            
             using (var client = new HttpClient())
             {
-                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, String.Format("http://localhost:3010/breaks?callId={0}&minutesDuration={1}",Domain.CurrentUser.Call.Id,Domain.CurrentUser.Call.MinutesDuration));
+                HttpRequestMessage requestM = new HttpRequestMessage(HttpMethod.Post, string.Format("{0}/breaks?callId={1}&minutesDuration={2}", URI, Domain.CurrentUser.Call.Id,Domain.CurrentUser.Call.MinutesDuration));
               
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Domain.CurrentUser.AccessToken);
 
