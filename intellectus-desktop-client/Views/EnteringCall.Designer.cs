@@ -35,6 +35,7 @@ namespace intellectus_desktop_client
             this.lblError = new System.Windows.Forms.Label();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnStartCall = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lblOnABreak = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // lblOperatorName
@@ -83,11 +84,26 @@ namespace intellectus_desktop_client
             this.btnStartCall.UseVisualStyleBackColor = true;
             this.btnStartCall.Click += new System.EventHandler(this.btnStartCall_Click);
             // 
+            // lblOnABreak
+            // 
+            this.lblOnABreak.AutoSize = true;
+            this.lblOnABreak.Depth = 0;
+            this.lblOnABreak.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblOnABreak.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblOnABreak.Location = new System.Drawing.Point(213, 164);
+            this.lblOnABreak.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblOnABreak.Name = "lblOnABreak";
+            this.lblOnABreak.Size = new System.Drawing.Size(227, 19);
+            this.lblOnABreak.TabIndex = 11;
+            this.lblOnABreak.Text = "Usted posee un descanso activo";
+            this.lblOnABreak.Visible = false;
+            // 
             // EnteringCall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.lblOnABreak);
             this.Controls.Add(this.btnStartCall);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.lblError);
@@ -105,5 +121,6 @@ namespace intellectus_desktop_client
         private System.Windows.Forms.Label lblError;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialRaisedButton btnStartCall;
+        private MaterialSkin.Controls.MaterialLabel lblOnABreak;
     }
 }

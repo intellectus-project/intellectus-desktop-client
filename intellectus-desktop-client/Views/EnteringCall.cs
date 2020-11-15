@@ -23,6 +23,12 @@ namespace intellectus_desktop_client
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
 
+            if (!Services.CallService.CanStartCall())
+            {
+                this.btnStartCall.Visible = false;
+                this.materialLabel1.Visible = false;
+                this.lblOnABreak.Visible = true;
+            }
         }
 
         private void btnStartCall_Click(object sender, EventArgs e)
