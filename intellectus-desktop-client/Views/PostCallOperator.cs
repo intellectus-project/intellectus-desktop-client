@@ -1,5 +1,6 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
+using intellectus_desktop_client.Services.API;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -29,19 +30,80 @@ namespace intellectus_desktop_client.Views.Suggestions
             if (emotion.SelectedItems.Count > 0)
             {
                 Domain.CurrentUser.Call.Emotion = emotion.SelectedIndex;
-                if (API.EndCall())
+
+                try
                 {
-                    PostCallWindow postCallWindow = new PostCallWindow();
-                    postCallWindow.Show();
-                    this.Close();
+                    API.EndCall();
+                    goToPostCall();
                 }
-                lblErrorCreateCall.Visible = true;
+                catch(HttpResponseMessageException exception)
+                {
+                    lblErrorCreateCall.Visible = true;
+                }
             }
             else
             {
                 requiredText.Visible = true;
             }
 
+        }
+
+        private void goToPostCall()
+        {
+            float rating = Domain.CurrentUser.Call.CallRating;
+            if (Domain.CurrentUser.Call.BreakAssigned)
+            {
+                TakeABreak tab = new TakeABreak(true);
+                tab.Show();
+                this.Close();
+                return;
+            }
+
+            if(rating > 0.60)
+            {
+                PostCallWindow pcw = new PostCallWindow();
+                pcw.Show();
+                this.Close();
+            }
+            if (rating > 0.40 && rating <= 0.60)
+            {
+                PNL pnl = new PNL();
+                pnl.Show();
+                this.Close();
+                return;
+            }
+            if (rating > 0.30 && rating <= 0.40)
+            {
+                Domain.CurrentUser.Call.MinutesDuration = 10;
+                TakeABreak tab = new TakeABreak(false);
+                tab.Show();
+                this.Close();
+                return;
+            }
+            if (rating > 0.20 && rating <= 0.30)
+            {
+                Domain.CurrentUser.Call.MinutesDuration = 15;
+                TakeABreak tab = new TakeABreak(false);
+                tab.Show();
+                this.Close();
+                return;
+            }
+            if (rating > 0.10 && rating <= 0.20)
+            {
+                Domain.CurrentUser.Call.MinutesDuration = 20;
+                TakeABreak tab = new TakeABreak(true);
+                tab.Show();
+                this.Close();
+                return;
+            }
+            if (rating <= 0.10)
+            {
+                Domain.CurrentUser.Call.MinutesDuration = 30;
+                TakeABreak tab = new TakeABreak(true);
+                tab.Show();
+                this.Close();
+                return;
+            }
         }
     }
 }

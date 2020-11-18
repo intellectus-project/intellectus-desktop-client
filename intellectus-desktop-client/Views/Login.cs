@@ -1,13 +1,6 @@
-﻿using intellectus_desktop_client.Models;
-using intellectus_desktop_client.Services;
+﻿using intellectus_desktop_client.Services.API;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Net;
 
 namespace intellectus_desktop_client.Views
 {
@@ -26,19 +19,38 @@ namespace intellectus_desktop_client.Views
         {
             if(password.Text == "" || username.Text == "")
             {
+
+                requiredText.Text = "*Usuario/Contraseña incorrecta";
                 requiredText.Visible = true;
             }
             else
             {
-                bool ok = API.Login(username.Text, password.Text);
-                if (ok)
+                try
                 {
+                    API.Login(username.Text, password.Text);
                     EnteringCall enteringCall = new EnteringCall();
                     enteringCall.Show();
                     this.Hide();
                 }
-                else
+                catch (HttpResponseMessageException exception)
                 {
+                    switch (exception.Code)
+                    {
+                        case HttpStatusCode.BadRequest:
+                        case HttpStatusCode.NotFound:
+                            requiredText.Text = "Error enviando datos";
+                            break;
+                        case HttpStatusCode.InternalServerError:
+                            requiredText.Text = "Error en el servidor";
+                            break;
+                        case HttpStatusCode.Unauthorized:
+                        case HttpStatusCode.Forbidden:
+                            requiredText.Text = "*Usuario/Contraseña incorrecta";
+                            break;
+                        default:
+                            requiredText.Text = "Error inesperado";
+                            break;
+                    }
                     requiredText.Visible = true;
                 }
             }
