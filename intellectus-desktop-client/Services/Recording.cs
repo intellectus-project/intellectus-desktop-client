@@ -1,5 +1,6 @@
 ﻿using EmotionRecognition.Listeners;
 using EmotionRecognition.Wrapper;
+using intellectus_desktop_client.Models;
 using SoundRecorder.SoundListeners;
 using SoundRecorder.SoundRecorders;
 using Suggestions;
@@ -17,7 +18,7 @@ namespace intellectus_desktop_client.Services
 
         public static ISoundSource OperatorRecorder;
         public static ISoundSource ConsultantRecorder;
-        public static string operatorName = "Pablo Fernandez";
+        public static string operatorName = string.Format("{0}{1}",Domain.CurrentUser.LastName,Domain.CurrentUser.Name);
 
         public static SoundFileWriter OperatorWriter;
         public static SoundFileWriter ConsultantWriter;
