@@ -30,7 +30,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             if (emotion.SelectedItems.Count > 0)
             {
                 Domain.CurrentUser.Call.Emotion = emotion.SelectedIndex;
-
                 try
                 {
                     API.EndCall();
