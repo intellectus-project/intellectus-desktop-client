@@ -41,7 +41,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 return;
             }
            
-           if ( rating>0.40) {
+           if (rating<=0.60 && rating>0.40) {
                 PNL pnl = new PNL();
                 pnl.Show();
                 this.Close();
