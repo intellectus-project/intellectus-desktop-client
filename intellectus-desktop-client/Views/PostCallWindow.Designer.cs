@@ -35,6 +35,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.transcurredTime = new MaterialSkin.Controls.MaterialLabel();
             this.helpButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.returnEC = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -72,28 +73,43 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.Location = new System.Drawing.Point(395, 182);
             this.transcurredTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.transcurredTime.Name = "transcurredTime";
-            this.transcurredTime.Size = new System.Drawing.Size(0, 19);
+            this.transcurredTime.Size = new System.Drawing.Size(65, 19);
             this.transcurredTime.TabIndex = 3;
-            this.transcurredTime.Text=OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
+            this.transcurredTime.Text = "00:00:00";
             // 
             // helpButton
             // 
             this.helpButton.Depth = 0;
-            this.helpButton.Location = new System.Drawing.Point(291, 289);
+            this.helpButton.Location = new System.Drawing.Point(0, 0);
             this.helpButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.helpButton.Name = "helpButton";
             this.helpButton.Primary = true;
             this.helpButton.Size = new System.Drawing.Size(75, 23);
-            this.helpButton.TabIndex = 5;
-            this.helpButton.Text = "HELP";
-            this.helpButton.UseVisualStyleBackColor = true;
-            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
+            this.helpButton.TabIndex = 0;
+            // 
+            // returnEC
+            // 
+            this.returnEC.AutoSize = true;
+            this.returnEC.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.returnEC.Depth = 0;
+            this.returnEC.Location = new System.Drawing.Point(295, 283);
+            this.returnEC.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.returnEC.MouseState = MaterialSkin.MouseState.HOVER;
+            this.returnEC.Name = "returnEC";
+            this.returnEC.Primary = false;
+            this.returnEC.Size = new System.Drawing.Size(63, 36);
+            this.returnEC.TabIndex = 4;
+            this.returnEC.Text = "volver";
+            this.returnEC.UseVisualStyleBackColor = true;
+            this.returnEC.Click += new System.EventHandler(this.btnBackEC_Click);
+
             // 
             // PostCallWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.returnEC);
             this.Controls.Add(this.helpButton);
             this.Controls.Add(this.transcurredTime);
             this.Controls.Add(this.materialLabel2);
@@ -110,5 +126,6 @@ namespace intellectus_desktop_client.Views.Suggestions
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel transcurredTime;
         private MaterialSkin.Controls.MaterialRaisedButton helpButton;
+        private MaterialSkin.Controls.MaterialFlatButton returnEC;
     }
 }
