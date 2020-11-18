@@ -45,7 +45,6 @@ namespace intellectus_desktop_client.Views.Suggestions
         private void goToPostCall()
         {
             float rating = Domain.CurrentUser.Call.CallRating;
-            rating = 0.20f;
             if (Domain.CurrentUser.Call.BreakAssigned)
             {
                 TakeABreak tab = new TakeABreak(true);
