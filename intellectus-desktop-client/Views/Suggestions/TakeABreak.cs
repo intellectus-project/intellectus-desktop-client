@@ -57,8 +57,8 @@ namespace intellectus_desktop_client.Views.Suggestions
             try
             {
                 API.TakeABreak();
-                EnteringCall ec = new EnteringCall();
-                ec.Show();
+                Break b= new Break();
+                b.Show();
                 OnCallWindow.TranscurredTime.Reset();
                 this.Close();
             }
