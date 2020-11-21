@@ -1,11 +1,13 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
+using intellectus_desktop_client.Services.API;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,11 +54,30 @@ namespace intellectus_desktop_client.Views.Suggestions
 
         private void btnTakeABreak_Click(object sender, EventArgs e)
         {
-            API.TakeABreak();
-            EnteringCall ec = new EnteringCall();
-            ec.Show();
-            OnCallWindow.TranscurredTime.Reset();
-            this.Close();
+            try
+            {
+                API.TakeABreak();
+                EnteringCall ec = new EnteringCall();
+                ec.Show();
+                OnCallWindow.TranscurredTime.Reset();
+                this.Close();
+            }
+            catch(HttpResponseMessageException exception)
+            {
+                switch (exception.Code)
+                {
+                    case HttpStatusCode.BadRequest:
+                    case HttpStatusCode.NotFound:
+                        MessageBox.Show("Error enviando datos");
+                        break;
+                    case HttpStatusCode.InternalServerError:
+                        MessageBox.Show("Error en el servidor");
+                        break;
+                    default:
+                        MessageBox.Show("Error inesperado");
+                        break;
+                }
+            }
         }
     }
 }

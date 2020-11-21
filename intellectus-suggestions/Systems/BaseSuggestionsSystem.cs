@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Suggestions.Systems
 {
@@ -11,11 +12,11 @@ namespace Suggestions.Systems
 
         public static List<Suggestion> Suggestions = new List<Suggestion>
         {
-            new Suggestion("La verdadera compasión no significa s&aacute;lo sentir el dolor de otra persona, sino estar motivado a eliminarlo"),
-            new Suggestion("Exhal&aacute; lentamente"),
-            new Suggestion("No tengas miedo de tus miedos, no est&aacute;n ah&iacute; para asustar. Est&aacute;n para luchar con ellos"),
-            new Suggestion("Inhal&aacute; lenta y profundamente, sacando tripa"),
-            new Suggestion("Manten&eacute; la respiraci&oacute;n durante un par de segundos")
+            new Suggestion(HttpUtility.HtmlDecode("La verdadera compasi&oacute;n no significa s&oacute;lo sentir el dolor de otra persona, sino estar motivado a eliminarlo")),
+            new Suggestion(HttpUtility.HtmlDecode("Exhal&aacute; lentamente")),
+            new Suggestion(HttpUtility.HtmlDecode("No tengas miedo de tus miedos, no est&aacute;n ah&iacute; para asustar. Est&aacute;n para luchar con ellos")),
+            new Suggestion(HttpUtility.HtmlDecode("Inhal&aacute; lenta y profundamente, sacando tripa")),
+            new Suggestion(HttpUtility.HtmlDecode("Manten&eacute; la respiraci&oacute;n durante un par de segundos"))
         };
 
 

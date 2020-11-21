@@ -1,5 +1,6 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
+using intellectus_desktop_client.Services.API;
 using SoundRecorder.SoundListeners;
 using SoundRecorder.SoundRecorders;
 using System;
@@ -7,6 +8,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
 
@@ -31,11 +34,47 @@ namespace intellectus_desktop_client
             }
         }
 
+
         private void btnStartCall_Click(object sender, EventArgs e)
-        {            
-            OnCallWindow onCallWindow = new OnCallWindow();
-            onCallWindow.Show();
-            this.Close();
+        {
+            startCall();
+        }
+
+        private void startCall()
+        {
+            if (Services.CallService.CanStartCall())
+            {
+                try
+                {
+                    API.StartCall();
+                    OnCallWindow onCallWindow = new OnCallWindow();
+                    onCallWindow.Show();
+                    this.Close();
+                }
+                catch(HttpResponseMessageException exception)
+                {
+                    switch(exception.Code)
+                    {
+                        case HttpStatusCode.BadRequest:
+                        case HttpStatusCode.NotFound:
+                            MessageBox.Show("Error enviando datos");
+                            break;
+                        case HttpStatusCode.InternalServerError:
+                            MessageBox.Show("Error en el servidor");
+                            break;
+                        // Blocked
+                        case (HttpStatusCode)423:
+                            MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
+                            break;
+                        default:
+                            MessageBox.Show("Error inesperado");
+                            break;
+                    }
+
+                }                
+            }
+            else
+                MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
         }
     }
 

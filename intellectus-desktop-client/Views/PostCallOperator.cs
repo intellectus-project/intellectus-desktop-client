@@ -1,5 +1,6 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
+using intellectus_desktop_client.Services.API;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -29,11 +30,15 @@ namespace intellectus_desktop_client.Views.Suggestions
             if (emotion.SelectedItems.Count > 0)
             {
                 Domain.CurrentUser.Call.Emotion = emotion.SelectedIndex;
-                if (API.EndCall())
+                try
                 {
+                    API.EndCall();
                     goToPostCall();
                 }
-                lblErrorCreateCall.Visible = true;
+                catch(HttpResponseMessageException exception)
+                {
+                    lblErrorCreateCall.Visible = true;
+                }
             }
             else
             {

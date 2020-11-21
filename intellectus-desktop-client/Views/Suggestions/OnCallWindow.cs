@@ -21,8 +21,10 @@ namespace intellectus_desktop_client
         public OnCallWindow()
         {
             InitializeComponent();
-            startCall();
-           
+
+            SuggestionListenerController = new SuggestionListenerController(suggestionsList, (a, b) => { Invoke(a, b); });
+            Recording.StartRecording(SuggestionListenerController);
+
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
@@ -62,18 +64,5 @@ namespace intellectus_desktop_client
             
         }
 
-        private void startCall()
-        {
-            if (Services.CallService.CanStartCall())
-            {
-                if (API.StartCall())
-                {
-                    SuggestionListenerController = new SuggestionListenerController(suggestionsList, (a, b) => { Invoke(a, b); });
-                    Recording.StartRecording(SuggestionListenerController);
-                }
-            }
-            else
-                MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
-        }
     }
 }
