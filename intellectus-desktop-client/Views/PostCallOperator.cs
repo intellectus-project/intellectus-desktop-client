@@ -64,14 +64,14 @@ namespace intellectus_desktop_client.Views.Suggestions
                 pcw.Show();
                 this.Close();
             }
-            if (rating > 0.40 && rating <= 0.60)
+            if (rating <= 0.60 && rating > 0.40  )
             {
                 PNL pnl = new PNL();
                 pnl.Show();
                 this.Close();
                 return;
             }
-            if (rating > 0.30 && rating <= 0.40)
+            if (rating <= 0.40 && rating > 0.30 )
             {
                 Domain.CurrentUser.Call.MinutesDuration = 10;
                 TakeABreak tab = new TakeABreak(false);
@@ -79,7 +79,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 this.Close();
                 return;
             }
-            if (rating > 0.20 && rating <= 0.30)
+            if (rating <= 0.30 && rating > 0.20)
             {
                 Domain.CurrentUser.Call.MinutesDuration = 15;
                 TakeABreak tab = new TakeABreak(false);
@@ -87,7 +87,7 @@ namespace intellectus_desktop_client.Views.Suggestions
                 this.Close();
                 return;
             }
-            if (rating > 0.10 && rating <= 0.20)
+            if (rating <= 0.20 && rating > 0.10 )
             {
                 Domain.CurrentUser.Call.MinutesDuration = 20;
                 TakeABreak tab = new TakeABreak(true);
