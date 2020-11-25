@@ -36,10 +36,11 @@ namespace intellectus_desktop_client.Views.Suggestions
             {
                 if (Domain.CurrentUser.Call.BreakAssigned)
                 {
-                    this.msg.Text = String.Format("Su supervisor notó que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
-
+                    this.msg.Text = String.Format("Su supervisor notó que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString()); 
                 }
-                this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
+                else {
+                    this.msg.Text = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
+                }
                 this.returnEC.Visible = false;
             }
         }
