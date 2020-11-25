@@ -77,7 +77,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // 
             // Break
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,7 +86,7 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Name = "Break";
-            this.Text = "Break";
+            this.Text = "INTELLECTUS";
             this.ResumeLayout(false);
             this.PerformLayout();
 

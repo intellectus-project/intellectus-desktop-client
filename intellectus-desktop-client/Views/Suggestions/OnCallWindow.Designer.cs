@@ -133,7 +133,7 @@ namespace intellectus_desktop_client
             this.Controls.Add(this.suggestionsList);
             this.Controls.Add(this.lblOperatorName);
             this.Name = "OnCallWindow";
-            this.Text = "Suggestions";
+            this.Text = "INTELLECTUS";
             this.ResumeLayout(false);
             this.PerformLayout();
 

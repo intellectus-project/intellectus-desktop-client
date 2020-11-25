@@ -114,7 +114,7 @@
             this.Controls.Add(this.returnEC);
             this.Controls.Add(this.materialLabel1);
             this.Name = "PNL";
-            this.Text = "PNL";
+            this.Text = "INTELLECTUS";
             this.ResumeLayout(false);
             this.PerformLayout();
 

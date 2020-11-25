@@ -34,7 +34,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.transcurredTime = new MaterialSkin.Controls.MaterialLabel();
-            this.helpButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.returnEC = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
@@ -77,16 +76,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.TabIndex = 3;
             this.transcurredTime.Text = OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
             // 
-            // helpButton
-            // 
-            this.helpButton.Depth = 0;
-            this.helpButton.Location = new System.Drawing.Point(0, 0);
-            this.helpButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Primary = true;
-            this.helpButton.Size = new System.Drawing.Size(75, 23);
-            this.helpButton.TabIndex = 0;
-            // 
             // returnEC
             // 
             this.returnEC.AutoSize = true;
@@ -102,7 +91,6 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.returnEC.Text = "volver";
             this.returnEC.UseVisualStyleBackColor = true;
             this.returnEC.Click += new System.EventHandler(this.btnBackEC_Click);
-
             // 
             // PostCallWindow
             // 
@@ -110,12 +98,11 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.returnEC);
-            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.transcurredTime);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Name = "PostCallWindow";
-            this.Text = "PostCallWindow";
+            this.Text = "INTELLECTUS";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +112,6 @@ namespace intellectus_desktop_client.Views.Suggestions
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel transcurredTime;
-        private MaterialSkin.Controls.MaterialRaisedButton helpButton;
         private MaterialSkin.Controls.MaterialFlatButton returnEC;
     }
 }

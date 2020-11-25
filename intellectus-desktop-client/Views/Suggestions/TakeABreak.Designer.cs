@@ -116,11 +116,9 @@
             this.materialLabel1.Size = new System.Drawing.Size(134, 19);
             this.materialLabel1.TabIndex = 4;
             this.materialLabel1.Text = "Llamada finalizada";
-
             // 
             // TakeABreak
             // 
-
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -131,7 +129,7 @@
             this.Controls.Add(this.returnEC);
             this.Controls.Add(this.msg);
             this.Name = "TakeABreak";
-            this.Text = "PostCallSuggestions";
+            this.Text = "INTELLECTUS";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -103,7 +103,7 @@
             this.Controls.Add(this.username);
             this.Controls.Add(this.requiredText);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "LOGIN";
             this.ResumeLayout(false);
             this.PerformLayout();
 
