@@ -101,7 +101,7 @@ namespace Suggestions.Systems
 
         private float Clamp(float value)
         {
-            return Math.Min(Math.Max(value, 1f), 0f);
+            return Math.Max(Math.Min(value, 1f), 0f);
         }
 
         private bool IsSuperHappy(Vertex vertex)

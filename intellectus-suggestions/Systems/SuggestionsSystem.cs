@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Suggestions.Systems
 {
-    public class SuggestionsSystem : IExtractionListener
+    public abstract class SuggestionsSystem : IExtractionListener
     {
         public Stack<Vertex> stack;
         public VoiceFeatureExtractionResult Last;
@@ -49,10 +49,7 @@ namespace Suggestions.Systems
             stack.Push(next);
         }
 
-        public virtual float Rating()
-        {
-            return 1f;
-        }
+        public abstract float Rating();
 
     }
 }

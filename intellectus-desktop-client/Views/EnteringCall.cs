@@ -1,6 +1,7 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
 using intellectus_desktop_client.Services.API;
+using intellectus_desktop_client.Views.Suggestions;
 using SoundRecorder.SoundListeners;
 using SoundRecorder.SoundRecorders;
 using System;
@@ -22,6 +23,7 @@ namespace intellectus_desktop_client
         {
             InitializeComponent();
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
@@ -64,7 +66,17 @@ namespace intellectus_desktop_client
                             break;
                         // Blocked
                         case (HttpStatusCode)423:
+                            var seconds = API.Deserialize<int>(exception.Response);
+                            // Create ghost call
+                            var call = new Call();
+                            call.BreakAssigned = true;
+                            call.MinutesDuration = seconds / 60;
+                            Domain.CurrentUser.Call = call;
                             MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
+
+                            Break breakWindow = new Break();
+                            Hide();
+                            breakWindow.Show();
                             break;
                         default:
                             MessageBox.Show("Error inesperado");

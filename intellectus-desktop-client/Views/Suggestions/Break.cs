@@ -14,7 +14,8 @@ namespace intellectus_desktop_client.Views.Suggestions
 {
     public partial class Break : MaterialSkin.Controls.MaterialForm
     {
-         public static DateTime  target = DateTime.Now.AddMinutes(30);
+        public DateTime target;
+
         public Break()
         {
             InitializeComponent();
@@ -23,9 +24,13 @@ namespace intellectus_desktop_client.Views.Suggestions
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             timer1.Start();
-            target = DateTime.Now.AddMinutes(Domain.CurrentUser.Call.MinutesDuration);
-            lblTimeLeft.Text = string.Format("00:{0}:00", Domain.CurrentUser.Call.MinutesDuration);
+            int minutes = Domain.CurrentUser.Call.MinutesDuration;           
+            target = DateTime.Now.AddMinutes(minutes);
+            lblTimeLeft.Text = string.Format("00:{0}:00", minutes);
         }
+
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeSpan diff = target - DateTime.Now;
