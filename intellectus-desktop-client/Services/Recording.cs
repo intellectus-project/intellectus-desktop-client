@@ -7,7 +7,9 @@ using Suggestions;
 using Suggestions.Systems;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace intellectus_desktop_client.Services
@@ -27,7 +29,12 @@ namespace intellectus_desktop_client.Services
         private static string consultantTimestamp;
 
         private static SuggestionsSystem suggestionsSystem;
-        private static VokaturiSingleExtractor operatorSingleExtractor; 
+        private static VokaturiSingleExtractor operatorSingleExtractor;
+
+        public static EmotionsProbabilities OperatorProbabilities { get; private set; }
+        public static EmotionsProbabilities ConsultantProbabilities { get; private set; }
+
+        public static EmotionsProbabilities OperatorLastStats { get; private set; }
 
         public static void StartRecording(ISuggestionsListener suggestionListener)
         {
@@ -79,7 +86,7 @@ namespace intellectus_desktop_client.Services
             ConsultantRecorder.AddListener(ConsultantWriter);
         }
 
-        public static EmotionsProbabilities ExtractOperatorEmotions()
+        private static EmotionsProbabilities ExtractOperatorEmotions()
         {
             string sourcePath = FormatPath("operator", operatorName, operatorTimestamp);
             var input = new FileSoundSource(sourcePath);
@@ -97,7 +104,7 @@ namespace intellectus_desktop_client.Services
             return extractor.Extraction.Emotions;
         }
 
-        public static EmotionsProbabilities ExtractConsultantEmotions()
+        private static EmotionsProbabilities ExtractConsultantEmotions()
         {
             string sourcePath = FormatPath("consultant", consultantTimestamp);
             var input = new FileSoundSource(sourcePath);
@@ -127,7 +134,6 @@ namespace intellectus_desktop_client.Services
 
         public static bool SoundProcessed => operatorSingleExtractor.Extracted;
 
-        public static EmotionsProbabilities OperatorLastStats => operatorSingleExtractor.Extraction.Emotions;
 
         private static string FormatPath(string baseFileName, string timestamp)
         {
@@ -140,6 +146,48 @@ namespace intellectus_desktop_client.Services
         }
 
 
+        public static void PerformExtraction()
+        {
+            if(SoundProcessed)
+            {
+                OperatorProbabilities = ExtractOperatorEmotions();
+                ConsultantProbabilities = ExtractConsultantEmotions();
+                OperatorLastStats = operatorSingleExtractor.Extraction.Emotions;
+
+                OperatorProbabilities = Sanitize(OperatorProbabilities);
+                ConsultantProbabilities = Sanitize(ConsultantProbabilities);
+                OperatorLastStats = Sanitize(OperatorLastStats);
+            }
+        }
+
+        private static EmotionsProbabilities Sanitize(EmotionsProbabilities probabilities)
+        {
+            double sum = probabilities.Neutrality + probabilities.Happiness + probabilities.Sadness + probabilities.Anger + probabilities.Fear;
+
+            probabilities.Neutrality = Sanitize(probabilities.Neutrality, 5);
+            probabilities.Happiness = Sanitize(probabilities.Happiness, 5);
+            probabilities.Sadness = Sanitize(probabilities.Sadness, 5);
+            probabilities.Anger = Sanitize(probabilities.Anger, 5);
+            probabilities.Fear = Sanitize(probabilities.Fear, 5);
+
+            if (AreNear(sum, 0.0))
+                probabilities.Neutrality = Math.Max(1.0 - sum, 1.0); 
+                
+            probabilities = EmotionsProbabilities.Sanitize(probabilities, 1.0, 5);
+            
+            return probabilities;
+        }
+
+        private static double Sanitize(double input, int decimals)
+        {
+            var part = Convert.ToDouble("0." + new string('0', decimals - 1) + "1");
+            return Math.Max(Math.Min((input < part) ? part : input, 1.0), 0.0);
+        }
+
+        private static bool AreNear(double value, double otherValue)
+        {
+            return (Math.Abs(value - otherValue) < 0.0000001);
+        }
 
     }
 }

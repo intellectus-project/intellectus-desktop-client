@@ -15,7 +15,7 @@ namespace Suggestions.Systems
             new Suggestion(HttpUtility.HtmlDecode("La verdadera compasi&oacute;n no significa s&oacute;lo sentir el dolor de otra persona, sino estar motivado a eliminarlo")),
             new Suggestion(HttpUtility.HtmlDecode("Exhal&aacute; lentamente")),
             new Suggestion(HttpUtility.HtmlDecode("No tengas miedo de tus miedos, no est&aacute;n ah&iacute; para asustar. Est&aacute;n para luchar con ellos")),
-            new Suggestion(HttpUtility.HtmlDecode("Inhal&aacute; lenta y profundamente, sacando tripa")),
+            new Suggestion(HttpUtility.HtmlDecode("Inhal&aacute; lenta y profundamente, inflando el pecho")),
             new Suggestion(HttpUtility.HtmlDecode("Manten&eacute; la respiraci&oacute;n durante un par de segundos"))
         };
 
