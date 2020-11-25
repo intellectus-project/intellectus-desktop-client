@@ -6,7 +6,8 @@ namespace Suggestions.Systems
 {
     public class SuggestionsSystem : IExtractionListener
     {
-        protected Stack<Vertex> stack;
+        public Stack<Vertex> stack;
+        public VoiceFeatureExtractionResult Last;
         private List<ISuggestionsListener> listeners = new List<ISuggestionsListener>();
 
 
@@ -38,6 +39,7 @@ namespace Suggestions.Systems
 
         public void ExtractionAvailable(VoiceFeatureExtractionResult extraction)
         {
+            Last = extraction;
             var past = stack.Peek();
             var next = past.FindNext(extraction.Emotions, stack);
 
