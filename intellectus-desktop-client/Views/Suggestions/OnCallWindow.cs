@@ -41,11 +41,13 @@ namespace intellectus_desktop_client
             TranscurredTime.Stop();
             var call = Domain.CurrentUser.Call;
             call.EndTime = DateTime.UtcNow;
+            Recording.PerformExtraction();
+
             if (Recording.SoundProcessed)
             {
                 call.OperatorLastStats = Recording.OperatorLastStats;
-                call.ConsultantStats = Recording.ExtractConsultantEmotions();
-                call.OperatorStats = Recording.ExtractOperatorEmotions();
+                call.ConsultantStats = Recording.ConsultantProbabilities;
+                call.OperatorStats = Recording.OperatorProbabilities;
                 call.CallRating = Recording.Rating;
             }
 
