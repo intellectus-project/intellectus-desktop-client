@@ -109,7 +109,7 @@ namespace intellectus_desktop_client
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblOperatorName);
             this.Name = "EnteringCall";
-            this.Text = "EnteringCall";
+            this.Text = "INTELLECTUS";
             this.ResumeLayout(false);
             this.PerformLayout();
 

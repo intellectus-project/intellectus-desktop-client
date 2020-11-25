@@ -32,6 +32,8 @@ namespace intellectus_desktop_client.Views.Suggestions
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PostCallOperator));
             this.emotion = new System.Windows.Forms.CheckedListBox();
             this.lblErrorCreateCall = new System.Windows.Forms.Label();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -43,21 +45,18 @@ namespace intellectus_desktop_client.Views.Suggestions
             // emotion
             // 
             this.emotion.CheckOnClick = true;
+            
             this.emotion.FormattingEnabled = true;
             this.emotion.HorizontalScrollbar = true;
-
             Dictionary<int, string> list = new Dictionary<int, string>();
             list.Add(0, "Triste");
             list.Add(1, "Feliz");
             list.Add(2, "Con miedo");
             list.Add(3, "Neutral");
             list.Add(4, "Enojado");
-
-
             this.emotion.DataSource = new BindingSource(list, null);
             this.emotion.ValueMember = "Key";
             this.emotion.DisplayMember = "Value";
-            
             this.emotion.Location = new System.Drawing.Point(17, 177);
             this.emotion.MultiColumn = true;
             this.emotion.Name = "emotion";
@@ -140,7 +139,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.Controls.Add(this.lblErrorCreateCall);
             this.Controls.Add(this.emotion);
             this.Name = "PostCallOperator";
-            this.Text = "PostCall";
+            this.Text = "INTELLECTUS";
             this.Load += new System.EventHandler(this.PostCall_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
