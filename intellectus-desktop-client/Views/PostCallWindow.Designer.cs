@@ -75,7 +75,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             this.transcurredTime.Name = "transcurredTime";
             this.transcurredTime.Size = new System.Drawing.Size(65, 19);
             this.transcurredTime.TabIndex = 3;
-            this.transcurredTime.Text = "00:00:00";
+            this.transcurredTime.Text = OnCallWindow.TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
             // 
             // helpButton
             // 
