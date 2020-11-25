@@ -23,7 +23,7 @@ namespace intellectus_desktop_client.Views.Suggestions
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Pink400, MaterialSkin.Primary.BlueGrey700, MaterialSkin.Primary.BlueGrey50, MaterialSkin.Accent.Orange700, MaterialSkin.TextShade.WHITE);
             timer1.Start();
-            target = DateTime.Now.AddMinutes(30);
+            target = DateTime.Now.AddMinutes(Domain.CurrentUser.Call.MinutesDuration);
             lblTimeLeft.Text = string.Format("00:{0}:00", Domain.CurrentUser.Call.MinutesDuration);
         }
         private void timer1_Tick(object sender, EventArgs e)
