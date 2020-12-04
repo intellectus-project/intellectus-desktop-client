@@ -1,0 +1,27 @@
+﻿<Window x:Class="intellectus_wpf_client.PostCallOperatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:intellectus_wpf_client"
+        mc:Ignorable="d"
+        Title="Intellectus" Height="1024" Width="1980"  WindowState="Maximized">
+    <Grid Margin="0,0,-15,-6" Background="AliceBlue">
+
+        <Grid Margin="694,238,693,238" Background="White">
+            <Grid Margin="174,138,174,125" Background="#F0F0F0">
+
+                <RadioButton Name="rdbNeutrality" GroupName="EmotionsGroup" FontSize="16" Content="Neutralidad" HorizontalAlignment="Left" Margin="81,39,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbFear"  GroupName="EmotionsGroup" FontSize="16" Content="Miedo" HorizontalAlignment="Left" Margin="81,81,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbHappiness"  GroupName="EmotionsGroup" FontSize="16" Content="Felicidad" HorizontalAlignment="Left" Margin="81,121,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbSadness"  GroupName="EmotionsGroup" FontSize="16" Content="Tristeza" HorizontalAlignment="Left" Margin="81,161,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbAnger"  GroupName="EmotionsGroup" FontSize="16" Content="Enojo" HorizontalAlignment="Left" Margin="81,201,0,0" VerticalAlignment="Top"/>
+                
+            </Grid>
+            <Label Content="¿Cómo te sentís?" FontSize="30pt" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="63" Width="312"/>
+            <Label Content="*Ocurrió un error" Name="lblError" Visibility="Hidden"  Foreground="IndianRed" FontSize="10pt" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,498,0,0" VerticalAlignment="Top" Height="30" Width="406"/>
+            <Button Content="Finalizar llamado" Name="btnEndCall" Foreground="White" HorizontalAlignment="Center" Margin="0,431,0,0" VerticalAlignment="Top" Width="260" Height="50" Click="btnEndCall_Click" />
+
+        </Grid>
+    </Grid>
+</Window>

@@ -28,7 +28,7 @@ namespace intellectus_desktop_client.Services
         private static string operatorTimestamp;
         private static string consultantTimestamp;
 
-        private static SuggestionsSystem suggestionsSystem;
+        public static SuggestionsSystem suggestionsSystem;
         private static VokaturiSingleExtractor operatorSingleExtractor;
 
         public static EmotionsProbabilities OperatorProbabilities { get; private set; }

@@ -35,5 +35,10 @@ namespace intellectus_desktop_unit_tests.Mocks
 
             Initialize(a);
         }
+
+        public override float Rating()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

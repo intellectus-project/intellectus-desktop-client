@@ -1,0 +1,47 @@
+﻿<Window x:Class="intellectus_wpf_client.OnCallWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:intellectus_wpf_client"
+        mc:Ignorable="d"
+        Title="OnCallWindow" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid Margin="0,0,-15,-6" Background="AliceBlue">
+        <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+
+        <Grid Margin="354,154,353,154" Background="White">
+            <Separator BorderThickness="1" BorderBrush="Black"  Margin="502,0,-40,637">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+
+            <Button Content="Finalizar llamada" FontSize="16pt"  Foreground="White" HorizontalAlignment="Left" Margin="120,574,0,0" VerticalAlignment="Top" Width="216" Height="55" Click="Button_Click"/>
+            <Label Content="En llamada" FontSize="26pt" HorizontalAlignment="Left" Margin="141,78,0,0" VerticalAlignment="Top"/>
+            <Label Name="lblTime" Tag="Tiempo transcurrido: " FontSize="11pt" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="155,181,0,0" VerticalAlignment="Top"/>
+
+            <ListView Name="lstSuggestions" FontSize="18pt"  Margin="474,78,122,50">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
+                        <!--<Setter Property="Background" Value="Gray" />-->
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListViewItem Margin="0, 10, 0, 0">
+                </ListViewItem>
+
+                <ListViewItem Margin="0, 10, 0, 0">
+                </ListViewItem>
+
+                <ListViewItem  Margin="0, 10, 0, 0">
+                </ListViewItem>
+            </ListView>
+
+        </Grid>
+    </Grid>
+</Window>

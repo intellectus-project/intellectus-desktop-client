@@ -1,0 +1,25 @@
+﻿<Window x:Class="intellectus_wpf_client.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:intellectus_wpf_client"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+         
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Intellectus" Height="1024" Width="1980" WindowState="Maximized">
+    <Grid Margin="0,0,-15,-6" Background="AliceBlue">
+        <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+
+        <Grid Margin="762,123,763,186" Background="White">
+            <TextBox Name="txtUser" FontSize="16pt" HorizontalAlignment="Center" Margin="0,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Height="37" materialDesign:HintAssist.Hint="Usuario" />
+            <PasswordBox Name="txtPassword" materialDesign:HintAssist.Hint="Password" FontSize="16pt" HorizontalAlignment="Center" Margin="0,404,0,0" VerticalAlignment="Top" Width="280" Height="37" />
+            <Button Content="Ingresar" FontSize="16pt"  Foreground="White" HorizontalAlignment="Center" Margin="0,509,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="Button_Click"/>
+            <Image Margin="0,55,0,0"  HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Source="/Resources/INTELLECTUS-01.png" Height="200" Width="200" />
+            <Label Name="txtRequiredText" Visibility="Hidden" Content="*Error" HorizontalAlignment="Center" Foreground="IndianRed" HorizontalContentAlignment="Center" Margin="0,617,0,0" VerticalAlignment="Top" Width="280"/>
+            <Button Content="TEST" Name="test" FontSize="16pt"  Foreground="White" HorizontalAlignment="Center" Margin="0,596,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="test_Click"/>
+        </Grid>
+    </Grid>
+</Window>
