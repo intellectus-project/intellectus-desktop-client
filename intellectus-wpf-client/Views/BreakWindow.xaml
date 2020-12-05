@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="BreakWindow" Height="1024" Width="1980"  WindowState="Maximized">
     <Grid Margin="0,0,-15,-6" Background="AliceBlue">
-        <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+        <Image Source="/Resources/Green.jpg" Stretch="UniformToFill" />
         <Grid Margin="694,247,693,247" Background="White">
             <Image Margin="0,137,0,0"  HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Source="/Resources/nature.png" Height="170" Width="170" />
             <Label Content="Descanso..." Name="lblTitle" FontSize="26pt" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top"/>
