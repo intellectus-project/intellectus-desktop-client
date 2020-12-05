@@ -77,9 +77,11 @@ namespace intellectus_wpf_client
             BreakWindow breakWindow = new BreakWindow();
             breakWindow.Show();
             Close();*/
-            RelaxationWindow relaxationWindow = new RelaxationWindow();
+            /*RelaxationWindow relaxationWindow = new RelaxationWindow();
             relaxationWindow.Show();
-            Close();
+            Close();*/
+
+
         }
     }
 }

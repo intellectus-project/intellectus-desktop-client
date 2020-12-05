@@ -8,8 +8,9 @@
         Title="Intellectus" Height="1024" Width="1980"  WindowState="Maximized">
     <Grid Margin="0,0,-15,-6" Background="AliceBlue">
 
-        <Grid Margin="694,238,693,238" Background="White">
-            <Grid Margin="174,138,174,125" Background="#F0F0F0">
+        <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="550" Background="White">
+            <Grid Margin="174,138,174,152" Background="#F0F0F0">
 
                 <RadioButton Name="rdbNeutrality" GroupName="EmotionsGroup" FontSize="16" Content="Neutralidad" HorizontalAlignment="Left" Margin="81,39,0,0" VerticalAlignment="Top"/>
                 <RadioButton Name="rdbFear"  GroupName="EmotionsGroup" FontSize="16" Content="Miedo" HorizontalAlignment="Left" Margin="81,81,0,0" VerticalAlignment="Top"/>

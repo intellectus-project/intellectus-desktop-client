@@ -3,13 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:intellectus_wpf_client" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:intellectus_wpf_client" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="TakeABreakWindow" Height="1024" Width="1980"  WindowState="Maximized">
     <Grid Margin="0,0,-15,-6" Background="AliceBlue">
-
-        <Grid Margin="634,238,635,238" Background="White">
-
+        <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+        <!--<Button Margin="8, 0, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}">            
+        </Button>-->
+        <materialDesign:PopupBox Name="ppbLogout" Margin="0, 24, 24, 0" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="DarkGray" >
+            <Button Name="btnExit" Click="btnExit_Click">
+                Salir
+            </Button>
+        </materialDesign:PopupBox>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="728" Height="550" Background="White">
             <Label Content="¿Querés tomarte un descanso?" FontSize="30pt" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="63"/>
             <Label Content="*Ocurrió un error" Name="lblError" Visibility="Hidden"  Foreground="IndianRed" FontSize="10pt" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,498,0,0" VerticalAlignment="Top" Height="30" Width="406"/>
             <Grid VerticalAlignment="Center">

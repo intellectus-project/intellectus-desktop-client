@@ -33,10 +33,17 @@ namespace intellectus_wpf_client
                     btnReturn.Visibility = Visibility.Visible;
                 }
                 else if (Domain.CurrentUser.Call.BreakAssigned)
+                {
                     lblMessage.Content = String.Format("Su supervisor notó que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
+                    ppbLogout.Visibility = Visibility.Hidden;
+                    btnReturn.Visibility = Visibility.Collapsed;
+                }
                 else
+                {
                     lblMessage.Content = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
-                
+                    ppbLogout.Visibility = Visibility.Hidden;
+                    btnReturn.Visibility = Visibility.Collapsed;
+                }
             }
         }
 
@@ -78,6 +85,16 @@ namespace intellectus_wpf_client
                 }
             }
             
+        }
+
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Domain.LogOut();
+
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            Close();
         }
     }
 }
