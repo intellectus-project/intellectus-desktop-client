@@ -69,6 +69,11 @@ namespace intellectus_desktop_client.Services.API
             Domain.CurrentUser.Call.MinutesDuration = rData.MinutesDuration;
         }
 
+        public static T Deserialize<T>(HttpResponseMessage response)
+        {
+            return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
+        }
+
         public static void TakeABreak()
         {
             Domain.CurrentUser.Call.BreakAssigned = true;
@@ -83,7 +88,7 @@ namespace intellectus_desktop_client.Services.API
             {
                 HttpResponseMessage response = client.SendAsync(request).Result;
                 if (!response.IsSuccessStatusCode)
-                    throw new HttpResponseMessageException(response.StatusCode);
+                    throw new HttpResponseMessageException(response.StatusCode, response);
                 return response;
             }
         }
@@ -96,7 +101,7 @@ namespace intellectus_desktop_client.Services.API
                 HttpResponseMessage response = client.SendAsync(request).Result;
                
                 if (!response.IsSuccessStatusCode)
-                    throw new HttpResponseMessageException(response.StatusCode);
+                    throw new HttpResponseMessageException(response.StatusCode, response);
 
                 return response;
             }

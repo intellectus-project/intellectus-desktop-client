@@ -56,11 +56,11 @@ namespace Suggestions.Systems
 
 
             a.Edges = new List<Edge>{ e1, e2, e3, e4, e5 };
-            b.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e6 };
-            d.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e7 };
-            f.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e8 };
-            h.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e9 };
-            j.Edges = new List<Edge>{ e1, e2, e3, e4, e5, e10 };
+            b.Edges = new List<Edge>{ e2, e3, e4, e5, e6 };
+            d.Edges = new List<Edge>{ e1, e3, e4, e5, e7 };
+            f.Edges = new List<Edge>{ e1, e2, e4, e5, e8 };
+            h.Edges = new List<Edge>{ e1, e2, e3, e5, e9 };
+            j.Edges = new List<Edge>{ e1, e2, e3, e4, e10 };
 
             c.Edges = new List<Edge>{ e2, e3, e4, e5 };
             e.Edges = new List<Edge>{ e1, e3, e4, e5 };
@@ -101,7 +101,7 @@ namespace Suggestions.Systems
 
         private float Clamp(float value)
         {
-            return Math.Min(Math.Max(value, 1f), 0f);
+            return Math.Max(Math.Min(value, 1f), 0f);
         }
 
         private bool IsSuperHappy(Vertex vertex)

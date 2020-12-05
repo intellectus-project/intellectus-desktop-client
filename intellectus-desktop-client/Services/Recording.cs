@@ -63,7 +63,7 @@ namespace intellectus_desktop_client.Services
 
             operatorTimestamp = DateTime.Now.ToFileTimeUtc().ToString();
             OperatorWriter = new SoundFileWriter(FormatPath("operator", operatorName, operatorTimestamp), waveFormat);
-            var voiceListener = new VoiceListener(waveFormat, 10f);
+            var voiceListener = new VoiceListener(waveFormat, 5f);
 
             OperatorRecorder.AddListener(OperatorWriter);
             OperatorRecorder.AddListener(voiceListener);
