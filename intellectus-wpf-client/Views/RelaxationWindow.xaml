@@ -8,11 +8,12 @@
         Title="RelaxationWindow" Height="1024" Width="1980"  WindowState="Maximized">
     <Grid Margin="0,0,-15,-6" Background="AliceBlue">
 
-        <Grid Margin="634,238,635,238" Background="White">
-
-            <Label Content="Relajación" FontSize="30pt" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="63"/>
-            <MediaElement Source="" LoadedBehavior="Manual" Name="mediaVideoPlayer" Margin="0,107,0,0" />
-
-        </Grid>
+        <Grid Width="Auto" Height="Auto" Background="black">
+            <Grid Width="Auto" Height="100" Background="#151515" VerticalAlignment="Top">
+                <Button Name="btnReturn" Content="Volver" Foreground="#303030" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="180" Height="40" Margin="0,0,50,0" Click="btnReturn_Click" />
+                <Button Name="btnStop" Content="Pausar" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="180" Height="40" Margin="0,0,50,0" Click="btnStop_Click" />
+            </Grid>
+            <MediaElement LoadedBehavior="Manual" Name="mediaVideoPlayer" Margin="0,100,0,0" />
+        </Grid>        
     </Grid>
 </Window>

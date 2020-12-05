@@ -9,12 +9,10 @@
 
   <ItemGroup>
     <None Remove="Resources\Background.png" />
+    <None Remove="Resources\Green.jpg" />
     <None Remove="Resources\INTELLECTUS-01.png" />
     <None Remove="Resources\nature.png" />
     <None Remove="Resources\phone-call.png" />
-    <None Remove="Resources\Relaxation\1.mp4" />
-    <None Remove="Resources\Relaxation\2.mp4" />
-    <None Remove="Resources\Relaxation\3.mp4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +30,9 @@
     <Resource Include="Resources\Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Green.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\INTELLECTUS-01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -41,15 +42,18 @@
     <Resource Include="Resources\phone-call.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Relaxation\1.mp4">
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Relaxation\1.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Relaxation\2.mp4">
+    </None>
+    <None Update="Resources\Relaxation\2.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Relaxation\3.mp4">
+    </None>
+    <None Update="Resources\Relaxation\3.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
 
 </Project>

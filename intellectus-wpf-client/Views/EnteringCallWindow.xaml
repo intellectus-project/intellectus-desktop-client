@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:intellectus_wpf_client"
         mc:Ignorable="d"
         Title="Intellectus" Height="1024" Width="1980" WindowState="Maximized">
-    <Grid Margin="0,0,-15,-6" Background="AliceBlue">
-
-        <Grid Margin="694,247,693,247" Background="White">
-            <Button Content="Atender" FontSize="16pt" Foreground="White" HorizontalAlignment="Center" Margin="0,408,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="Button_Click"/>
-            <Image Margin="0,127,0,0"  HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Uniform" Source="/Resources/phone-call.png" Height="170" Width="170" />
+    <Grid Margin="0,0,-15,-6">
+        <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="550" Background="White">
+            <Button Content="Atender" FontSize="16pt" Foreground="White" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="200" Height="50" Click="Button_Click"/>
+            <Image Stretch="Uniform" Source="/Resources/phone-call.png" Height="170" Width="170" />
             <Label Content="Llamada entrante" FontSize="26pt" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
