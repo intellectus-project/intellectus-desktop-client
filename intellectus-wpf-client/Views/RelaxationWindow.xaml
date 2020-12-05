@@ -1,0 +1,19 @@
+﻿<Window x:Class="intellectus_wpf_client.RelaxationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:intellectus_wpf_client"
+        mc:Ignorable="d"
+        Title="RelaxationWindow" Height="1024" Width="1980"  WindowState="Maximized">
+    <Grid Margin="0,0,-15,-6" Background="AliceBlue">
+
+        <Grid Width="Auto" Height="Auto" Background="black">
+            <Grid Width="Auto" Height="100" Background="#151515" VerticalAlignment="Top">
+                <Button Name="btnReturn" Content="Volver" Foreground="#303030" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="180" Height="40" Margin="0,0,50,0" Click="btnReturn_Click" />
+                <Button Name="btnStop" Content="Pausar" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Width="180" Height="40" Margin="0,0,50,0" Click="btnStop_Click" />
+            </Grid>
+            <MediaElement LoadedBehavior="Manual" Name="mediaVideoPlayer" Margin="0,100,0,0" />
+        </Grid>        
+    </Grid>
+</Window>

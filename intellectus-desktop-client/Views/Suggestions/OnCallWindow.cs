@@ -24,6 +24,7 @@ namespace intellectus_desktop_client
 
             SuggestionListenerController = new SuggestionListenerController(suggestionsList, (a, b) => { Invoke(a, b); });
             Recording.StartRecording(SuggestionListenerController);
+            
 
             MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
