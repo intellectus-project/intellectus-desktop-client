@@ -70,14 +70,14 @@ namespace intellectus_wpf_client
 
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            /*
+            
             Domain.CurrentUser = new Operator();
             Domain.CurrentUser.Call = new Call();
             Domain.CurrentUser.Call.MinutesDuration = 1;
             BreakWindow breakWindow = new BreakWindow();
             breakWindow.Show();
-            Close();*/
-            /*RelaxationWindow relaxationWindow = new RelaxationWindow();
+            Close();/*
+            RelaxationWindow relaxationWindow = new RelaxationWindow();
             relaxationWindow.Show();
             Close();*/
 

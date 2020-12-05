@@ -42,7 +42,7 @@ namespace intellectus_wpf_client
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lblTime.Content = TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
+            lblTime.Content = lblTime.Tag.ToString() + TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
