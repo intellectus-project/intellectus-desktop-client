@@ -166,13 +166,13 @@ namespace intellectus_desktop_client.Services
 
             try
             {
-                double sum = probabilities.Neutrality + probabilities.Happiness + probabilities.Sadness + probabilities.Anger + probabilities.Fear;
-
                 probabilities.Neutrality = Sanitize(probabilities.Neutrality, 5);
                 probabilities.Happiness = Sanitize(probabilities.Happiness, 5);
                 probabilities.Sadness = Sanitize(probabilities.Sadness, 5);
                 probabilities.Anger = Sanitize(probabilities.Anger, 5);
                 probabilities.Fear = Sanitize(probabilities.Fear, 5);
+
+                double sum = probabilities.Neutrality + probabilities.Happiness + probabilities.Sadness + probabilities.Anger + probabilities.Fear;
 
                 if (AreNear(sum, 0.0))
                     probabilities.Neutrality = Math.Max(1.0 - sum, 1.0);

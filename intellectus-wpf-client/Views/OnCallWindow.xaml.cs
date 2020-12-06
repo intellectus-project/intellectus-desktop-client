@@ -1,9 +1,11 @@
 ﻿using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
+using intellectus_desktop_client.Services.API;
 using intellectus_wpf_client.Views.Suggestions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,9 +43,32 @@ namespace intellectus_wpf_client
             Timer.Start();
         }
 
+        private string ja = "";
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             lblTime.Content = lblTime.Tag.ToString() + TranscurredTime.Elapsed.ToString("hh':'mm':'ss");
+
+            lblTest.Content = string.Join(" ", Recording.suggestionsSystem.stack.Select(st => st.ID));
+            var l = Recording.suggestionsSystem.Last;
+            if(l != null)
+            {
+                var j = new
+                {
+                    Anger = string.Format("{0:0.00}", l.probabilities.Anger),
+                    Fear = string.Format("{0:0.00}", l.probabilities.Fear),
+                    Happiness = string.Format("{0:0.00}", l.probabilities.Happiness),
+                    Neutrality = string.Format("{0:0.00}", l.probabilities.Neutrality),
+                    Sadness = string.Format("{0:0.00}", l.probabilities.Sadness),
+                };
+                lblTest.Content += "\n" + API.Serialize(Recording.suggestionsSystem.Last.Quality);
+                lblTest.Content += "\n" + API.Serialize(j);
+            }
+            
+
+            if(!ja.Equals(lblTest.Content))
+                Trace.WriteLine(lblTest.Content);
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

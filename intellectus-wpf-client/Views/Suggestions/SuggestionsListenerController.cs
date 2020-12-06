@@ -37,23 +37,11 @@ namespace intellectus_wpf_client.Views.Suggestions
             // If these threads are different, it returns true.
             if (View.Dispatcher.Thread.Equals(Thread.CurrentThread))
             {
-
-                View.Items.Insert(0, suggestion);
-                View.Items.Remove(View.Items[3]);
-                label.Content = string.Join(" ", Recording.suggestionsSystem.stack.Select(st => st.ID));
-                var l = Recording.suggestionsSystem.Last;
-                var j = new
-                {
-                    Anger = string.Format("{0:0.00}", l.probabilities.Anger),
-                    Fear = string.Format("{0:0.00}", l.probabilities.Fear),
-                    Happiness = string.Format("{0:0.00}", l.probabilities.Happiness),
-                    Neutrality = string.Format("{0:0.00}", l.probabilities.Neutrality),
-                    Sadness = string.Format("{0:0.00}", l.probabilities.Sadness),
-                };
-                label.Content += "\n" + API.Serialize(Recording.suggestionsSystem.Last.Quality);
-                label.Content += "\n" + API.Serialize(j);
-
-                Trace.WriteLine(label.Content);
+                if (!View.Items.Contains(suggestion))
+                { 
+                    View.Items.Insert(0, suggestion);
+                    View.Items.Remove(View.Items[3]);
+                }                
             }
             else
             {
