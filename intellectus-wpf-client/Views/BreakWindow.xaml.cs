@@ -48,5 +48,13 @@ namespace intellectus_wpf_client
             else
                 lblTimeRemaining.Content = difference.ToString("hh':'mm':'ss");
         }
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Domain.LogOut();
+
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            Close();
+        }
     }
 }

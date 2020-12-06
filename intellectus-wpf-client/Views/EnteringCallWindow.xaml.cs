@@ -79,5 +79,14 @@ namespace intellectus_wpf_client
             else
                 MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Domain.LogOut();
+
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            Close();
+        }
     }
 }

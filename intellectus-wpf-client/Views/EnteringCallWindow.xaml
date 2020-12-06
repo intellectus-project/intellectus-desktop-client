@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:intellectus_wpf_client"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Intellectus" Height="1024" Width="1980" WindowState="Maximized">
-    <Grid Margin="0,0,-15,-6">
+    <Grid>
         <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
+        <materialDesign:PopupBox Margin="0, 24, 24, 0" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="DarkGray" >
+            <Button Name="btnExit" Click="btnExit_Click">
+                Salir
+            </Button>
+        </materialDesign:PopupBox>
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="550" Background="White">
             <Button Content="Atender" FontSize="16pt" Foreground="White" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="200" Height="50" Click="Button_Click"/>
             <Image Stretch="Uniform" Source="/Resources/phone-call.png" Height="170" Width="170" />

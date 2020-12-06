@@ -63,7 +63,7 @@ namespace intellectus_desktop_client.Services
 
             operatorTimestamp = DateTime.Now.ToFileTimeUtc().ToString();
             OperatorWriter = new SoundFileWriter(FormatPath("operator", operatorName, operatorTimestamp), waveFormat);
-            var voiceListener = new VoiceListener(waveFormat, 5f);
+            var voiceListener = new VoiceListener(waveFormat, 10f);
 
             OperatorRecorder.AddListener(OperatorWriter);
             OperatorRecorder.AddListener(voiceListener);
@@ -162,20 +162,30 @@ namespace intellectus_desktop_client.Services
 
         private static EmotionsProbabilities Sanitize(EmotionsProbabilities probabilities)
         {
-            double sum = probabilities.Neutrality + probabilities.Happiness + probabilities.Sadness + probabilities.Anger + probabilities.Fear;
+            var original = probabilities;
 
-            probabilities.Neutrality = Sanitize(probabilities.Neutrality, 5);
-            probabilities.Happiness = Sanitize(probabilities.Happiness, 5);
-            probabilities.Sadness = Sanitize(probabilities.Sadness, 5);
-            probabilities.Anger = Sanitize(probabilities.Anger, 5);
-            probabilities.Fear = Sanitize(probabilities.Fear, 5);
+            try
+            {
+                double sum = probabilities.Neutrality + probabilities.Happiness + probabilities.Sadness + probabilities.Anger + probabilities.Fear;
 
-            if (AreNear(sum, 0.0))
-                probabilities.Neutrality = Math.Max(1.0 - sum, 1.0); 
-                
-            probabilities = EmotionsProbabilities.Sanitize(probabilities, 1.0, 5);
-            
-            return probabilities;
+                probabilities.Neutrality = Sanitize(probabilities.Neutrality, 5);
+                probabilities.Happiness = Sanitize(probabilities.Happiness, 5);
+                probabilities.Sadness = Sanitize(probabilities.Sadness, 5);
+                probabilities.Anger = Sanitize(probabilities.Anger, 5);
+                probabilities.Fear = Sanitize(probabilities.Fear, 5);
+
+                if (AreNear(sum, 0.0))
+                    probabilities.Neutrality = Math.Max(1.0 - sum, 1.0);
+
+                probabilities = EmotionsProbabilities.Sanitize(probabilities, 1.0, 5);
+
+                return probabilities;
+            }
+            catch(Exception e)
+            {
+                // Use the greatest if there's a fp problem
+                return EmotionsProbabilities.Mock(original);
+            }
         }
 
         private static double Sanitize(double input, int decimals)

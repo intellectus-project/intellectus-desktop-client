@@ -74,6 +74,11 @@ namespace intellectus_desktop_client.Services.API
             return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
         }
 
+        public static string Serialize(object obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+
         public static void TakeABreak()
         {
             Domain.CurrentUser.Call.BreakAssigned = true;
