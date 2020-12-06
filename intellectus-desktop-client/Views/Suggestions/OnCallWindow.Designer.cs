@@ -47,9 +47,10 @@ namespace intellectus_desktop_client
             // 
             this.lblOperatorName.AccessibleName = "lblOperatorName";
             this.lblOperatorName.AutoSize = true;
-            this.lblOperatorName.Location = new System.Drawing.Point(415, 17);
+            this.lblOperatorName.Location = new System.Drawing.Point(553, 21);
+            this.lblOperatorName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOperatorName.Name = "lblOperatorName";
-            this.lblOperatorName.Size = new System.Drawing.Size(0, 13);
+            this.lblOperatorName.Size = new System.Drawing.Size(0, 17);
             this.lblOperatorName.TabIndex = 6;
             // 
             // timer1
@@ -64,9 +65,10 @@ namespace intellectus_desktop_client
             listViewItem1,
             listViewItem2,
             listViewItem3});
-            this.suggestionsList.Location = new System.Drawing.Point(308, 92);
+            this.suggestionsList.Location = new System.Drawing.Point(411, 113);
+            this.suggestionsList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.suggestionsList.Name = "suggestionsList";
-            this.suggestionsList.Size = new System.Drawing.Size(330, 132);
+            this.suggestionsList.Size = new System.Drawing.Size(440, 162);
             this.suggestionsList.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.suggestionsList.TabIndex = 9;
             this.suggestionsList.UseCompatibleStateImageBehavior = false;
@@ -78,10 +80,11 @@ namespace intellectus_desktop_client
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 92);
+            this.materialLabel1.Location = new System.Drawing.Point(16, 113);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(149, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(186, 24);
             this.materialLabel1.TabIndex = 10;
             this.materialLabel1.Text = "Tiempo transcurrido:";
             // 
@@ -91,20 +94,22 @@ namespace intellectus_desktop_client
             this.lblTranscurredTime.Depth = 0;
             this.lblTranscurredTime.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTranscurredTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTranscurredTime.Location = new System.Drawing.Point(167, 92);
+            this.lblTranscurredTime.Location = new System.Drawing.Point(223, 113);
+            this.lblTranscurredTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTranscurredTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTranscurredTime.Name = "lblTranscurredTime";
-            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 19);
+            this.lblTranscurredTime.Size = new System.Drawing.Size(0, 24);
             this.lblTranscurredTime.TabIndex = 11;
             // 
             // btnEndCall
             // 
             this.btnEndCall.Depth = 0;
-            this.btnEndCall.Location = new System.Drawing.Point(86, 201);
+            this.btnEndCall.Location = new System.Drawing.Point(115, 247);
+            this.btnEndCall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEndCall.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEndCall.Name = "btnEndCall";
             this.btnEndCall.Primary = true;
-            this.btnEndCall.Size = new System.Drawing.Size(75, 23);
+            this.btnEndCall.Size = new System.Drawing.Size(100, 28);
             this.btnEndCall.TabIndex = 12;
             this.btnEndCall.Text = "Finalizar";
             this.btnEndCall.UseVisualStyleBackColor = true;
@@ -114,24 +119,26 @@ namespace intellectus_desktop_client
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(259, 61);
+            this.materialDivider1.Location = new System.Drawing.Point(345, 75);
+            this.materialDivider1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(5, 500);
+            this.materialDivider1.Size = new System.Drawing.Size(7, 615);
             this.materialDivider1.TabIndex = 13;
             this.materialDivider1.Text = "materialDivider1";
             // 
             // OnCallWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(915, 480);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnEndCall);
             this.Controls.Add(this.lblTranscurredTime);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.suggestionsList);
             this.Controls.Add(this.lblOperatorName);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "OnCallWindow";
             this.Text = "INTELLECTUS";
             this.ResumeLayout(false);

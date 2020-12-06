@@ -74,6 +74,18 @@ namespace EmotionRecognition.Wrapper
             return FromList(GetPerfectRounding(ToList(probabilities), forceSum, decimals));
         }
 
+        public static EmotionsProbabilities Mock(EmotionsProbabilities original)
+        {
+            var list = ToList(original);
+            double max = list.Max();
+            int maxIndex = list.IndexOf(max);
+
+            for (int index = 0; index < list.Count; index++)
+                list[index] = 0.0;
+            list[maxIndex] = 0.99;
+
+            return FromList(list);
+        }
 
         public static List<double> GetPerfectRounding(List<double> original, double forceSum, int decimals)
         {

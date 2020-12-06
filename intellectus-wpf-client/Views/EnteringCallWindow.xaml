@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Intellectus" Height="1024" Width="1980" WindowState="Maximized">
-    <Grid Margin="0,0,-15,-6">
+    <Grid>
         <Image Source="/Resources/Background.png" Stretch="UniformToFill" />
         <materialDesign:PopupBox Margin="0, 24, 24, 0" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="DarkGray" >
             <Button Name="btnExit" Click="btnExit_Click">

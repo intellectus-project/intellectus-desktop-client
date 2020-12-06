@@ -9,7 +9,7 @@ namespace EmotionRecognition.Wrapper
 {
     public class VoiceFeatureExtractionResult
     {
-        private EmotionsProbabilities probabilities;
+        public EmotionsProbabilities probabilities;
         private ExtractionQuality quality;
 
 

@@ -30,7 +30,8 @@ namespace intellectus_wpf_client
         {
             InitializeComponent();
 
-            SuggestionsListenerController suggestionsController = new SuggestionsListenerController(lstSuggestions);
+            suggestionsController = new SuggestionsListenerController(lstSuggestions);
+            suggestionsController.label = lblTest;
             Recording.StartRecording(suggestionsController);
 
             TranscurredTime = new Stopwatch();
