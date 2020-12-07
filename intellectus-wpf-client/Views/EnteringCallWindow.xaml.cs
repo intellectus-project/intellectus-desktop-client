@@ -61,7 +61,7 @@ namespace intellectus_wpf_client
                             // Create ghost call
                             var call = new Call();
                             call.BreakAssigned = true;
-                            call.MinutesDuration = seconds / 60;
+                            call.MinutesDuration = (seconds / 60) + 1;
                             Domain.CurrentUser.Call = call;
                             MessageBox.Show("No se puede iniciar una llamada, se encuentra en un descanso");
 

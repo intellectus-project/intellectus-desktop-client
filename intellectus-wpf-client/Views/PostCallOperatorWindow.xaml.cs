@@ -53,9 +53,7 @@ namespace intellectus_wpf_client
             float rating = Domain.CurrentUser.Call.CallRating;
             if (Domain.CurrentUser.Call.BreakAssigned)
             {
-                BreakWindow tab = new BreakWindow();
-                tab.Show();
-                Close();
+                TakeABreak(Domain.CurrentUser.Call.MinutesDuration, true);
                 return;
             }
             
@@ -68,9 +66,7 @@ namespace intellectus_wpf_client
             }
             if (rating <= 0.60 && rating > 0.40)
             {
-                RelaxationWindow relaxation = new RelaxationWindow();
-                relaxation.Show();
-                Close();
+                Relaxation();
                 return;
             }
             if (rating <= 0.40 && rating > 0.30)
@@ -101,6 +97,14 @@ namespace intellectus_wpf_client
             TakeABreakWindow tab = new TakeABreakWindow();
             tab.Mandatory = mandatory;
             tab.Show();
+            Close();
+        }
+
+        private void Relaxation()
+        {
+            TakeABreakWindow takeABreak = new TakeABreakWindow();
+            takeABreak.SetRelaxation();
+            takeABreak.Show();
             Close();
         }
     }

@@ -166,11 +166,11 @@ namespace intellectus_desktop_client.Services
 
             try
             {
-                probabilities.Neutrality = Sanitize(probabilities.Neutrality, 5);
-                probabilities.Happiness = Sanitize(probabilities.Happiness, 5);
-                probabilities.Sadness = Sanitize(probabilities.Sadness, 5);
-                probabilities.Anger = Sanitize(probabilities.Anger, 5);
-                probabilities.Fear = Sanitize(probabilities.Fear, 5);
+                probabilities.Neutrality = Math.Round(probabilities.Neutrality, 5);
+                probabilities.Happiness = Math.Round(probabilities.Happiness, 5);
+                probabilities.Sadness = Math.Round(probabilities.Sadness, 5);
+                probabilities.Anger = Math.Round(probabilities.Anger, 5);
+                probabilities.Fear = Math.Round(probabilities.Fear, 5);
 
                 double sum = probabilities.Neutrality + probabilities.Happiness + probabilities.Sadness + probabilities.Anger + probabilities.Fear;
 

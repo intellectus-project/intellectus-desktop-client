@@ -21,6 +21,8 @@ namespace intellectus_wpf_client
     public partial class TakeABreakWindow : Window
     {
         private bool mandatory = false;
+        private bool isRelaxation = false;
+
         public bool Mandatory
         {
             get => mandatory;
@@ -47,6 +49,15 @@ namespace intellectus_wpf_client
             }
         }
 
+        public void SetRelaxation()
+        {
+            isRelaxation = true;
+            lblTitle.Content = "Ejercicio de relajación";
+            lblMessage.Content = "Puede elegir realizar un ejercicio de relajación si lo desea";
+            btnBreak.Content = "Ver ejercicio";
+            ppbLogout.Visibility = Visibility.Visible;
+        }
+
         public TakeABreakWindow()
         {
             InitializeComponent();
@@ -63,9 +74,17 @@ namespace intellectus_wpf_client
         {
             try
             {
-                API.TakeABreak();
-                BreakWindow breakWindow = new BreakWindow();
-                breakWindow.Show();
+                if(isRelaxation)
+                {
+                    RelaxationWindow window = new RelaxationWindow();
+                    window.Show();
+                }
+                else
+                {
+                    API.TakeABreak();
+                    BreakWindow breakWindow = new BreakWindow();
+                    breakWindow.Show();
+                }                
                 Close();
             }
             catch (HttpResponseMessageException exception)

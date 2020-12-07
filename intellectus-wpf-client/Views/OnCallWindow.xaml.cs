@@ -1,4 +1,5 @@
-﻿using intellectus_desktop_client.Models;
+﻿using EmotionRecognition.Wrapper;
+using intellectus_desktop_client.Models;
 using intellectus_desktop_client.Services;
 using intellectus_desktop_client.Services.API;
 using intellectus_wpf_client.Views.Suggestions;
@@ -73,6 +74,13 @@ namespace intellectus_wpf_client
                 call.ConsultantStats = Recording.ConsultantProbabilities;
                 call.OperatorStats = Recording.OperatorProbabilities;
                 call.CallRating = Recording.Rating;
+            }
+            else
+            {
+                call.OperatorLastStats = EmotionsProbabilities.CreateDefault();
+                call.ConsultantStats = EmotionsProbabilities.CreateDefault();
+                call.OperatorStats = EmotionsProbabilities.CreateDefault();
+                call.CallRating = 1;
             }
 
             PostCallOperatorWindow postCall = new PostCallOperatorWindow();

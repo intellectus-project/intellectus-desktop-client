@@ -136,5 +136,11 @@ namespace EmotionRecognition.Wrapper
             return new EmotionsProbabilities(list[0], list[1], list[2], list[3], list[4]);
         }
 
+
+        public static EmotionsProbabilities CreateDefault()
+        {
+            return new EmotionsProbabilities(0.2, 0.2, 0.2, 0.2, 0.2);
+        }
+
     }
 }
