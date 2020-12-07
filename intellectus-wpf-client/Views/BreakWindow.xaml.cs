@@ -50,8 +50,8 @@ namespace intellectus_wpf_client
         }
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            timer.Stop();
             Domain.LogOut();
-
             LoginWindow login = new LoginWindow();
             login.Show();
             Close();
