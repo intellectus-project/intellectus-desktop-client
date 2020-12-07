@@ -14,7 +14,6 @@ namespace intellectus_wpf_client.Views.Suggestions
 {
     class SuggestionsListenerController : ISuggestionsListener
     {
-        public Label label;
         private ListView View { get; set; }
 
         public SuggestionsListenerController(ListView view)
