@@ -93,24 +93,29 @@ namespace Suggestions.Systems
 
             var count = list.Count;
 
-            float superHappyFactor = Clamp(superHappyCount - 2) / count;
-            float negativityFactor = Clamp(negativeCount - 1) / count;
+            float superHappyFactor = NoZero(superHappyCount - 1) / count;
+            float negativityFactor = NoZero(negativeCount) / count;
 
             return 1f - (negativityFactor + superHappyCount);
         }
 
-        private float Clamp(float value)
+        private float NoZero(float value)
         {
-            return Math.Max(Math.Min(value, 1f), 0f);
+            return Math.Max(value, 0f);
         }
 
         private bool IsSuperHappy(Vertex vertex)
         {
             return vertex.ID.Equals('c');
         }
+
         private bool IsNegative(Vertex vertex)
         {
-            return vertex.ID.Equals('e') ||
+            return 
+                vertex.ID.Equals('d') ||
+                vertex.ID.Equals('f') ||
+                vertex.ID.Equals('h') ||
+                vertex.ID.Equals('e') ||
                 vertex.ID.Equals('g') ||
                 vertex.ID.Equals('i');
         }
