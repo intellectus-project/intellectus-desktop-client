@@ -12,14 +12,14 @@
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="550" Background="White">
             <Grid Width="300" Height="250"  Background="#F0F0F0">
 
-                <RadioButton Name="rdbNeutrality" GroupName="EmotionsGroup" FontSize="16" Content="Neutralidad" HorizontalAlignment="Left" Margin="81,39,0,0" VerticalAlignment="Top"/>
-                <RadioButton Name="rdbFear"  GroupName="EmotionsGroup" FontSize="16" Content="Miedo" HorizontalAlignment="Left" Margin="81,81,0,0" VerticalAlignment="Top"/>
-                <RadioButton Name="rdbHappiness"  GroupName="EmotionsGroup" FontSize="16" Content="Felicidad" HorizontalAlignment="Left" Margin="81,121,0,0" VerticalAlignment="Top"/>
-                <RadioButton Name="rdbSadness"  GroupName="EmotionsGroup" FontSize="16" Content="Tristeza" HorizontalAlignment="Left" Margin="81,161,0,0" VerticalAlignment="Top"/>
-                <RadioButton Name="rdbAnger"  GroupName="EmotionsGroup" FontSize="16" Content="Enojo" HorizontalAlignment="Left" Margin="81,201,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbNeutrality" GroupName="EmotionsGroup" FontSize="16" Content="Neutral" HorizontalAlignment="Left" Margin="81,39,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbFear"  GroupName="EmotionsGroup" FontSize="16" Content="Con miedo" HorizontalAlignment="Left" Margin="81,81,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbHappiness"  GroupName="EmotionsGroup" FontSize="16" Content="Feliz" HorizontalAlignment="Left" Margin="81,121,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbSadness"  GroupName="EmotionsGroup" FontSize="16" Content="Triste" HorizontalAlignment="Left" Margin="81,161,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="rdbAnger"  GroupName="EmotionsGroup" FontSize="16" Content="Con enojo" HorizontalAlignment="Left" Margin="81,201,0,0" VerticalAlignment="Top"/>
                 
             </Grid>
-            <Label Content="¿Cómo te sentís?" FontSize="30pt" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="63" Width="312"/>
+            <Label Content="¿Cómo te sentiste?" FontSize="30pt" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="63"/>
             <Label Content="*Ocurrió un error" Name="lblError" Visibility="Hidden"  Foreground="IndianRed" FontSize="10pt" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,498,0,0" VerticalAlignment="Top" Height="30" Width="406"/>
             <Button Content="Finalizar llamado" Name="btnEndCall" Foreground="White" HorizontalAlignment="Center" Margin="0,431,0,0" VerticalAlignment="Top" Width="260" Height="50" Click="btnEndCall_Click" />
 

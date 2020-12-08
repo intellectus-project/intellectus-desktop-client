@@ -31,18 +31,18 @@ namespace intellectus_wpf_client
                 mandatory = value;
                 if (!mandatory)
                 {
-                    lblMessage.Content = String.Format("Notamos que está emocionalmente inestable para continuar \r\n¿Desea tomarse un descanso de {0} minutos?", Domain.CurrentUser.Call.MinutesDuration.ToString());
+                    lblMessage.Content = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n¿Desea tomarse un descanso de {0} minutos?", Domain.CurrentUser.Call.MinutesDuration.ToString());
                     btnReturn.Visibility = Visibility.Visible;
                 }
                 else if (Domain.CurrentUser.Call.BreakAssigned)
                 {
-                    lblMessage.Content = String.Format("Su supervisor notó que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
+                    lblMessage.Content = String.Format("Su supervisor notó que está emocionalmente inestable para continuar.\r\nTómese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
                     ppbLogout.Visibility = Visibility.Hidden;
                     btnReturn.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    lblMessage.Content = String.Format("Notamos que está emocionalmente inestable para continuar.\r\n Tomese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
+                    lblMessage.Content = String.Format("Notamos que está emocionalmente inestable para continuar.\r\nTómese un descanso de {0} minutos", Domain.CurrentUser.Call.MinutesDuration.ToString());
                     ppbLogout.Visibility = Visibility.Hidden;
                     btnReturn.Visibility = Visibility.Collapsed;
                 }
