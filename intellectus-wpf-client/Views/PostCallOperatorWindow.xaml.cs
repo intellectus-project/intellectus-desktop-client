@@ -57,14 +57,14 @@ namespace intellectus_wpf_client
                 return;
             }
             
-            if (rating > 0.725)
+            if (rating > 0.6)
             {
                 EnteringCallWindow enteringCall = new EnteringCallWindow();
                 enteringCall.Show();
                 Close();
                 return;
             }
-            if (rating <= 0.725 && rating > 0.40)
+            if (rating <= 0.6 && rating > 0.40)
             {
                 Relaxation();
                 return;
